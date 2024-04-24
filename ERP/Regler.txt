@@ -1,0 +1,60 @@
+﻿pascal case til variabler og parametre
+
+camel case til klasser og metoder
+
+Indel i mapper med fornuftige navne
+
+indel alle klasser i forskellige filer.
+
+del alt op så meget som muligt (SOLID PRINCIPPER)
+
+Skær så meget ned på kode som muligt
+gør det let at se på
+
+Microsofts kodestandarted
+
+curly 
+{
+
+}
+
+linq:
+statement.x()
+.x()
+.x()
+.x()
+
+brug dapper til database
+
+Holde "møde" ved milepælskift når vi har læst hinandens lort igennem.
+
+ALT konfigurations ting tang skal i en json fil som indeholder information. den skal hedde: "appsettings.json"
+samme med db konf skal hedde: "DBsettings.json"
+
+Alt database skal have en repository klasse.
+
+Docker ja tak
+
+Fornuftige navne
+
+internal class StortNavn
+{
+	void MetodeNavn(string parameterNavn)
+	{
+		int variabelNavn
+	}
+}
+
+Code review
+
+Tjek lige det man har lavet inden man smider ind.
+
+Commit når krav er udfyldt
+
+gør en indsats
+
+RabbitMQ
+
+HUSK AT LAVE ALT DYNAMISK
+
+fuck statiske lister
