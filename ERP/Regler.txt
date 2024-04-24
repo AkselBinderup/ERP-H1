@@ -31,12 +31,13 @@ Holde "møde" ved milepælskift når vi har læst hinandens lort igennem.
 ALT konfigurations ting tang skal i en json fil som indeholder information. den skal hedde: "appsettings.json"
 samme med db konf skal hedde: "DBsettings.json"
 
-Alt database skal have en repository klasse.
+Alle funktioner der bruger database skal bruge en repository klasse.
 
-Docker ja tak
+Forsøg at brug docker
 
-Fornuftige navne
+Fornuftige navne til alt
 
+Kodeformat:
 internal class StortNavn
 {
 	void MetodeNavn(string parameterNavn)
@@ -51,10 +52,10 @@ Tjek lige det man har lavet inden man smider ind.
 
 Commit når krav er udfyldt
 
-gør en indsats
+Alle gør en indsats
 
 RabbitMQ
 
 HUSK AT LAVE ALT DYNAMISK
 
-fuck statiske lister
+INGEN STATISKE LISTER
