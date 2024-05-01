@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERP
+namespace ERP;
+
+public partial class Product
 {
-    public partial class Product
-    {
-    }
 }

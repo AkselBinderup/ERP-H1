@@ -6,12 +6,17 @@ public class Salgsordrehoved
     public DateTime OprettelsesTidspunkt { get; set; }
     public DateTime GennemførelsesTidspunkt { get; set; }
     public int KundeNummer {  get; set; }
-    public Enum Tilstand { get; set; }
-//    Tilstand kan være en af følgende
-    //• Ingen
-    //• Oprettet
-    //• Bekræftet
-    //• Pakket
-    //• Færdig
+    public enum Tilstand
+    { 
+        Ingen,
+        Oprettet,
+        Bekræftet,
+        Pakket,
+        Færdig
+    }
     public List<SalgsOrdreLinje> OrdreLinjer { get; set; }
+
+    float Ordrebeløb {  get; set; }
+
+
 }
