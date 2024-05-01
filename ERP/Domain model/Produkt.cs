@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERP.Domain_model;
+namespace ERP;
 
 public class Produkt
 {
@@ -15,7 +15,7 @@ public class Produkt
     public decimal IndkøbsPris { get; set; }
     public string Lokation {  get; set; }
     public decimal AntalLager {  get; set; }
-    public Enum Enhed {  get; set; }
+    public Enheder Enhed {  get; set; }
 
     public Produkt()
     {
