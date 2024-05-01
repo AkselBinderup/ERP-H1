@@ -11,4 +11,14 @@
     <Folder Include="Salg\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Customer\**" />
+    <EmbeddedResource Remove="Customer\**" />
+    <None Remove="Customer\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TECHCOOL" Version="1.4.0" />
+  </ItemGroup>
+
 </Project>
