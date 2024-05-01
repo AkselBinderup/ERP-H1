@@ -13,13 +13,13 @@ public class Produkt
     public string Beskrivelse { get; set; }
     public decimal SalgsPris { get; set; }
     public decimal IndkøbsPris { get; set; }
-    public string Lokation {  get; set; }
+    public string Lokation { get; set; }
     public decimal AntalLager {  get; set; }
     public Enheder Enhed {  get; set; }
 
-    public Produkt()
-    {
-        //beregne fortjeneste
-        //beregne avance i procent
-    }
+    public decimal BeregnFortjeneste() => 
+        SalgsPris - IndkøbsPris;
+
+    public decimal BeregnAvanceProcent() => 
+        IndkøbsPris / BeregnFortjeneste() * 100;
 }
