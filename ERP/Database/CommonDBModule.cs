@@ -1,19 +1,31 @@
 ﻿using System.Data.SqlClient;
+using Dapper;
 
 namespace ERP;
 
-public partial class CommonDBModule
+public partial class CommonDBModule<T>
 {
-    public SqlConnection GetConnection()
+    protected SqlConnection GetConnection()
     {
         SqlConnection sqlConnection = new SqlConnection("Indsæt connstræng");
         sqlConnection.Open();
         return sqlConnection;
     }
 
-    public bool ExecuteCommand()
+    protected bool ExecuteCommand(string command)
     {
-        //laver lige en hurtig execute senere
-        return true;
+        using (var con = GetConnection())
+        {
+            var rowsaffected = con.Execute(command);
+            return rowsaffected > 0;
+        }
+    }
+    protected List<T> ExecuteDapperQuery<T>(string command)
+    {
+        using (var con = GetConnection())
+        {
+            List<T> results = con.Query<T>(command).ToList();
+            return results;
+        }
     }
 }

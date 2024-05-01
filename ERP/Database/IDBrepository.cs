@@ -3,7 +3,7 @@
 public interface IDBrepository <T>
 {
     bool Create(T obj);
-    bool Read(T obj);
-    bool Update(T obj);
-    bool Delete(T obj);
+    List<T> Read();
+    bool Update(T obj, int id);
+    bool Delete(int obj);
 }
