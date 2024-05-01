@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERP.Domain_model;
+namespace ERP;
 
 public class Virksomhed
 {

@@ -1,4 +1,4 @@
-﻿namespace ERP.Domain_model;
+﻿namespace ERP;
 
 public enum Currency
 {

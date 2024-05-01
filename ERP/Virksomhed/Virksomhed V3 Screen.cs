@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace ERP;
 
-public partial class Virksomhed
+public partial class VirksomhedSideTre
 {
 }

@@ -1,6 +1,4 @@
-﻿using ERP.Domain_model.Person_oplysninger;
-
-namespace ERP.Domain_model.Personoplysninger;
+﻿namespace ERP;
 
 public class Person
 {   

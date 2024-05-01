@@ -1,4 +1,4 @@
-﻿namespace ERP.Domain_model.Person_oplysninger;
+﻿namespace ERP;
 
 public class Adresse
 {

@@ -1,4 +1,4 @@
-﻿namespace ERP.Domain_model.Personoplysninger;
+﻿namespace ERP;
 
 public class Kunde : Person
 {

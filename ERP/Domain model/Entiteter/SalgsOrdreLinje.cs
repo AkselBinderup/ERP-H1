@@ -1,4 +1,4 @@
-﻿namespace ERP.Domain_model.Entiteter;
+﻿namespace ERP;
 public class SalgsOrdreLinje
 {
 //En salgsordrelinje indeholder
