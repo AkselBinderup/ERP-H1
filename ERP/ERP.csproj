@@ -13,4 +13,8 @@
     <None Remove="Customer\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="TECHCOOL" Version="1.4.0" />
+  </ItemGroup>
+
 </Project>
