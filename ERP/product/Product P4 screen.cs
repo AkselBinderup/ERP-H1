@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERP.Virksomhed
+namespace ERP.product
 {
-    internal class Virksomhed
+    internal class Product_P4_screen
     {
     }
 }
