@@ -5,16 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ERP;
+
 public partial class Database
 {
-	public void GetCustomerFromId()
-	{
 
-	}
-
-	public void GetAllCustomers()
-	{
-
-	}
 }
-
