@@ -12,7 +12,7 @@ public class Salgs_Crud
 {
     public void Hent_salgsordre_fra_id()
     {
-
+        //
     }
     public void Hent_alle_salgsordre()
     {
