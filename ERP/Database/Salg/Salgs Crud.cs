@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.Domain_model.Entiteter;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,19 +16,16 @@ public class Salgs_Crud
     }
     public void Hent_alle_salgsordre()
     {
-        //List of orders and such
 
 
-
-        // return Orderlist;
     }
     public void Indsæt_salgsordre()
     {
 
     }
-    public void Opdate_salgsordrer()
+    public void Opdate_salgsordrer(Salgsordrehoved Salgsordre,int ID)
     {
-        // Opdater salgsordrer(salgsordre, id)
+        
 
     }
     public void Slet_salgsordrer_ID()
