@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ERP.product
 {
-    internal class Product_P2_screen
+    public partial class Product    
     {
     }
 }
