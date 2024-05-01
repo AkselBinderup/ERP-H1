@@ -7,36 +7,26 @@ public class Salgsordrehoved
     public DateTime GennemførelsesTidspunkt { get; set; }
     public int KundeNummer {  get; set; }
     public float Ordrebeløb { get; set; }
-    public Tilstand Tilstand_ { get; set; }
-    public enum Tilstand
-    {
-        Ingen,
-        Oprettet,
-        Bekræftet,
-        Pakket,
-        Færdig
-    }
-    Tilstand _Tilstand { get; set; }
+    public Tilstand Tilstand { get; set; }
     public List<SalgsOrdreLinje> OrdreLinjer { get; set; }
 
     public Salgsordrehoved(
         
-        int ordrenummer,
-        DateTime oprettelsetid,
-        DateTime Gennemførttid,
+        int ordreNummer,
+        DateTime oprettelseTid,
+        DateTime gennemførtTid,
         int kundeNummer,
         Tilstand tilstand,
-        float ordrebeløb
-        
-        )
+        float ordreBeløb    
+    )
     {
 
-        OrdreNummer = ordrenummer;
-        OprettelsesTidspunkt = oprettelsetid;
-        GennemførelsesTidspunkt = Gennemførttid;
-        KundeNummer = kodenummer;
-        _Tilstand = tilstand;
-        Ordrebeløb = ordrebeløb;
+        OrdreNummer = ordreNummer;
+        OprettelsesTidspunkt = oprettelseTid;
+        GennemførelsesTidspunkt = gennemførtTid;
+        KundeNummer = kundeNummer;
+        Tilstand = tilstand;
+        Ordrebeløb = ordreBeløb;
 
     }
 

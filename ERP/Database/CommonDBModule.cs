@@ -19,6 +19,7 @@ public partial class CommonDBModule<T>
             var rowsaffected = con.Execute(command);
             return rowsaffected > 0;
         }
+
     }
     protected List<T> ExecuteDapperQuery<T>(string command)
     {

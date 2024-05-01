@@ -5,7 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ERP;
-
-public partial class ProductListe
+public enum Tilstand
 {
+    Ingen,
+    Oprettet,
+    Bekræftet,
+    Pakket,
+    Færdig
 }

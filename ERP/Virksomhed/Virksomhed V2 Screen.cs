@@ -15,13 +15,12 @@ public partial class VirksomhedSideTo : Screen
     }
     protected override void Draw()
     {
-        Console.WriteLine($"Firmanavn: {virksomhed.FirmaNavn}");
-        Console.WriteLine($"Vej: {virksomhed.Vej}");
-        Console.WriteLine($"Hus nummer: {virksomhed.HusNummer}");
-        Console.WriteLine($"Post nummer: {virksomhed.PostNummer}");
-        Console.WriteLine($"By: {virksomhed.By}");
-        Console.WriteLine($"Land: {virksomhed.Land}");
-        Console.WriteLine($"Valuta: {virksomhed.Valuta}");
-
+        Console.WriteLine($"Firmanavn: {virksomhed.FirmaNavn}\n" +
+            $"Vej: {virksomhed.Vej}\n" +
+            $"Hus nummer: {virksomhed.HusNummer}\n" +
+            $"Post nummer: {virksomhed.PostNummer}\n" +
+            $"By: {virksomhed.By}\n" +
+            $"Land: {virksomhed.Land}\n" +
+            $"Valuta: {virksomhed.Valuta}");
     }
 }

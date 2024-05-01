@@ -20,7 +20,7 @@ public class Salgs_Crud : CommonDBModule<Salgsordrehoved>, IDBrepository<Salgsor
             $"'{obj.OprettelsesTidspunkt}'," +
             $"'{obj.GennemførelsesTidspunkt}'," +
             $"'{obj.KundeNummer}'," +
-            $"'{obj.Tilstand_}'," +
+            $"'{obj.Tilstand}'," +
             $"'{obj.Ordrebeløb}',");
     }
 
@@ -36,7 +36,7 @@ public class Salgs_Crud : CommonDBModule<Salgsordrehoved>, IDBrepository<Salgsor
             $"OprettelsesTidspunkt = {obj.OprettelsesTidspunkt}," +
             $"GennemførelsesTidspunkt = {obj.GennemførelsesTidspunkt}," +
             $"KundeNummer = {obj.KundeNummer}," +
-            $"Tilstand = {obj.Tilstand_}," +
+            $"Tilstand = {obj.Tilstand}," +
             $"Ordrebeløb = {obj.Ordrebeløb}," + "WHERE Id = {id}");
     }
 

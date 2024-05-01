@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace ERP;
 
-public class tempDataBase
+public class TempDataBase
 {
-    List<Virksomhed> companies = new() {
-            new Virksomhed {Id = 1, FirmaNavn = "Techcollege ", Land = "Danmark", Valuta = Currency.DKK },
-            new Virksomhed {Id = 2, FirmaNavn = "Lichtenstein PD", Land = "Lichenstein", Valuta = Currency.SEK}
-        };
+    List<Virksomhed> Virksomheder = new() {
+            new Virksomhed {Id = 1, FirmaNavn = "Techcollege ", Vej = "Årestrupsvej", HusNummer = "2", PostNummer = "9000", By = "Aalborg", Land = "Danmark", Valuta = Currency.DKK },
+            new Virksomhed {Id = 2, FirmaNavn = "Lichtenstein PD", Vej = "Årestrupsvej", HusNummer = "2", PostNummer = "9000", By = "Aalborg", Land = "Lichenstein", Valuta = Currency.SEK}
+};
     public List<Virksomhed> GetData()
     {
-        List<Virksomhed> companyCopy = new List<Virksomhed>();
-        companyCopy.AddRange(companies);
-        return companyCopy;
+        List<Virksomhed> data = new List<Virksomhed>();
+        data.AddRange(Virksomheder);
+        return data;
     }
 }
