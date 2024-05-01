@@ -34,7 +34,7 @@ public class Salgsordrehoved
         OrdreNummer = ordrenummer;
         OprettelsesTidspunkt = oprettelsetid;
         GennemførelsesTidspunkt = Gennemførttid;
-        KundeNummer = kodenummer;
+        KundeNummer = kundeNummer;
         _Tilstand = tilstand;
         Ordrebeløb = ordrebeløb;
 
