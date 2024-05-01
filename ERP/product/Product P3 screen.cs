@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ERP
 {
-    public partial class Product
+    public partial class ProductListe
     {
     }
 }
