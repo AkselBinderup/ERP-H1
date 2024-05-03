@@ -29,6 +29,8 @@ public class TempDataBase
 
     List<Produkt> Produkter = new()
     {
-        new Produkt {VareNummer = "1", Navn ="produkt lol",Beskrivelse ="hehehoho", SalgsPris = 808,IndkøbsPris = 490,Lokation = "karl's hus",AntalLager = 88,Enhed = Enheder.Timer}
+        new Produkt {VareNummer = 1, Navn ="produkt lol",Beskrivelse ="hehehoho", SalgsPris = 808,IndkøbsPris = 490,Lokation = "karl's hus",AntalLager = 88,Enhed = Enheder.Timer}
     };
+
+    
 }

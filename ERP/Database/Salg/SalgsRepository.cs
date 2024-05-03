@@ -29,7 +29,7 @@ public class SalgsRepository : CommonDBModule<Salgsordrehoved>, IDBrepository<Sa
         return ExecuteDapperQuery<Salgsordrehoved>($"Select * from {dbName}");
     }
 
-    public bool Update(Salgsordrehoved obj, int id)
+    public bool Update(Salgsordrehoved obj)
     {
         return ExecuteCommand($"UPDATE {dbName} " +
             $"SET OrdreNummer = {obj.OrdreNummer}," +

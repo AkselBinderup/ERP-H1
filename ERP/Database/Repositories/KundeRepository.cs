@@ -25,7 +25,7 @@ public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
         return ExecuteDapperQuery<Kunde>($"SELECT * FROM {dbName}");
     }
 
-    public bool Update(Kunde obj, int id)
+    public bool Update(Kunde obj)
     {
         throw new NotImplementedException();
     }

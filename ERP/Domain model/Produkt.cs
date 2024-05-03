@@ -2,7 +2,7 @@
 
 public class Produkt
 {
-    public string VareNummer{ get; set; }
+    public int VareNummer{ get; set; }
     public string Navn { get; set; }
     public string Beskrivelse { get; set; }
     public decimal SalgsPris { get; set; }

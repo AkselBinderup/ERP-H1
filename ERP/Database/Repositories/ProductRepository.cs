@@ -21,7 +21,7 @@ public class ProductRepository : CommonDBModule<Produkt>, IDBrepository<Produkt>
     {
         return ExecuteDapperQuery<Produkt>($"SELECT * FROM {dbName}");
     }
-    public bool Update(Produkt obj, int id)
+    public bool Update(Produkt obj)
     {
         return ExecuteCommand($"UPDATE {dbName} " +
             $"SET VareNummer = {obj.VareNummer}," +
@@ -31,7 +31,7 @@ public class ProductRepository : CommonDBModule<Produkt>, IDBrepository<Produkt>
             $"IndkøbsPris = {obj.IndkøbsPris}," +
             $"Lokation = {obj.Lokation}," +
             $"AntalLager = {obj.AntalLager}," +
-            $"Enhed = {obj.AntalLager} WHERE Id = {id}");
+            $"Enhed = {obj.AntalLager} WHERE Id = {obj.VareNummer}");
     }
     public bool Delete(int obj)
     {

@@ -28,19 +28,19 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
         return ExecuteDapperSingleQuery<Virksomhed>($"SELECT * FROM {dbName} WHERE ID={id}");
     }
 
-    public bool Update(Virksomhed obj, int id)
+    public bool Update(Virksomhed obj)
     {
-        id = obj.Id;
         if (obj.Id != 0)
             return ExecuteCommand($"UPDATE {dbName} " +
-              $"SET FirmaNavn = {obj.FirmaNavn}," +
-              $"PostNummer = {obj.PostNummer}," +
-              $"Beskrivelse = {obj.HusNummer}," +
-              $"Valuta = {obj.Valuta}," +
-              $"By = {obj.By}," +
-              $"Land = {obj.Land}," +
-              $"Vej = {obj.Vej} WHERE Id = {obj.Id}");
-        else return false;
+              $"SET FirmaNavn = '{obj.FirmaNavn}'," +
+              $"PostNummer = '{obj.PostNummer}'," +
+              $"HusNummer = '{obj.HusNummer}'," +
+              $"Valuta = '{obj.Valuta}'," +
+              $"By = '{obj.By}'," +
+              $"Land = '{obj.Land}'," +
+              $"Vej = '{obj.Vej}' WHERE Id = {obj.Id}");
+        else
+            return false;
     }
 
     public bool Delete(int obj)
