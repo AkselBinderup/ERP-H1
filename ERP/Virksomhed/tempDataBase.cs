@@ -19,7 +19,7 @@ public class TempDataBase
         data.AddRange(Virksomheder);
         return data;
     }
-    public List<Produkt> GetProdukts()
+    public List<Produkt> GetProducts()
     {
         List<Produkt> data = new List<Produkt>();
 

@@ -1,6 +1,4 @@
-﻿using System.Runtime.ConstrainedExecution;
-
-namespace ERP;
+﻿namespace ERP;
 public class SalgsOrdreDetaljer
 {
     //    Salgsordredetaljer: Skærmen viser detaljer fra

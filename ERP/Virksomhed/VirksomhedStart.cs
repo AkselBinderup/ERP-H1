@@ -29,7 +29,7 @@ public partial class VirksomhedStart : Screen
         var vælgVirksomhed = listPage.Select();
         if(vælgVirksomhed != null)
         {
-            Display(new VirksomhedSideTo(vælgVirksomhed));
+            Display(new VirksomhedDetaljer(vælgVirksomhed));
         }
     }
     //    Der laves en skærm med en liste over virksomheder.

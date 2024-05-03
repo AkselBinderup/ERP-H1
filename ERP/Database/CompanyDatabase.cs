@@ -22,7 +22,6 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
     {
         return ExecuteDapperQuery<Virksomhed>($"SELECT * FROM {dbName}");
     }
-
     public Virksomhed ReadSingle(int id)
     {
         return ExecuteDapperSingleQuery<Virksomhed>($"SELECT * FROM {dbName} WHERE ID={id}");

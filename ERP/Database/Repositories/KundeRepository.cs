@@ -1,7 +1,4 @@
-﻿
-using System.Xml.Linq;
-
-namespace ERP;
+﻿namespace ERP;
 
 public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
 {

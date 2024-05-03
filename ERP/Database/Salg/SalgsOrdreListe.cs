@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection.Metadata;
-using System.Runtime.Intrinsics.X86;
-
-namespace ERP;
+﻿namespace ERP;
 
 public class SalgsOrdreListe
 {
