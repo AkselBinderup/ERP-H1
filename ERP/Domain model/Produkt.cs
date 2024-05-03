@@ -14,6 +14,6 @@ public class Produkt
     public decimal BeregnFortjeneste() => 
         SalgsPris - IndkøbsPris;
 
-    public decimal BeregnAvanceProcent() => 
+    public decimal BeregnAvanceProcent => 
         IndkøbsPris / BeregnFortjeneste() * 100;
 }
