@@ -3,12 +3,12 @@ using TECHCOOL.UI;
 
 namespace ERP;
 
-public partial class VirksomhedSideTo : Screen
+public partial class VirksomhedDetaljer : Screen
 {
     public override string Title { get; set; } = "Informationer";
 
     Virksomhed virksomhed = new();
-    public VirksomhedSideTo(Virksomhed virksomhed)
+    public VirksomhedDetaljer(Virksomhed virksomhed)
     {
         Title = "Detaljer for " + virksomhed.FirmaNavn;
         this.virksomhed = virksomhed;

@@ -22,7 +22,6 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
     {
         return ExecuteDapperQuery<Virksomhed>($"SELECT * FROM {dbName}");
     }
-
     public Virksomhed ReadSingle(int id)
     {
         return ExecuteDapperSingleQuery<Virksomhed>($"SELECT * FROM {dbName} WHERE ID={id}");
@@ -30,7 +29,6 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
 
     public bool Update(Virksomhed obj, int id)
     {
-        id = obj.Id;
         if (obj.Id != 0)
             return ExecuteCommand($"UPDATE {dbName} " +
               $"SET FirmaNavn = {obj.FirmaNavn}," +

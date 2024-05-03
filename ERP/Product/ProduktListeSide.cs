@@ -1,6 +1,4 @@
-﻿using System;
-using System.Xml;
-using TECHCOOL.UI;
+﻿using TECHCOOL.UI;
 
 
 namespace ERP;
@@ -8,16 +6,12 @@ namespace ERP;
 public partial class ProductListeSide : Screen
 {
     public override string Title { get; set; } = "Informationer";
-
     private Produkt produkt;
-
-    // Corrected the constructor name to match the class name
     public ProductListeSide(Produkt produkt)
     {
-        Title = "Detaljer for " + produkt.Navn;  // Assuming you want to display the name of the product in the title
+        Title = "Detaljer for " + produkt.Navn;
         this.produkt = produkt;
     }
-
     protected override void Draw()
     {
         Console.WriteLine($"Varenummer: {produkt.VareNummer}\n" +
