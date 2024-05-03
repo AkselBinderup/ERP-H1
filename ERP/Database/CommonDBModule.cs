@@ -21,6 +21,14 @@ public partial class CommonDBModule<T>
         }
 
     }
+    protected T ExecuteDapperSingleQuery<T>(string command)
+    {
+        using (var con = GetConnection())
+        {
+            T results = con.QuerySingle<T>(command);
+            return results;
+        }
+    }
     protected List<T> ExecuteDapperQuery<T>(string command)
     {
         using (var con = GetConnection())
