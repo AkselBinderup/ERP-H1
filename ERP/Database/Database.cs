@@ -8,10 +8,8 @@ using TECHCOOL;
 namespace ERP;
 public partial class Database
 {
-	public void GetCustomerFromId()
-	{
-
-	}
+	public static object Instance { get; set; }
+	//ikke nævnt værdi endnu
 
 	public void GetAllCustomers()
 	{
