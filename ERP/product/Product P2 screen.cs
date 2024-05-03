@@ -42,18 +42,18 @@ public partial class ProductListeStart : Screen
 
         TempDataBase db = new TempDataBase();
 
-        //var Produkter = db.GetData();
-        //foreach (Produkt model in Produkter)
-        //{
-        //    listPage.Add(model);
-        //}
+        var Produkter = db.GetProdukts();
+        foreach (Produkt model in Produkter)
+        {
+            listPage.Add(model);
+        }
 
         //todo: implementer databasehent
 
-        //var vælgProdukt = listPage.Select();
-        //if (vælgProdukt != null)
-        //{
-        //    Screen.Display(new VirksomhedSideTo(vælgProdukt));
-        //}
+        var vælgProdukt = listPage.Select();
+        if (vælgProdukt != null)
+        {
+            Screen.Display(new ProductListeSide(vælgProdukt));
+        }
     }
 }

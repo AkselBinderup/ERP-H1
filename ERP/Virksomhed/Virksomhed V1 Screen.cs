@@ -18,10 +18,10 @@ public partial class VirksomhedStart : Screen
 
         TempDataBase db = new TempDataBase();
 
-        var companies = db.GetData();
-        foreach (Virksomhed model in companies)
+        var virksomhedder = db.GetData();
+        foreach (Virksomhed virksomhed in virksomhedder)
         {
-            listPage.Add(model);
+            listPage.Add(virksomhed);
         }
 
         //todo: implementer databasehent
@@ -29,7 +29,7 @@ public partial class VirksomhedStart : Screen
         var vælgVirksomhed = listPage.Select();
         if(vælgVirksomhed != null)
         {
-            Screen.Display(new VirksomhedSideTo(vælgVirksomhed));
+            Display(new VirksomhedSideTo(vælgVirksomhed));
         }
     }
     //    Der laves en skærm med en liste over virksomheder.

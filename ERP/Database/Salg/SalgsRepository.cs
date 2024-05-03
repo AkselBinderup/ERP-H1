@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace ERP;
 
-public class Salgs_Crud : CommonDBModule<Salgsordrehoved>, IDBrepository<Salgsordrehoved>
+public class SalgsRepository : CommonDBModule<Salgsordrehoved>, IDBrepository<Salgsordrehoved>
 {
     private readonly string dbName = "";
     private readonly string dbFields = "";
