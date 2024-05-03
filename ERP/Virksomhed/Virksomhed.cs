@@ -16,6 +16,7 @@ public class MainMenu : Screen
         Menu menu = new();
         menu.Add(new VirksomhedStart());
         menu.Add(new ProductListeStart());
+        menu.Add(new KundeListe());
         menu.Start(this);
     }
 }

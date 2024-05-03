@@ -15,6 +15,7 @@ public partial class VirksomhedSideTo : Screen
     }
     protected override void Draw()
     {
+        ExitOnEscape();
         Console.WriteLine($"Firmanavn: {virksomhed.FirmaNavn}\n" +
             $"Vej: {virksomhed.Vej}\n" +
             $"Hus nummer: {virksomhed.HusNummer}\n" +

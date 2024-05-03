@@ -2,10 +2,6 @@
 
 public class Kunde : Person
 {
-    public string KundeNummer { get; set; }
-    public string SidsteKøb {  get; set; }
-
-    public Kunde()
-    { 
-    }
+    public int KundeNummer { get; set; }
+    public DateTime SidsteKøb {  get; set; }
 }
