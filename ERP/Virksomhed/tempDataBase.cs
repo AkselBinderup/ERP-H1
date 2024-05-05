@@ -15,7 +15,22 @@ public class TempDataBase
     public List<Virksomhed> GetData()
     {
         List<Virksomhed> data = new List<Virksomhed>();
+        
         data.AddRange(Virksomheder);
         return data;
     }
+    public List<Produkt> GetProducts()
+    {
+        List<Produkt> data = new List<Produkt>();
+
+        data.AddRange(Produkter);
+        return data;
+    }
+
+    List<Produkt> Produkter = new()
+    {
+        new Produkt {VareNummer = 1, Navn ="produkt lol",Beskrivelse ="hehehoho", SalgsPris = 808,IndkøbsPris = 490,Lokation = "karl's hus",AntalLager = 88,Enhed = Enheder.Timer}
+    };
+
+    
 }

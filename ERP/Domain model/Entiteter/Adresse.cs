@@ -1,6 +1,4 @@
-﻿using System.Data.Entity.Migrations.Model;
-
-namespace ERP;
+﻿namespace ERP;
 
 public class Adresse
 {

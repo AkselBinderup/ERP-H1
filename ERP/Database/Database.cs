@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TECHCOOL;
-
 namespace ERP;
 public partial class Database
 {
-	public void GetCustomerFromId()
-	{
-
-	}
+	public static object Instance { get; set; }
+	//ikke nævnt værdi endnu
 
 	public void GetAllCustomers()
 	{

@@ -1,7 +1,4 @@
-﻿
-using System.Xml.Linq;
-
-namespace ERP;
+﻿namespace ERP;
 
 public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
 {
@@ -14,7 +11,7 @@ public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
 
     public bool Delete(int obj)
     {
-        return ExecuteCommand($"DELETE * FROM {dbName} where Id = '{obj}'");
+        return ExecuteCommand($"DELETE * FROM {dbName} WHERE Id = '{obj}'");
     }
     public Kunde ReadSingle(int id)
     {
@@ -22,10 +19,10 @@ public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
     }
     public List<Kunde> Read()
     {
-        return ExecuteDapperQuery<Kunde>($"Select * from {dbName}");
+        return ExecuteDapperQuery<Kunde>($"SELECT * FROM {dbName}");
     }
 
-    public bool Update(Kunde obj, int id)
+    public bool Update(Kunde obj)
     {
         throw new NotImplementedException();
     }

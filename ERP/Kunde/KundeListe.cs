@@ -19,9 +19,9 @@ public class KundeListe : Screen
 
         TempKundeInfo db = new TempKundeInfo();
         var virksomheder = db.GetData();
-        foreach (Kunde model in virksomheder)
+        foreach (Kunde virksomhed in virksomheder)
         {
-            side.Add(model);
+            side.Add(virksomhed);
         }
 
         var company = side.Select();

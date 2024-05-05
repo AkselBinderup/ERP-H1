@@ -15,6 +15,7 @@ public class MainMenu : Screen
 
         Menu menu = new();
         menu.Add(new VirksomhedStart());
+        menu.Add(new ProduktListeStart());
         menu.Add(new KundeListe());
         menu.Add(new SalgsOrdreListe());
         menu.Start(this);
