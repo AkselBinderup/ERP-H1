@@ -8,5 +8,4 @@ public class Person
     public string EmailAdresse { get; set;}
     public int TelefonNummer { get; set; }
     public string FuldeNavn => $"{Fornavn} {Efternavn}";
-
 }   

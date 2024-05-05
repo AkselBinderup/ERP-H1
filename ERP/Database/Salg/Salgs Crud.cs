@@ -9,11 +9,11 @@ using System.Xml.Linq;
 
 namespace ERP;
 
-public class Salgs_Crud : CommonDBModule<Salgsordrehoved>, IDBrepository<Salgsordrehoved>
+public class Salgs_Crud : CommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOrdreHoved>
 {
     private readonly string dbName = "";
     private readonly string dbFields = "";
-    public bool Create(Salgsordrehoved obj)
+    public bool Create(SalgsOrdreHoved obj)
     {
         return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +
             $"('{obj.OrdreNummer}'," +
@@ -24,12 +24,12 @@ public class Salgs_Crud : CommonDBModule<Salgsordrehoved>, IDBrepository<Salgsor
             $"'{obj.Ordrebeløb}',");
     }
 
-    public List<Salgsordrehoved> Read()
+    public List<SalgsOrdreHoved> Read()
     {
-        return ExecuteDapperQuery<Salgsordrehoved>($"Select * from {dbName}");
+        return ExecuteDapperQuery<SalgsOrdreHoved>($"Select * from {dbName}");
     }
 
-    public bool Update(Salgsordrehoved obj, int id)
+    public bool Update(SalgsOrdreHoved obj, int id)
     {
         return ExecuteCommand($"UPDATE {dbName} " +
             $"SET OrdreNummer = {obj.OrdreNummer}," +
