@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection.Metadata;
-using System.Runtime.Intrinsics.X86;
-using TECHCOOL.UI;
+﻿using TECHCOOL.UI;
 
 namespace ERP;
 

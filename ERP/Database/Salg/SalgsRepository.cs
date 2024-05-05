@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Runtime.Intrinsics.X86;
-using System.Threading.Tasks;
-using TECHCOOL;
-using System.Xml.Linq;
-
-namespace ERP;
+﻿namespace ERP;
 
 public class Salgs_Crud : CommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOrdreHoved>
 {
