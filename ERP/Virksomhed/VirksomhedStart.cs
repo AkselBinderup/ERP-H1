@@ -13,7 +13,7 @@ public partial class VirksomhedStart : Screen
 
         ListPage<Virksomhed> listPage = new ListPage<Virksomhed>();
 
-        listPage.AddKey(ConsoleKey.F1, createNewCompany);
+        listPage.AddKey(ConsoleKey.F1, CreateNewCompany);
         Console.WriteLine("Tryk F1 for at oprette virksomhed");
 
         listPage.AddColumn("Firmanavn", nameof(Virksomhed.FirmaNavn), 40);
@@ -30,7 +30,7 @@ public partial class VirksomhedStart : Screen
 
         //todo: implementer databasehent
 
-        listPage.AddKey(ConsoleKey.F2, editCompany);
+        listPage.AddKey(ConsoleKey.F2, EditCompany);
         Console.WriteLine("Tryk F2 for at redigere virksomhed");
 
         var vælgVirksomhed = listPage.Select();
@@ -39,20 +39,15 @@ public partial class VirksomhedStart : Screen
             Display(new VirksomhedDetaljer(vælgVirksomhed));
         }
         
-        void createNewCompany(Virksomhed virksomhed)
+        void CreateNewCompany(Virksomhed virksomhed)
         {
             Virksomhed NyVirksomhed = new();
-            Screen.Display(new VirksomhedSideTre(NyVirksomhed));
+            Display(new VirksomhedSideTre(NyVirksomhed));
         }
 
-        void editCompany(Virksomhed virksomhed)
+        void EditCompany(Virksomhed virksomhed)
         {
-            Screen.Display(new VirksomhedSideTre(virksomhed));
+            Display(new VirksomhedSideTre(virksomhed));
         }
     }
-    //    Der laves en skærm med en liste over virksomheder.
-    //Listen skal vise følgende kolonner
-    //• Firmanavn
-    //• Land
-    //• Valut
 }
