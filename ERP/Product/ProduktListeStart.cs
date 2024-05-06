@@ -17,7 +17,7 @@ public partial class ProduktListeStart : Screen
         listPage.AddColumn("Lagerantal", nameof(Produkt.AntalLager), 8);
         listPage.AddColumn("Inkøbspris", nameof(Produkt.IndkøbsPris));
         listPage.AddColumn("Salgs pris", nameof(Produkt.SalgsPris));
-        listPage.AddColumn("Advance i Procent", nameof(Produkt.BeregnAvanceProcent));
+        listPage.AddColumn("Avance i Procent", nameof(Produkt.BeregnAvanceProcent));
 
         TempDataBase db = new TempDataBase();
 

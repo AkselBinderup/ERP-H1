@@ -5,13 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using TECHCOOL.UI;
 using ERP;
+using System.ComponentModel.DataAnnotations;
 
 namespace ERP;
 
 public partial class VirksomhedSideTre : Screen
 {
-
-    
     public override string Title { get; set; } = "Selskab";
     Virksomhed virksomhed = new();
 

@@ -8,7 +8,6 @@ public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
     {
         throw new NotImplementedException();
     }
-
     public bool Delete(int obj)
     {
         return ExecuteCommand($"DELETE * FROM {dbName} WHERE Id = '{obj}'");
