@@ -39,8 +39,14 @@ public partial class VirksomhedSideTre : Screen
 
         if (form.Edit(virksomhed))
         {
-            Database database = new Database();
-            database.Update(virksomhed); 
+            //if (virksomhed.Id != 0)
+            //{
+            //    database.Update(virksomhed);
+            //}
+            //else
+            //{
+            //    database.Create(virksomhed);
+            //}
             Console.WriteLine("Ændringerne blev gemt");
         }
         else
