@@ -11,18 +11,8 @@ public class SalgsOrdreHoved : Kunde
 
     public SalgsOrdreHoved() { }
     public SalgsOrdreHoved(
-        string fornavn,
-        string efternavn,
-        Adresse adresse,
-        string emailAdresse,
-        int telefonNummer,
-        DateTime sidsteKøb,
-        int ordreNummer,
-        DateTime oprettelseTid,
-        DateTime gennemførtTid,
-        int kundeNummer,
-        Tilstand tilstand,
-        float ordreBeløb
+        string fornavn, string efternavn, Adresse adresse, string emailAdresse, int telefonNummer, DateTime sidsteKøb,
+        int ordreNummer, DateTime oprettelseTid, DateTime gennemførtTid, int kundeNummer, Tilstand tilstand, float ordreBeløb
     )
     {
         Fornavn = fornavn;
