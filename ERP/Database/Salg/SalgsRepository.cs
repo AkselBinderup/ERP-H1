@@ -1,10 +1,10 @@
 ﻿namespace ERP;
 
-public class SalgsRepository : CommonDBModule<Salgsordrehoved>, IDBrepository<Salgsordrehoved>
+public class Salgs_Crud : CommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOrdreHoved>
 {
     private readonly string dbName = "";
     private readonly string dbFields = "";
-    public bool Create(Salgsordrehoved obj)
+    public bool Create(SalgsOrdreHoved obj)
     {
         return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +
             $"('{obj.OrdreNummer}'," +
@@ -15,12 +15,12 @@ public class SalgsRepository : CommonDBModule<Salgsordrehoved>, IDBrepository<Sa
             $"'{obj.Ordrebeløb}',");
     }
 
-    public List<Salgsordrehoved> Read()
+    public List<SalgsOrdreHoved> Read()
     {
-        return ExecuteDapperQuery<Salgsordrehoved>($"Select * from {dbName}");
+        return ExecuteDapperQuery<SalgsOrdreHoved>($"Select * from {dbName}");
     }
 
-    public bool Update(Salgsordrehoved obj)
+    public bool Update(SalgsOrdreHoved obj)
     {
         return ExecuteCommand($"UPDATE {dbName} " +
             $"SET OrdreNummer = {obj.OrdreNummer}," +

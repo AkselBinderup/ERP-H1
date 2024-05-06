@@ -1,15 +1,39 @@
-﻿namespace ERP;
+﻿using TECHCOOL.UI;
 
-public class SalgsOrdreListe
+namespace ERP;
+
+public class SalgsOrdreListe : Screen
 {
-//    følgende kolonner:
-//• Salgsordrenummer
-//• Dato
-//• Kundenummer
-//• Fornavn og efternavn på kunde(i samme
-//kolonne adskilt af mellemrum)
-//• Beløb
-//Høj
-//Det skal være muligt at vælge en kunde fra listen og
-//få vist skærmen Salgsordredetaljer i krav S3
+	public override string Title { get; set; } = "Slags ordre liste";
+	
+	protected override void Draw()
+	{
+		ExitOnEscape();
+
+		Console.CursorVisible = false;
+
+		ListPage<SalgsOrdreHoved> side = new ListPage<SalgsOrdreHoved>();
+		side.AddColumn("Salgsodrenummer", nameof(SalgsOrdreHoved.OrdreNummer));
+		side.AddColumn("Dato", nameof(SalgsOrdreHoved.OprettelsesTidspunkt), 20);
+		side.AddColumn("Kundenummer", nameof(SalgsOrdreHoved.KundeNummer));
+		side.AddColumn("Fuldenavn", nameof(SalgsOrdreHoved.FuldeNavn));
+		side.AddColumn("Beløb", nameof(SalgsOrdreHoved.Ordrebeløb), 15);
+
+		TempSalgsOrdreHovedDataBase db = new();
+		var salgsOrdreHoved = db.GetData();
+		foreach (SalgsOrdreHoved model in salgsOrdreHoved)
+		{
+			side.Add(model);
+		}
+
+		var vælgSalgOdreHoved = side.Select();
+		if (vælgSalgOdreHoved != null)
+		{
+			Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
+		}
+
+	}
+
+	
+
 }

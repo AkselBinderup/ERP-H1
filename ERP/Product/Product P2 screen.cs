@@ -1,7 +1,28 @@
-﻿using TECHCOOL.UI;
+﻿using Google.Protobuf.Collections;
+using Google.Protobuf.WellKnownTypes;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using TECHCOOL.UI;
 
 namespace ERP;
-public partial class ProduktListeStart : Screen
+
+/// <summary>
+/// Produktliste: Skærm der skal vises en liste over
+/// produkter.Listen skal indeholde følgende kolonner
+/// Varenummer
+/// Navn
+/// Lagerantal
+/// Indkøbsspris
+/// Salgspris
+/// Avance i procent
+/// Det skal være muligt at vælge et produkt fra listen og
+/// få vist skærmen Produktdetajler i krav P3
+/// </summary>
+public partial class ProductListeStart : Screen
 {
     public override string Title { get; set; } = "Vælg Product";
 
@@ -17,7 +38,7 @@ public partial class ProduktListeStart : Screen
         listPage.AddColumn("Lagerantal", nameof(Produkt.AntalLager), 8);
         listPage.AddColumn("Inkøbspris", nameof(Produkt.IndkøbsPris));
         listPage.AddColumn("Salgs pris", nameof(Produkt.SalgsPris));
-        listPage.AddColumn("Avance i Procent", nameof(Produkt.BeregnAvanceProcent));
+        listPage.AddColumn("Advance i Procent", nameof(Produkt.BeregnAvanceProcent));
 
         TempDataBase db = new TempDataBase();
 
@@ -32,7 +53,7 @@ public partial class ProduktListeStart : Screen
         var vælgProdukt = listPage.Select();
         if (vælgProdukt != null)
         {
-            Display(new ProductListeSide(vælgProdukt));
+            Screen.Display(new ProductListeSide(vælgProdukt));
         }
     }
 }
