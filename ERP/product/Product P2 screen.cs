@@ -42,7 +42,7 @@ public partial class ProductListeStart : Screen
 
         TempDataBase db = new TempDataBase();
 
-        var Produkter = db.GetProdukts();
+        var Produkter = db.GetProducts();
         foreach (Produkt model in Produkter)
         {
             listPage.Add(model);
