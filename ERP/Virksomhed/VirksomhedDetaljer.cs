@@ -1,5 +1,4 @@
-﻿using System.Xml;
-using TECHCOOL.UI;
+﻿using TECHCOOL.UI;
 
 namespace ERP;
 

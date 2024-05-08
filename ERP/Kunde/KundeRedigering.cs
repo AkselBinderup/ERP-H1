@@ -27,8 +27,8 @@ public partial class KundeRedigering : Screen
         form.TextBox("by", nameof(Kunde.Adresse.By));
         form.TextBox("Email", nameof(Kunde.EmailAdresse));
         form.TextBox("TLF nummer", nameof(Kunde.TelefonNummer));
-        
-        
+
+
         if (form.Edit(Kunde))
         {
             //if (Kunde.KundeNummer != 0)

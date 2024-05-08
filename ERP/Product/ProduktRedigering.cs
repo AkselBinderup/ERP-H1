@@ -16,14 +16,14 @@ public class ProduktRedigering : Screen
 		ExitOnEscape();
 		Form<Produkt> form = new Form<Produkt>();
 
-		form.TextBox("Varenummer", nameof(Produkt.VareNummer));
-		form.TextBox("Navn", nameof(Produkt.Navn));
-		form.TextBox("Beskrivelse", nameof(Produkt.Beskrivelse));
-		form.TextBox("Salgspris", nameof(Produkt.SalgsPris));
-		form.TextBox("Indkøbspris", nameof(Produkt.IndkøbsPris));
-		form.TextBox("Lokation", nameof(Produkt.Lokation));
-		form.TextBox("Antal på Lager", nameof(Produkt.AntalLager));
-		form.TextBox("Enhed", nameof(Produkt.Enhed));
+        form.TextBox("Varenummer", nameof(Produkt.VareNummer));
+        form.TextBox("Navn", nameof(Produkt.Navn));
+        form.TextBox("Beskrivelse", nameof(Produkt.Beskrivelse));
+        form.TextBox("Salgspris", nameof(Produkt.SalgsPris));
+        form.TextBox("Indkøbspris", nameof(Produkt.IndkøbsPris));
+        form.TextBox("Lokation", nameof(Produkt.Lokation));
+        form.TextBox("Antal på Lager", nameof(Produkt.AntalLager));
+        form.TextBox("Enhed", nameof(Produkt.Enhed));
 
 		if (form.Edit(Produkt))
 		{

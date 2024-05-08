@@ -14,7 +14,7 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
                     $"'{obj.Valuta}'," +
                     $"'{obj.Id}'," +
                     $"'{obj.By}'," +
-                    $"'{obj.Land},'" +  
+                    $"'{obj.Land},'" +
                     $"'{obj.Vej}'");
         else return false;
     }

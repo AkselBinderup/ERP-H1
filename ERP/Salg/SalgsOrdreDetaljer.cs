@@ -12,9 +12,9 @@ class SalgsOrdreDetaljer : Screen
 		SalgsOrdreHoved = salgsOrdreHoved;
 	}
 
-	protected override void Draw()
-	{
-		ExitOnEscape();
+    protected override void Draw()
+    {
+        ExitOnEscape();
 
 		Console.WriteLine($"Ordre Nummer: {SalgsOrdreHoved.KundeNummer}\n" +
 			$"Oprettelses tidspunkt: {SalgsOrdreHoved.OprettelsesTidspunkt}\n" +
@@ -23,5 +23,5 @@ class SalgsOrdreDetaljer : Screen
 			$"Fulde navn: {SalgsOrdreHoved.FuldeNavn} \n"
 			);
 
-	}
+    }
 }

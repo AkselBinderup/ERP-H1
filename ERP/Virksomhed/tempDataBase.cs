@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ERP;
+﻿namespace ERP;
 
 public class TempDataBase
 {
@@ -15,7 +9,7 @@ public class TempDataBase
     public List<Virksomhed> GetData()
     {
         List<Virksomhed> data = new List<Virksomhed>();
-        
+
         data.AddRange(Virksomheder);
         return data;
     }
@@ -32,5 +26,5 @@ public class TempDataBase
         new Produkt {VareNummer = 1, Navn ="produkt lol",Beskrivelse ="hehehoho", SalgsPris = 808,IndkøbsPris = 490,Lokation = "karl's hus",AntalLager = 88,Enhed = Enheder.Timer}
     };
 
-    
+
 }

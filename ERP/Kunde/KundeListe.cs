@@ -10,7 +10,7 @@ public class KundeListe : Screen
     {
         ExitOnEscape();
 
-        
+
         ListPage<Kunde> side = new();
 
         side.AddKey(ConsoleKey.F1, CreateNewKunde);

@@ -4,13 +4,13 @@ namespace ERP;
 
 public class SalgsOrdreListe : Screen
 {
-	public override string Title { get; set; } = "Salgs ordre liste";
-	
-	protected override void Draw()
-	{
-		ExitOnEscape();
+    public override string Title { get; set; } = "Salgs ordre liste";
 
-		Console.CursorVisible = false;
+    protected override void Draw()
+    {
+        ExitOnEscape();
+
+        Console.CursorVisible = false;
 
         ListPage<SalgsOrdreHoved> side = new ListPage<SalgsOrdreHoved>();
 
@@ -18,27 +18,27 @@ public class SalgsOrdreListe : Screen
         Console.WriteLine("Tryk F2 for at redigere virksomhed");
 
         side.AddColumn("Salgsodrenummer", nameof(SalgsOrdreHoved.OrdreNummer));
-		side.AddColumn("Dato", nameof(SalgsOrdreHoved.OprettelsesTidspunkt), 20);
-		side.AddColumn("Kundenummer", nameof(SalgsOrdreHoved.KundeNummer));
-		side.AddColumn("Fuldenavn", nameof(SalgsOrdreHoved.FuldeNavn));
-		side.AddColumn("Beløb", nameof(SalgsOrdreHoved.Ordrebeløb), 15);
+        side.AddColumn("Dato", nameof(SalgsOrdreHoved.OprettelsesTidspunkt), 20);
+        side.AddColumn("Kundenummer", nameof(SalgsOrdreHoved.KundeNummer));
+        side.AddColumn("Fuldenavn", nameof(SalgsOrdreHoved.FuldeNavn));
+        side.AddColumn("Beløb", nameof(SalgsOrdreHoved.Ordrebeløb), 15);
 
-       
+
         TempSalgsOrdreHovedDataBase db = new();
-		var salgsOrdreHoved = db.GetData();
+        var salgsOrdreHoved = db.GetData();
 
-		foreach (SalgsOrdreHoved model in salgsOrdreHoved)
-		{
-			side.Add(model);
-		}
+        foreach (SalgsOrdreHoved model in salgsOrdreHoved)
+        {
+            side.Add(model);
+        }
 
-        
+
 
         var vælgSalgOdreHoved = side.Select();
-		if (vælgSalgOdreHoved != null)
-		{
-			Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
-		}
+        if (vælgSalgOdreHoved != null)
+        {
+            Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
+        }
 
         void EditCompany(SalgsOrdreHoved virksomhed)
         {
@@ -47,6 +47,6 @@ public class SalgsOrdreListe : Screen
 
     }
 
-	
+
 
 }

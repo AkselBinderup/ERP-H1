@@ -2,12 +2,12 @@
 
 namespace ERP;
 
-public partial class VirksomhedSideTre : Screen
+public partial class VirksomhedRedigering : Screen
 {
     public override string Title { get; set; } = "Selskab";
     Virksomhed Virksomhed = new();
 
-    public VirksomhedSideTre(Virksomhed virksomhed)
+    public VirksomhedRedigering(Virksomhed virksomhed)
     {
         Title = "Redigerer for " + virksomhed.FirmaNavn;
         Virksomhed = virksomhed;
