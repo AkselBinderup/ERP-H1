@@ -14,6 +14,8 @@ public class Person
     public string By { get; private set; }
     public int PostNummer { get; private set; }
 
+    public Person() { }
+
     public Person(Adresse adresse)
     {
         VejNavn = adresse.VejNavn;

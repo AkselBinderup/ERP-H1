@@ -11,7 +11,7 @@ public class Produkt
     public decimal AntalLager { get; set; }
     public Enheder Enhed { get; set; }
     public decimal BeregnAvanceProcent =>
-        IndkøbsPris / BeregnFortjeneste() * 100;
+        Math.Round(IndkøbsPris / BeregnFortjeneste() * 100);
     public decimal BeregnFortjeneste() =>
         SalgsPris - IndkøbsPris;
 
