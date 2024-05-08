@@ -3,17 +3,19 @@
 
 namespace ERP;
 
-public partial class ProductListeSide : Screen
+public partial class ProductDetaljer : Screen
 {
     public override string Title { get; set; } = "Informationer";
     private Produkt produkt;
-    public ProductListeSide(Produkt produkt)
+    public ProductDetaljer(Produkt produkt)
     {
         Title = "Detaljer for " + produkt.Navn;
         this.produkt = produkt;
     }
     protected override void Draw()
     {
+        ExitOnEscape();
+
         Console.WriteLine($"Varenummer: {produkt.VareNummer}\n" +
                           $"Navn: {produkt.Navn}\n" +
                           $"Beskrivelse: {produkt.Beskrivelse}\n" +
@@ -25,4 +27,6 @@ public partial class ProductListeSide : Screen
                           $"Avance i Procent: {produkt.BeregnAvanceProcent}\n" +
                           $"Avance i kr: {produkt.BeregnFortjeneste()}\n");
     }
+
+
 }
