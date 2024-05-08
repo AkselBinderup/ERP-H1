@@ -45,12 +45,12 @@ public partial class VirksomhedStart : Screen
         void CreateNewCompany(Virksomhed virksomhed)
         {
             Virksomhed NyVirksomhed = new();
-            Display(new VirksomhedSideTre(NyVirksomhed));
+            Display(new VirksomhedRedigering(NyVirksomhed));
         }
 
         void EditCompany(Virksomhed virksomhed)
         {
-            Display(new VirksomhedSideTre(virksomhed));
+            Display(new VirksomhedRedigering(virksomhed));
         }
 
         void DeleteCompany(Virksomhed virksomhed)
