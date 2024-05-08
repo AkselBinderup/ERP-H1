@@ -9,10 +9,10 @@ public class Person
     public int TelefonNummer { get; set; }
     public string FuldeNavn => $"{Fornavn} {Efternavn}";
 
-    public string? VejNavn { get; private set; }
-    public int VejNummer { get; private set; }
-    public string By { get; private set; }
-    public int PostNummer { get; private set; }
+    public string? VejNavn { get;  set; }
+    public int VejNummer { get; set; }
+    public string By { get; set; }
+    public int PostNummer { get; set; }
 
     public Person() { }
 
