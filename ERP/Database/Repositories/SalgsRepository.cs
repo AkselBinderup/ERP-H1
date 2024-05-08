@@ -1,6 +1,6 @@
 ﻿namespace ERP;
 
-public class Salgs_Crud : CommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOrdreHoved>
+public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOrdreHoved>
 {
     private readonly string dbName = "";
     private readonly string dbFields = "";
@@ -12,7 +12,7 @@ public class Salgs_Crud : CommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOr
             $"'{obj.GennemførelsesTidspunkt}'," +
             $"'{obj.KundeNummer}'," +
             $"'{obj.Tilstand}'," +
-            $"'{obj.Ordrebeløb}',");
+            $"'{obj.Ordrebeløb}'");
     }
 
     public List<SalgsOrdreHoved> Read()

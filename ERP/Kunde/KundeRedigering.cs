@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TECHCOOL.UI;
-using ERP;
-using System.ComponentModel.DataAnnotations;
+﻿using TECHCOOL.UI;
 
 namespace ERP;
 
@@ -17,7 +10,7 @@ public partial class KundeRedigering : Screen
     public KundeRedigering(Kunde kunde)
     {
         Title = "Redigerer for " + kunde.FuldeNavn;
-        this.Kunde = kunde;
+        Kunde = kunde;
     }
 
     protected override void Draw()
@@ -38,13 +31,13 @@ public partial class KundeRedigering : Screen
         
         if (form.Edit(Kunde))
         {
-            //if (kunde.KundeNummer != 0)
+            //if (Kunde.KundeNummer != 0)
             //{
-            //    database.Update(kunde);
+            //    database.Update(Kunde);
             //}
             //else
             //{
-            //    database.Create(kunde);
+            //    database.Create(Kunde);
             //}
             Console.WriteLine("Ændringerne blev gemt");
         }

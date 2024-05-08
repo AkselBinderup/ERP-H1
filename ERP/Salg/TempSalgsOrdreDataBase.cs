@@ -1,6 +1,6 @@
 ﻿namespace ERP;
 
-class TempSalgsOrdreHovedDataBase
+public class TempSalgsOrdreHovedDataBase
 {
 	List<SalgsOrdreHoved> salgsOrdreHoveder = new() {
 	new SalgsOrdreHoved ("Jon", "Hedegaard", new Adresse("Ultedparken", 34, "Tylstrup", 9382), "Jon@gmail.com", 40404040, new DateTime(2020, 1, 2, 3, 4, 17),1, 

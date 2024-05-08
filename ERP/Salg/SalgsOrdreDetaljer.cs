@@ -5,22 +5,22 @@ namespace ERP;
 class SalgsOrdreDetaljer : Screen
 {
 	public override string Title { get; set; } = "Salgs Ordre Hoveder";
-	SalgsOrdreHoved salgsOrdreHoved = new();
+	SalgsOrdreHoved SalgsOrdreHoved = new();
 	public SalgsOrdreDetaljer(SalgsOrdreHoved salgsOrdreHoved)
 	{
 		Title = "Detaljer for Odrenummer " + salgsOrdreHoved.OrdreNummer;
-		this.salgsOrdreHoved = salgsOrdreHoved;
+		SalgsOrdreHoved = salgsOrdreHoved;
 	}
 
 	protected override void Draw()
 	{
 		ExitOnEscape();
 
-		Console.WriteLine($"Ordre Nummer: {salgsOrdreHoved.KundeNummer}\n" +
-			$"Oprettelses tidspunkt: {salgsOrdreHoved.OprettelsesTidspunkt}\n" +
-			$"gennemført tidspunkt: {salgsOrdreHoved.GennemførelsesTidspunkt}\n" +
-			$"Kunde nummer: {salgsOrdreHoved.KundeNummer} \n" +
-			$"Fulde navn: {salgsOrdreHoved.FuldeNavn} \n"
+		Console.WriteLine($"Ordre Nummer: {SalgsOrdreHoved.KundeNummer}\n" +
+			$"Oprettelses tidspunkt: {SalgsOrdreHoved.OprettelsesTidspunkt}\n" +
+			$"gennemført tidspunkt: {SalgsOrdreHoved.GennemførelsesTidspunkt}\n" +
+			$"Kunde nummer: {SalgsOrdreHoved.KundeNummer} \n" +
+			$"Fulde navn: {SalgsOrdreHoved.FuldeNavn} \n"
 			);
 
 	}

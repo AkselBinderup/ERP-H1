@@ -24,9 +24,6 @@ public class KundeListe : Screen
         side.AddColumn("Telefonnummer", nameof(Kunde.TelefonNummer), 15);
         side.AddColumn("Email", nameof(Kunde.EmailAdresse), 20);
 
-
-
-
         TempKundeInfo db = new TempKundeInfo();
         var virksomheder = db.GetData();
         foreach (Kunde virksomhed in virksomheder)

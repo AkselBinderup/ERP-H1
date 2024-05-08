@@ -6,26 +6,26 @@ namespace ERP;
 public partial class ProductDetaljer : Screen
 {
     public override string Title { get; set; } = "Informationer";
-    private Produkt produkt;
+    private Produkt Produkt;
     public ProductDetaljer(Produkt produkt)
     {
         Title = "Detaljer for " + produkt.Navn;
-        this.produkt = produkt;
+        Produkt = produkt;
     }
     protected override void Draw()
     {
         ExitOnEscape();
 
-        Console.WriteLine($"Varenummer: {produkt.VareNummer}\n" +
-                          $"Navn: {produkt.Navn}\n" +
-                          $"Beskrivelse: {produkt.Beskrivelse}\n" +
-                          $"Salgsspris: {produkt.SalgsPris}\n" +
-                          $"Indkøbspris: {produkt.IndkøbsPris}\n" +
-                          $"Lokation: {produkt.Lokation}\n" +
-                          $"Antal på lager: {produkt.AntalLager}\n" +
-                          $"Enhed: {produkt.Enhed}\n" +
-                          $"Avance i Procent: {produkt.BeregnAvanceProcent}\n" +
-                          $"Avance i kr: {produkt.BeregnFortjeneste()}\n");
+        Console.WriteLine($"Varenummer: {Produkt.VareNummer}\n" +
+                          $"Navn: {Produkt.Navn}\n" +
+                          $"Beskrivelse: {Produkt.Beskrivelse}\n" +
+                          $"Salgsspris: {Produkt.SalgsPris}\n" +
+                          $"Indkøbspris: {Produkt.IndkøbsPris}\n" +
+                          $"Lokation: {Produkt.Lokation}\n" +
+                          $"Antal på lager: {Produkt.AntalLager}\n" +
+                          $"Enhed: {Produkt.Enhed}\n" +
+                          $"Avance i Procent: {Produkt.BeregnAvanceProcent}\n" +
+                          $"Avance i kr: {Produkt.BeregnFortjeneste()}\n");
     }
 
 

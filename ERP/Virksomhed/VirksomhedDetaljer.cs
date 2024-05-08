@@ -7,21 +7,21 @@ public partial class VirksomhedDetaljer : Screen
 {
     public override string Title { get; set; } = "Informationer";
 
-    Virksomhed virksomhed = new();
+    Virksomhed Virksomhed = new();
     public VirksomhedDetaljer(Virksomhed virksomhed)
     {
         Title = "Detaljer for " + virksomhed.FirmaNavn;
-        this.virksomhed = virksomhed;
+        Virksomhed = virksomhed;
     }
     protected override void Draw()
     {
         ExitOnEscape();
-        Console.WriteLine($"Firmanavn: {virksomhed.FirmaNavn}\n" +
-            $"Vej: {virksomhed.Vej}\n" +
-            $"Hus nummer: {virksomhed.HusNummer}\n" +
-            $"Post nummer: {virksomhed.PostNummer}\n" +
-            $"By: {virksomhed.By}\n" +
-            $"Land: {virksomhed.Land}\n" +
-            $"Valuta: {virksomhed.Valuta}");
+        Console.WriteLine($"Firmanavn: {Virksomhed.FirmaNavn}\n" +
+            $"Vej: {Virksomhed.Vej}\n" +
+            $"Hus nummer: {Virksomhed.HusNummer}\n" +
+            $"Post nummer: {Virksomhed.PostNummer}\n" +
+            $"By: {Virksomhed.By}\n" +
+            $"Land: {Virksomhed.Land}\n" +
+            $"Valuta: {Virksomhed.Valuta}");
     }
 }

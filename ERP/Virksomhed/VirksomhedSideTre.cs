@@ -1,23 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TECHCOOL.UI;
-using ERP;
-using System.ComponentModel.DataAnnotations;
+﻿using TECHCOOL.UI;
 
 namespace ERP;
 
 public partial class VirksomhedSideTre : Screen
 {
     public override string Title { get; set; } = "Selskab";
-    Virksomhed virksomhed = new();
+    Virksomhed Virksomhed = new();
 
     public VirksomhedSideTre(Virksomhed virksomhed)
     {
         Title = "Redigerer for " + virksomhed.FirmaNavn;
-        this.virksomhed = virksomhed;
+        Virksomhed = virksomhed;
     }
 
     protected override void Draw()
@@ -25,28 +18,29 @@ public partial class VirksomhedSideTre : Screen
         ExitOnEscape();
         Form<Virksomhed> form = new();
 
-        form.TextBox("Name", nameof(virksomhed.FirmaNavn));
-        form.TextBox("vej", nameof(virksomhed.Vej));
-        form.TextBox("Husnummer", nameof(virksomhed.HusNummer));
-        form.TextBox("Postnummer", nameof(virksomhed.PostNummer));
-        form.TextBox("By", nameof(virksomhed.By));
-        form.TextBox("Land", nameof(virksomhed.Land));
-        form.SelectBox("Currency", nameof(virksomhed.Valuta));
+        form.TextBox("Name", nameof(Virksomhed.FirmaNavn));
+        form.TextBox("vej", nameof(Virksomhed.Vej));
+        form.TextBox("Husnummer", nameof(Virksomhed.HusNummer));
+        form.TextBox("Postnummer", nameof(Virksomhed.PostNummer));
+        form.TextBox("By", nameof(Virksomhed.By));
+        form.TextBox("Land", nameof(Virksomhed.Land));
+        form.SelectBox("Currency", nameof(Virksomhed.Valuta));
         form.AddOption("Currency", "DKK", Currency.DKK);
         form.AddOption("Currency", "EUR", Currency.EUR);
         form.AddOption("Currency", "USD", Currency.USD);
         form.AddOption("Currency", "SEK", Currency.SEK);
 
-        if (form.Edit(virksomhed))
+        if (form.Edit(Virksomhed))
         {
-            //if (virksomhed.Id != 0)
-            //{
-            //    database.Update(virksomhed);
-            //}
-            //else
-            //{
-            //    database.Create(virksomhed);
-            //}
+            if (Virksomhed.Id != 0)
+            {
+                //todo implementer database tak (;
+                //database.Update(Virksomhed);
+            }
+            else
+            {
+                //database.Create(Virksomhed);
+            }
             Console.WriteLine("Ændringerne blev gemt");
         }
         else

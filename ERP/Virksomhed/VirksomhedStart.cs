@@ -56,7 +56,7 @@ public partial class VirksomhedStart : Screen
         void DeleteCompany(Virksomhed virksomhed)
         {
             //Database db = new Database();
-            //db.Delete(virksomhed.Id);
+            //db.Delete(Virksomhed.Id);
         }
     }
 }

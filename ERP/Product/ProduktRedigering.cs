@@ -4,11 +4,11 @@ namespace ERP;
 public class ProduktRedigering : Screen
 {
 	public override string Title { get; set; } = "Produkt redigering";
-	Produkt produkt = new();
+	Produkt Produkt = new();
 	public ProduktRedigering(Produkt produkt)
 	{
 		Title = "Redigerer for" + produkt.Navn;
-		this.produkt = produkt;
+		Produkt = produkt;
 	}
 	
 	protected override void Draw()
@@ -25,15 +25,15 @@ public class ProduktRedigering : Screen
 		form.TextBox("Antal på Lager", nameof(Produkt.AntalLager));
 		form.TextBox("Enhed", nameof(Produkt.Enhed));
 
-		if (form.Edit(produkt))
+		if (form.Edit(Produkt))
 		{
-			//if (produkt.Id != 0)
+			//if (Produkt.Id != 0)
 			//{
-			//    database.Update(produkt);
+			//    database.Update(Produkt);
 			//}
 			//else
 			//{
-			//    database.Create(produkt);
+			//    database.Create(Produkt);
 			//}
 			Console.WriteLine("Ændringerne blev gemt");
 		}
