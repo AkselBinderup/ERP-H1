@@ -21,7 +21,7 @@ public partial class ProduktListeStart : Screen
 
         listPage.AddColumn("Varenummer:", nameof(Produkt.VareNummer), 40);
         listPage.AddColumn("Navn", nameof(Produkt.Navn));
-        listPage.AddColumn("Lagerantal", nameof(Produkt.AntalLager), 8);
+        listPage.AddColumn("Lagerantal", nameof(Produkt.AntalLager), 12);
         listPage.AddColumn("Inkøbspris", nameof(Produkt.IndkøbsPris));
         listPage.AddColumn("Salgs pris", nameof(Produkt.SalgsPris));
         listPage.AddColumn("Avance i Procent", nameof(Produkt.BeregnAvanceProcent));

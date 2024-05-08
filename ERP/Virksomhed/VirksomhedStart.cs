@@ -15,8 +15,13 @@ public partial class VirksomhedStart : Screen
 
         listPage.AddKey(ConsoleKey.F1, CreateNewCompany);
         Console.WriteLine("Tryk F1 for at oprette virksomhed");
+		listPage.AddKey(ConsoleKey.F2, EditCompany);
+		Console.WriteLine("Tryk F2 for at redigere virksomhed");
+        listPage.AddKey(ConsoleKey.F5, DeleteCompany);
+        Console.WriteLine("Tryk F5 for at fjerne virksomhed");
 
-        listPage.AddColumn("Firmanavn", nameof(Virksomhed.FirmaNavn), 40);
+
+		listPage.AddColumn("Firmanavn", nameof(Virksomhed.FirmaNavn), 40);
         listPage.AddColumn("Land", nameof(Virksomhed.Land));
         listPage.AddColumn("Valuta", nameof(Virksomhed.Valuta), 8);
 
@@ -28,10 +33,8 @@ public partial class VirksomhedStart : Screen
             listPage.Add(virksomhed);
         }
 
-        //todo: implementer databasehent
 
-        listPage.AddKey(ConsoleKey.F2, EditCompany);
-        Console.WriteLine("Tryk F2 for at redigere virksomhed");
+        
 
         var vælgVirksomhed = listPage.Select();
         if(vælgVirksomhed != null)
@@ -48,6 +51,12 @@ public partial class VirksomhedStart : Screen
         void EditCompany(Virksomhed virksomhed)
         {
             Display(new VirksomhedSideTre(virksomhed));
+        }
+
+        void DeleteCompany(Virksomhed virksomhed)
+        {
+            //Database db = new Database();
+            //db.Delete(virksomhed.Id);
         }
     }
 }
