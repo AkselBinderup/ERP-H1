@@ -8,11 +8,6 @@ public class SalgsOrdreHoved : Kunde
     public float Ordrebeløb { get; private set; }
     public Tilstand Tilstand { get; private set; }
     public List<SalgsOrdreLinje> OrdreLinjer { get; private set; }
-    public string? VejNavn { get; private set; }
-    public int VejNummer { get; private set; }
-    public string By { get; private set; }
-    public int PostNummer { get; private set; }
-
 
     public SalgsOrdreHoved() { }
     public SalgsOrdreHoved(
@@ -23,10 +18,6 @@ public class SalgsOrdreHoved : Kunde
         Fornavn = fornavn;
         Efternavn = efternavn;
         Adresse = adresse;
-        VejNavn = adresse.VejNavn;
-        VejNummer = adresse.VejNummer;
-        By = adresse.By;
-        PostNummer = adresse.PostNummer;
         EmailAdresse = emailAdresse;
         TelefonNummer = telefonNummer;
         SidsteKøb = sidsteKøb;

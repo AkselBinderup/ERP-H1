@@ -4,11 +4,11 @@ namespace ERP;
 public class KundeInfoScreen : Screen
 {
     public override string Title { get; set; } = "Kunde info";
-    public Kunde Kunde = new();
+    Kunde Kunde = new();
     public KundeInfoScreen(Kunde kunde)
     {
         Title = "Detaljer for " + kunde.FuldeNavn;
-        this.Kunde = kunde;
+        Kunde = kunde;
     }
 
     protected override void Draw()
