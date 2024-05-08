@@ -2,7 +2,7 @@
 
 public enum Enheder
 {
-    Styk, 
+    Styk,
     Timer,
     Meter
 }

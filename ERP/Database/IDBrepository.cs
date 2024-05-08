@@ -1,6 +1,6 @@
 ﻿namespace ERP;
 
-public interface IDBrepository <T>
+public interface IDBrepository<T>
 {
     bool Create(T obj);
     List<T> Read();

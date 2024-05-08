@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TECHCOOL.UI;
-using ERP;
-using System.ComponentModel.DataAnnotations;
+﻿using TECHCOOL.UI;
 
 namespace ERP;
 

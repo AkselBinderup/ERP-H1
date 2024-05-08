@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TECHCOOL.UI;
-using ERP;
-using System.ComponentModel.DataAnnotations;
+﻿using TECHCOOL.UI;
 
 namespace ERP;
 
@@ -34,8 +27,8 @@ public partial class KundeRedigering : Screen
         form.TextBox("by", nameof(Kunde.Adresse.By));
         form.TextBox("Email", nameof(Kunde.EmailAdresse));
         form.TextBox("TLF nummer", nameof(Kunde.TelefonNummer));
-        
-        
+
+
         if (form.Edit(Kunde))
         {
             //if (kunde.KundeNummer != 0)
