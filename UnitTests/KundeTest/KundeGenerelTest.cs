@@ -7,7 +7,7 @@ public class KundeGenerelTest
     [Fact]
     public void KundeInfoScreenUnitTest()
     {
-        Adresse adresseEksempel = new Adresse(vejNavn: "Struervej", 70, 9000);
+        Adresse adresseEksempel = new Adresse(vejNavn: "Struervej", 70, "Aalborg", 9000);
 
         Kunde jon = new Kunde { KundeNummer = 1, Fornavn = "Jon", Efternavn = "Hedegaard", TelefonNummer = 88888888, EmailAdresse = "Jon@gmail.com", Adresse = adresseEksempel, SidsteKøb = DateTime.Now };
 
