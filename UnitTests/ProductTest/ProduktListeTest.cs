@@ -1,4 +1,4 @@
-﻿namespace UnitTest.ProductTest;
+﻿namespace UnitTest;
 
 public class ProduktListeTest
 {

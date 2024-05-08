@@ -1,4 +1,4 @@
-﻿namespace UnitTest.VirksomhedTest;
+﻿namespace UnitTest;
 
 public class VirksomhedTest
 {

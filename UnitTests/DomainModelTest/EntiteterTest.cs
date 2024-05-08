@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ERP;
 
-namespace UnitTest.DomainModelTest;
+namespace UnitTest;
 
 public class EntiteterTest
 {
     [Fact]
     public void AddresseUnitTest()
     {
+        //vent
 
     }
     [Fact]

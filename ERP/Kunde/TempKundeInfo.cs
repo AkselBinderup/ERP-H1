@@ -1,7 +1,7 @@
 ﻿namespace ERP;
 public class TempKundeInfo
 {
-    public static Adresse adresseEksempel = new Adresse("Struervej",70,9000);
+    public static Adresse adresseEksempel = new Adresse("Struervej",70,"Aalborg", 9000);
 
     public List<Kunde> Kunder = new() {
         new Kunde {KundeNummer = 1, Fornavn = "Jon", Efternavn="Hedegaard", TelefonNummer = 88888888, EmailAdresse = "Jon@gmail.com",  Adresse = adresseEksempel, SidsteKøb = DateTime.Now },

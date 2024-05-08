@@ -4,7 +4,7 @@ namespace ERP;
 public class KundeInfoScreen : Screen
 {
     public override string Title { get; set; } = "Kunde info";
-    Kunde kunde = new();
+    public Kunde kunde = new();
     public KundeInfoScreen(Kunde kunde)
     {
         Title = "Detaljer for " + kunde.FuldeNavn;

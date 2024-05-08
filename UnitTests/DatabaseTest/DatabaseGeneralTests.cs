@@ -1,22 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UnitTest.DatabaseTest;
+﻿namespace UnitTest;
 
 public class DatabaseGeneralTests
 {
     [Fact]
     public void CommonDBModuleUnitTest()
     {
-
+        //vent en smule til m4
     }
     [Fact]
     public void CompanyDatabaseUnitTest()
     {
-
+        //vent en smule til m4
     }
     [Fact]
     public void DatabaseUnitTest()
