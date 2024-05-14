@@ -8,7 +8,6 @@ public class Person
     public string EmailAdresse { get; set; }
     public int TelefonNummer { get; set; }
     public string FuldeNavn => $"{Fornavn} {Efternavn}";
-
     public string? VejNavn { get;  set; }
     public int VejNummer { get; set; }
     public string By { get; set; }

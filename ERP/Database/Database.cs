@@ -6,7 +6,6 @@ public partial class Database
 
     public void GetAllCustomers()
     {
-
     }
     //    Databaseklassen skal udvides med følgende metoder
     //• Hent salgsordre ud fra id
