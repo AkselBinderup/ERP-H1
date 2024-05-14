@@ -36,10 +36,11 @@ public class KundeListe : Screen
         {
             Display(new KundeInfoScreen(company));
         }
+
         void CreateNewKunde(Kunde kunde)
         {
-            Kunde Nykunde = new();
-            Display(new KundeRedigering(Nykunde));
+            Kunde nyKunde = new();
+            Display(new KundeRedigering(nyKunde));
         }
 
         void EditKunde(Kunde kunde)

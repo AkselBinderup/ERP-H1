@@ -33,7 +33,6 @@ public class ÆndringAfSalgsordre : Screen
         {
             Console.WriteLine("Ingen ændringer");
         }
-
     }
 }
 

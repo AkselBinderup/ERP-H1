@@ -8,6 +8,7 @@ public class TempKundeInfo
         new Kunde {KundeNummer = 2, Fornavn = "Aksel", Efternavn="Kristensen", TelefonNummer = 88888888, EmailAdresse = "Aksel@gmail.com", Adresse = AdresseEksempel, SidsteKøb = DateTime.Now },
         new Kunde {KundeNummer = 3, Fornavn = "Victor", Efternavn="Frandsen", TelefonNummer = 88888888, EmailAdresse = "Victor@gmail.com", Adresse = AdresseEksempel, SidsteKøb = DateTime.Now }
     };
+
     public List<Kunde> GetData()
     {
         List<Kunde> data = new List<Kunde>();

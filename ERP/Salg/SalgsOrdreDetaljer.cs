@@ -22,6 +22,5 @@ class SalgsOrdreDetaljer : Screen
 			$"Kunde nummer: {SalgsOrdreHoved.KundeNummer} \n" +
 			$"Fulde navn: {SalgsOrdreHoved.FuldeNavn} \n"
 			);
-
     }
 }
