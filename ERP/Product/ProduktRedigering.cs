@@ -42,5 +42,4 @@ public class ProduktRedigering : Screen
 			Console.WriteLine("Ingen ændringer");
 		}
 	}
-
 }

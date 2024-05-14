@@ -45,6 +45,5 @@ public partial class KundeRedigering : Screen
         {
             Console.WriteLine("Ingen ændringer");
         }
-
     }
 }

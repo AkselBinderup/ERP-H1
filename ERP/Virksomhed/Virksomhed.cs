@@ -7,7 +7,6 @@ public class MainMenu : Screen
     public override string Title { get; set; } = "Virksomheder";
     protected override void Draw()
     {
-
         Menu menu = new();
         menu.Add(new VirksomhedStart());
         menu.Add(new ProduktListeStart());

@@ -27,8 +27,5 @@ public class SalgsOrdreHoved : Kunde
         KundeNummer = kundeNummer;
         Tilstand = tilstand;
         Ordrebeløb = ordreBeløb;
-
     }
-
-
 }

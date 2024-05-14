@@ -32,8 +32,6 @@ public class SalgsOrdreListe : Screen
             side.Add(model);
         }
 
-
-
         var vælgSalgOdreHoved = side.Select();
         if (vælgSalgOdreHoved != null)
         {
@@ -44,9 +42,5 @@ public class SalgsOrdreListe : Screen
         {
             Display(new ÆndringAfSalgsordre(virksomhed));
         }
-
     }
-
-
-
 }

@@ -20,7 +20,6 @@ public partial class VirksomhedStart : Screen
         listPage.AddKey(ConsoleKey.F5, DeleteCompany);
         Console.WriteLine("Tryk F5 for at fjerne virksomhed");
 
-
         listPage.AddColumn("Firmanavn", nameof(Virksomhed.FirmaNavn), 40);
         listPage.AddColumn("Land", nameof(Virksomhed.Land));
         listPage.AddColumn("Valuta", nameof(Virksomhed.Valuta), 8);
@@ -32,9 +31,6 @@ public partial class VirksomhedStart : Screen
         {
             listPage.Add(virksomhed);
         }
-
-
-
 
         var vælgVirksomhed = listPage.Select();
         if (vælgVirksomhed != null)

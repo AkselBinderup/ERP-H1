@@ -7,11 +7,13 @@ public partial class VirksomhedDetaljer : Screen
     public override string Title { get; set; } = "Informationer";
 
     Virksomhed Virksomhed = new();
+
     public VirksomhedDetaljer(Virksomhed virksomhed)
     {
         Title = "Detaljer for " + virksomhed.FirmaNavn;
         Virksomhed = virksomhed;
     }
+
     protected override void Draw()
     {
         ExitOnEscape();
