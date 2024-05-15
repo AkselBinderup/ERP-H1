@@ -29,22 +29,22 @@ public partial class KundeRedigering : Screen
         form.TextBox("TLF nummer", nameof(Kunde.TelefonNummer));
 
 
-        if (form.Edit(Kunde))
-        {
-            //if (Kunde.KundeNummer != 0)
-            //{
-            //    database.Update(Kunde);
-            //}
-            //else
-            //{
-            //    database.Create(Kunde);
-            //}
-            Console.WriteLine("Ændringerne blev gemt");
-        }
-        else
-        {
-            Console.WriteLine("Ingen ændringer");
-        }
+        //if (form.Edit(Kunde))
+        //{
+        //    if (Kunde.KundeNummer != 0)
+        //    {
+        //        database.Update(Kunde);
+        //    }
+        //    else
+        //    {
+        //        database.Create(Kunde);
+        //    }
+        //    Console.WriteLine("Ændringerne blev gemt");
+        //}
+        //else
+        //{
+        //    Console.WriteLine("Ingen ændringer");
+        //}
 
     }
 }
