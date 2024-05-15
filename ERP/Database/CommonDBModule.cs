@@ -7,7 +7,7 @@ public partial class CommonDBModule<T>
 {
     protected SqlConnection GetConnection()
     {
-        SqlConnection sqlConnection = new SqlConnection("Indsæt connstræng");
+        SqlConnection sqlConnection = new SqlConnection(ConfigSettings.ConnectionString);
         sqlConnection.Open();
         return sqlConnection;
     }
