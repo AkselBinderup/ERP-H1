@@ -8,15 +8,8 @@ public partial class Database<T>
 {
 	private SqlConnection GetConnection()
 	{
-		SqlConnectionStringBuilder sb = new();
-		sb.DataSource = "docker.data.techcollege.dk";
-		sb.InitialCatalog = "H1PD040124_Gruppe1";
-		sb.UserID = "H1PD040124_Gruppe1";
-		sb.Password = "H1PD040124_Gruppe1";
-		string connectionString = sb.ToString();
-		SqlConnection connection = new SqlConnection(connectionString);
+		SqlConnection connection = new(ConfigSettings.ConnectionString);
 		connection.Open();
-
 		return connection;
 	}
 
