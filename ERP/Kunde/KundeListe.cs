@@ -19,25 +19,28 @@ public class KundeListe : Screen
         side.AddKey(ConsoleKey.F2, EditKunde);
         Console.WriteLine("Tryk F2 for at oprette ændre");
 
+        side.AddKey(ConsoleKey.F5, DeleteKunde);
+        Console.WriteLine("Tryk F5 for at Slette kunde");
+
         side.AddColumn("Kundenummer", nameof(Kunde.KundeNummer));
         side.AddColumn("Fornavn og Efternavn", nameof(Kunde.FuldeNavn), 20);
         side.AddColumn("Telefonnummer", nameof(Kunde.TelefonNummer), 15);
         side.AddColumn("Email", nameof(Kunde.EmailAdresse), 20);
 
         TempKundeInfo db = new TempKundeInfo();
-        var virksomheder = db.GetData();
-        foreach (Kunde virksomhed in virksomheder)
+        var Kunder = db.GetData();
+        foreach (Kunde kunde in Kunder)
         {
-            side.Add(virksomhed);
+            side.Add(kunde);
         }
 
-        var company = side.Select();
-        if (company != null)
+        var kunde = side.Select();
+        if (kunde != null)
         {
-            Display(new KundeInfoScreen(company));
+            Display(new KundeInfoScreen(kunde));
         }
 
-        void CreateNewKunde(Kunde kunde)
+        void CreateNewKunde()
         {
             Kunde nyKunde = new();
             Display(new KundeRedigering(nyKunde));
@@ -46,6 +49,11 @@ public class KundeListe : Screen
         void EditKunde(Kunde kunde)
         {
             Display(new KundeRedigering(kunde));
+        }
+        
+        void DeleteKunde(Kunde kunde)
+        {
+            //to be added
         }
     }
 }
