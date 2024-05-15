@@ -1,5 +1,6 @@
-﻿namespace ERP;
+﻿using System.Diagnostics.CodeAnalysis;
 
+namespace ERP;
 public class SalgsOrdreHoved : Kunde
 {
     public int OrdreNummer { get; private set; }
@@ -8,7 +9,6 @@ public class SalgsOrdreHoved : Kunde
     public float Ordrebeløb { get; private set; }
     public Tilstand Tilstand { get; private set; }
     public List<SalgsOrdreLinje> OrdreLinjer { get; private set; }
-
     public SalgsOrdreHoved() { }
     public SalgsOrdreHoved(
         string fornavn, string efternavn, Adresse adresse, string emailAdresse, int telefonNummer, DateTime sidsteKøb,
@@ -27,8 +27,5 @@ public class SalgsOrdreHoved : Kunde
         KundeNummer = kundeNummer;
         Tilstand = tilstand;
         Ordrebeløb = ordreBeløb;
-
     }
-
-
 }

@@ -11,5 +11,4 @@ public partial class ProduktListe
     public int[] Procent = Enumerable.Range(1, 100).ToArray();
     public Enheder Enhed { get; set; }
     public string? Lokation { get; set; }
-
 }

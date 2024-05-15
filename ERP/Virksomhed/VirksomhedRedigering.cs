@@ -47,6 +47,5 @@ public partial class VirksomhedRedigering : Screen
         {
             Console.WriteLine("Ingen ændringer");
         }
-
     }
 }

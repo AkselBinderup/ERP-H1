@@ -14,6 +14,4 @@ public class Produkt
         Math.Round(IndkøbsPris / BeregnFortjeneste() * 100);
     public decimal BeregnFortjeneste() =>
         SalgsPris - IndkøbsPris;
-
-
 }

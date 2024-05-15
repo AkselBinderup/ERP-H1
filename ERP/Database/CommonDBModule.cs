@@ -7,7 +7,7 @@ public partial class CommonDBModule<T>
 {
     protected SqlConnection GetConnection()
     {
-        SqlConnection sqlConnection = new SqlConnection("Indsæt connstræng");
+        SqlConnection sqlConnection = new SqlConnection(ConfigSettings.ConnectionString);
         sqlConnection.Open();
         return sqlConnection;
     }
@@ -16,8 +16,8 @@ public partial class CommonDBModule<T>
     {
         using (var con = GetConnection())
         {
-            var rowsaffected = con.Execute(command);
-            return rowsaffected > 0;
+            var rowsAffected = con.Execute(command);
+            return rowsAffected > 0;
         }
 
     }

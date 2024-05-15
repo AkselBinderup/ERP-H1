@@ -7,11 +7,13 @@ public partial class ProductDetaljer : Screen
 {
     public override string Title { get; set; } = "Informationer";
     private Produkt Produkt;
+
     public ProductDetaljer(Produkt produkt)
     {
         Title = "Detaljer for " + produkt.Navn;
         Produkt = produkt;
     }
+
     protected override void Draw()
     {
         ExitOnEscape();
@@ -27,6 +29,4 @@ public partial class ProductDetaljer : Screen
                           $"Avance i Procent: {Produkt.BeregnAvanceProcent}\n" +
                           $"Avance i kr: {Produkt.BeregnFortjeneste()}\n");
     }
-
-
 }
