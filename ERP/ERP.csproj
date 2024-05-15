@@ -19,7 +19,8 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.1.35" />
-    <PackageReference Include="TECHCOOL" Version="1.4.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="TECHCOOL" Version="1.4.1" />
   </ItemGroup>
 
 </Project>
