@@ -14,7 +14,6 @@ public class Person
     public int PostNummer { get; set; }
 
     public Person() { }
-
     public Person(Adresse adresse)
     {
         VejNavn = adresse.VejNavn;

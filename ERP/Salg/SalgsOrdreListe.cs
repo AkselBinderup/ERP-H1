@@ -14,13 +14,13 @@ public class SalgsOrdreListe : Screen
 
         ListPage<SalgsOrdreHoved> side = new ListPage<SalgsOrdreHoved>();
 
-        side.AddKey(ConsoleKey.F2, Editorder);
+        side.AddKey(ConsoleKey.F2, EditOrder);
         Console.WriteLine("Tryk F2 for at redigere ordre");
 
-        side.AddKey(ConsoleKey.F3, newOrder);
-        Console.WriteLine("Tryk F3 for at lave en ny ordre");
-
-        side.AddKey(ConsoleKey.F5, Editorder);
+        side.AddKey(ConsoleKey.F3, CreateNewOrder);
+        Console.WriteLine("Tryk F3 for at redigere ordre");
+        
+        side.AddKey(ConsoleKey.F5, DeleteOrder);
         Console.WriteLine("Tryk F5 for at slette den valgte ordre");
 
         side.AddColumn("Salgsodrenummer", nameof(SalgsOrdreHoved.OrdreNummer));
@@ -44,15 +44,20 @@ public class SalgsOrdreListe : Screen
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
         }
 
-        void Editorder(SalgsOrdreHoved vælgSalgOdreHoved)
+        void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
         {
             Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
         }
         
-        void newOrder(SalgsOrdreHoved _)
+        void CreateNewOrder(SalgsOrdreHoved vælgSalgOdreHoved)
         {
             SalgsOrdreHoved nyorder = new SalgsOrdreHoved();
             Display(new ÆndringAfSalgsordre(nyorder));
         }
+    }
+
+    private void DeleteOrder(SalgsOrdreHoved hoved)
+    {
+        throw new NotImplementedException();
     }
 }
