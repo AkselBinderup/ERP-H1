@@ -20,7 +20,7 @@ public class ProductRepository : CommonDBModule<Produkt>, IDBrepository<Produkt>
     }
     public List<Produkt> Read()
     {
-        return ExecuteDapperQuery<Produkt>($"SELECT * FROM {dbName}");
+        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
     }
     public bool Update(Produkt obj)
     {

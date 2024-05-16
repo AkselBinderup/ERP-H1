@@ -1,0 +1,58 @@
+name: .NET Core Desktop
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+
+    runs-on: windows-latest
+
+    env:
+      Solution_Name: ERP.sln
+      Test_Project_Path: UnitTests\UnitTest.csproj  # Updated path to your test project
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core SDK
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'  # Ensure this version matches your project requirements
+
+    # Add MSBuild to the PATH
+    - name: Setup MSBuild.exe
+      uses: microsoft/setup-msbuild@v2
+
+    # Restore NuGet packages required by the solution
+    - name: Restore NuGet packages
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=${{ matrix.configuration }}
+
+    # Execute all unit tests in the solution
+    - name: Execute unit tests
+      run: dotnet test $env:Test_Project_Path /p:Configuration=${{ matrix.configuration }}
+
+    # Build the solution in the specified configuration
+    - name: Build the solution
+      run: msbuild $env:Solution_Name /p:Configuration=${{ matrix.configuration }} /p:NoLogo=true
+
+    # Optionally, you can add steps to package your application if needed
+    # For example, creating a zip file of build outputs or other deployment packages
+
+    # Upload build artifacts, if you have any files to store after build
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Compiled Application
+        path: path/to/your/output/files  # Adjust this path based on where your build outputs are stored
+

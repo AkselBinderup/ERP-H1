@@ -17,7 +17,10 @@ public class KundeListe : Screen
         Console.WriteLine("Tryk F1 for at oprette ny kunde");
 
         side.AddKey(ConsoleKey.F2, EditKunde);
-        Console.WriteLine("Tryk F2 for at oprette ændre");
+        Console.WriteLine("Tryk F2 for at ændre kunden");
+
+        side.AddKey(ConsoleKey.F5, DeleteKunde);
+        Console.WriteLine("Tryk F5 for at Slette kunde");
 
         side.AddColumn("Kundenummer", nameof(Kunde.KundeNummer));
         side.AddColumn("Fornavn og Efternavn", nameof(Kunde.FuldeNavn), 20);
@@ -27,16 +30,16 @@ public class KundeListe : Screen
         var db = Database.KundeRepository.Read();
         foreach (Kunde virksomhed in db)
         {
-            side.Add(virksomhed);
+            side.Add(item);
         }
 
-        var company = side.Select();
-        if (company != null)
+        var kunde = side.Select();
+        if (kunde != null)
         {
-            Display(new KundeInfoScreen(company));
+            Display(new KundeInfoScreen(kunde));
         }
 
-        void CreateNewKunde(Kunde kunde)
+        void CreateNewKunde(Kunde _)
         {
             Kunde nyKunde = new();
             Display(new KundeRedigering(nyKunde));
@@ -45,6 +48,11 @@ public class KundeListe : Screen
         void EditKunde(Kunde kunde)
         {
             Display(new KundeRedigering(kunde));
+        }
+        
+        void DeleteKunde(Kunde kunde)
+        {
+            //to be added
         }
     }
 }
