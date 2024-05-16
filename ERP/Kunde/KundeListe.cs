@@ -29,9 +29,9 @@ public class KundeListe : Screen
 
         TempKundeInfo db = new TempKundeInfo();
         var Kunder = db.GetData();
-        foreach (Kunde kunde in Kunder)
+        foreach (Kunde kundE in Kunder)
         {
-            side.Add(kunde);
+            side.Add(kundE);
         }
 
         var kunde = side.Select();
@@ -40,7 +40,7 @@ public class KundeListe : Screen
             Display(new KundeInfoScreen(kunde));
         }
 
-        void CreateNewKunde()
+        void CreateNewKunde(Kunde kunde)
         {
             Kunde nyKunde = new();
             Display(new KundeRedigering(nyKunde));

@@ -17,9 +17,9 @@ public class SalgsOrdreListe : Screen
         side.AddKey(ConsoleKey.F2, EditOrder);
         Console.WriteLine("Tryk F2 for at redigere ordre");
 
-        side.AddKey(ConsoleKey.F3, NewOrder);
-        Console.WriteLine("Tryk F3 for at lave en ny ordre");
-
+        side.AddKey(ConsoleKey.F3, CreateNewOrder);
+        Console.WriteLine("Tryk F3 for at redigere ordre");
+        
         side.AddKey(ConsoleKey.F5, DeleteOrder);
         Console.WriteLine("Tryk F5 for at slette den valgte ordre");
 
@@ -49,10 +49,15 @@ public class SalgsOrdreListe : Screen
             Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
         }
         
-        void NewOrder()
+        void CreateNewOrder(SalgsOrdreHoved vælgSalgOdreHoved)
         {
             SalgsOrdreHoved nyorder = new SalgsOrdreHoved();
             Display(new ÆndringAfSalgsordre(nyorder));
         }
+    }
+
+    private void DeleteOrder(SalgsOrdreHoved hoved)
+    {
+        throw new NotImplementedException();
     }
 }

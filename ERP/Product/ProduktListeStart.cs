@@ -45,7 +45,12 @@ public partial class ProduktListeStart : Screen
         }
     }
 
-	private void CreateNewProduct(Produkt produkt)
+    private void deleteProduct(Produkt produkt)
+    {
+        throw new NotImplementedException();
+    }
+
+    private void CreateNewProduct(Produkt produkt)
 	{
         Produkt newProdukt = new();
         Display(new ProduktRedigering(newProdukt));
