@@ -27,11 +27,11 @@ public class ÆndringAfSalgsordre : Screen
 
         if (form.Edit(SalgsOrdreHoved))
         {
-            Console.WriteLine("Ændringerne blev gemt");
+            Console.WriteLine("|Ændringerne blev gemt");
         }
         else
         {
-            Console.WriteLine("Ingen ændringer");
+            Console.WriteLine("|Ingen ændringer");
         }
     }
 }

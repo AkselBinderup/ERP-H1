@@ -41,11 +41,11 @@ public partial class VirksomhedRedigering : Screen
             {
                 //database.Create(Virksomhed);
             }
-            Console.WriteLine("Ændringerne blev gemt");
+            Console.WriteLine("|Ændringerne blev gemt");
         }
         else
         {
-            Console.WriteLine("Ingen ændringer");
+            Console.WriteLine("|Ingen ændringer");
         }
     }
 }

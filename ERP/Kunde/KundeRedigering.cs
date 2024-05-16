@@ -39,11 +39,11 @@ public partial class KundeRedigering : Screen
         //    {
         //        database.Create(Kunde);
         //    }
-        //    Console.WriteLine("Ændringerne blev gemt");
+        //    Console.WriteLine("|Ændringerne blev gemt");
         //}
         //else
         //{
-        //    Console.WriteLine("Ingen ændringer");
+        //    Console.WriteLine("|Ingen ændringer");
         //}
 
     }
