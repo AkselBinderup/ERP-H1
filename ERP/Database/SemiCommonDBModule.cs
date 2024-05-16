@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using System.Data;
 using System.Data.SqlClient;
 
 
@@ -13,21 +14,20 @@ public partial class Database<T>
 		return connection;
 	}
 
-	public List<T> Reader(string queryString, int[] collumns)
+	public List<T> Reader(string queryString, Func<IDataRecord, T> mapFuncion)
 	{
+		List<T> list = new List<T>();
+
 		using (SqlConnection sqlConnection = GetConnection())
 		{
 			SqlCommand sqlCommand = new(queryString, sqlConnection);
 
 			using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
 			{
-				List<T> list = new List<T>();
 				while (sqlDataReader.Read())
 				{
-					foreach (int collumn in collumns) 
-					{
-						list.Add((T)sqlDataReader[collumn]);
-					}
+					T data = mapFuncion(sqlDataReader);
+					list.Add(data);
 				}
 				return list;
 			}
