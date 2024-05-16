@@ -54,7 +54,7 @@ jobs:
 
     env:
       Solution_Name: ERP.sln
-      Test_Project_Path: UnitTest\UnitTest.csproj
+      Test_Project_Path: UnitTest
 
     steps:
     - name: Checkout
