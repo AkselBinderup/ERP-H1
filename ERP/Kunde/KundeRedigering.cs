@@ -18,7 +18,7 @@ public partial class KundeRedigering : Screen
         ExitOnEscape();
         Form<Kunde> form = new();
 
-        form.TextBox("kundenummer", nameof(Kunde.KundeNummer));
+        form.TextBox("Kundenummer", nameof(Kunde.KundeNummer));
         form.TextBox("Fornavn", nameof(Kunde.Fornavn));
         form.TextBox("Efternavn", nameof(Kunde.Efternavn));
         form.TextBox("Vejnavn", nameof(Kunde.Adresse.VejNavn));

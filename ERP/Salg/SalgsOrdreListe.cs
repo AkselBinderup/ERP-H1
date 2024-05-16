@@ -18,7 +18,7 @@ public class SalgsOrdreListe : Screen
         Console.WriteLine("Tryk F2 for at redigere ordre");
 
         side.AddKey(ConsoleKey.F3, CreateNewOrder);
-        Console.WriteLine("Tryk F3 for at redigere ordre");
+        Console.WriteLine("Tryk F3 for at oprette en ny ordre");
         
         side.AddKey(ConsoleKey.F5, DeleteOrder);
         Console.WriteLine("Tryk F5 for at slette den valgte ordre");

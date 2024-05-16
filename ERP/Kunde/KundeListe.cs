@@ -17,7 +17,7 @@ public class KundeListe : Screen
         Console.WriteLine("Tryk F1 for at oprette ny kunde");
 
         side.AddKey(ConsoleKey.F2, EditKunde);
-        Console.WriteLine("Tryk F2 for at oprette ændre");
+        Console.WriteLine("Tryk F2 for at ændre kunden");
 
         side.AddKey(ConsoleKey.F5, DeleteKunde);
         Console.WriteLine("Tryk F5 for at Slette kunde");
