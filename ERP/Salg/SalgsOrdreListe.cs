@@ -20,7 +20,7 @@ public class SalgsOrdreListe : Screen
         side.AddKey(ConsoleKey.F3, newOrder);
         Console.WriteLine("Tryk F3 for at lave en ny ordre");
 
-        side.AddKey(ConsoleKey.F5, EditCompany);
+        side.AddKey(ConsoleKey.F5, Editorder);
         Console.WriteLine("Tryk F5 for at slette den valgte ordre");
 
         side.AddColumn("Salgsodrenummer", nameof(SalgsOrdreHoved.OrdreNummer));
@@ -49,7 +49,7 @@ public class SalgsOrdreListe : Screen
             Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
         }
         
-        void newOrder()
+        void newOrder(SalgsOrdreHoved _)
         {
             SalgsOrdreHoved nyorder = new SalgsOrdreHoved();
             Display(new ÆndringAfSalgsordre(nyorder));
