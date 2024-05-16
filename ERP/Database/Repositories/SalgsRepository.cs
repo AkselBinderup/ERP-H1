@@ -2,8 +2,9 @@
 
 public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOrdreHoved>
 {
-    private readonly string dbName = "";
-    private readonly string dbFields = "";
+    private readonly string dbName = "dbo.SalgsOrdreHoved";
+    private readonly string dbFields = "(OrdreNummer, OprettelsesTidspunkt, GennemførlsesTidspunkt, " +
+        "KundeNummer, Tilstand, OrdreBeløb, OrdreLinjer)";
     public bool Create(SalgsOrdreHoved obj)
     {
         return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +
@@ -12,7 +13,8 @@ public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<Sa
             $"'{obj.GennemførelsesTidspunkt}'," +
             $"'{obj.KundeNummer}'," +
             $"'{obj.Tilstand}'," +
-            $"'{obj.Ordrebeløb}'");
+            $"'{obj.Ordrebeløb}'," +
+            $"'{obj.OrdreLinjer}'");
     }
 
     public List<SalgsOrdreHoved> Read()

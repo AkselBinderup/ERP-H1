@@ -24,19 +24,15 @@ public class SalgsOrdreListe : Screen
         side.AddColumn("Beløb", nameof(SalgsOrdreHoved.Ordrebeløb), 15);
 
 
-        TempSalgsOrdreHovedDataBase db = new();
-        var salgsOrdreHoved = db.GetData();
-
-        foreach (SalgsOrdreHoved model in salgsOrdreHoved)
+        var db = Database.SalgsRepository.Read();
+        foreach (SalgsOrdreHoved model in db)
         {
             side.Add(model);
         }
 
         var vælgSalgOdreHoved = side.Select();
         if (vælgSalgOdreHoved != null)
-        {
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
-        }
 
         void EditCompany(SalgsOrdreHoved virksomhed)
         {

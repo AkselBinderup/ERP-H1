@@ -24,10 +24,8 @@ public partial class VirksomhedStart : Screen
         listPage.AddColumn("Land", nameof(Virksomhed.Land));
         listPage.AddColumn("Valuta", nameof(Virksomhed.Valuta), 8);
 
-        TempDataBase db = new TempDataBase();
-
-        var virksomhedder = db.GetData();
-        foreach (Virksomhed virksomhed in virksomhedder)
+        var db = Database.CompanyDatabase.Read();
+        foreach (Virksomhed virksomhed in db)
         {
             listPage.Add(virksomhed);
         }
@@ -38,7 +36,7 @@ public partial class VirksomhedStart : Screen
             Display(new VirksomhedDetaljer(vælgVirksomhed));
         }
 
-        void CreateNewCompany(Virksomhed virksomhed)
+        void CreateNewCompany(Virksomhed _)
         {
             Virksomhed NyVirksomhed = new();
             Display(new VirksomhedRedigering(NyVirksomhed));

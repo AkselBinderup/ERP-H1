@@ -24,17 +24,13 @@ public partial class ProduktListeStart : Screen
         listPage.AddColumn("Lagerantal", nameof(Produkt.AntalLager), 12);
         listPage.AddColumn("Inkøbspris", nameof(Produkt.IndkøbsPris));
         listPage.AddColumn("Salgs pris", nameof(Produkt.SalgsPris));
-        listPage.AddColumn("Avance i Procent", nameof(Produkt.BeregnAvanceProcent));
+        listPage.AddColumn("Avance i Procent", nameof(Produkt.Avance));
 
-        TempDataBase db = new TempDataBase();
-
-        var Produkter = db.GetProducts();
-        foreach (Produkt model in Produkter)
+        var db = Database.ProductRepository.Read();
+        foreach (Produkt model in db)
         {
             listPage.Add(model);
         }
-
-        //todo: implementer databasehent
 
         var vælgProdukt = listPage.Select();
         if (vælgProdukt != null)

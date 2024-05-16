@@ -16,25 +16,27 @@ public class ProduktRedigering : Screen
 		ExitOnEscape();
 		Form<Produkt> form = new Form<Produkt>();
 
-        form.TextBox("Varenummer", nameof(Produkt.VareNummer));
         form.TextBox("Navn", nameof(Produkt.Navn));
         form.TextBox("Beskrivelse", nameof(Produkt.Beskrivelse));
         form.TextBox("Salgspris", nameof(Produkt.SalgsPris));
         form.TextBox("Indkøbspris", nameof(Produkt.IndkøbsPris));
         form.TextBox("Lokation", nameof(Produkt.Lokation));
         form.TextBox("Antal på Lager", nameof(Produkt.AntalLager));
-        form.TextBox("Enhed", nameof(Produkt.Enhed));
+        form.SelectBox("Enhed", nameof(Produkt.Enhed));
+        form.AddOption("Enhed", "Styk", Enheder.Styk);
+        form.AddOption("Enhed", "Timer", Enheder.Meter);
+        form.AddOption("Enhed", "Meter", Enheder.Timer);
 
-		if (form.Edit(Produkt))
+        if (form.Edit(Produkt))
 		{
-			//if (Produkt.Id != 0)
-			//{
-			//    database.Update(Produkt);
-			//}
-			//else
-			//{
-			//    database.Create(Produkt);
-			//}
+			if(Produkt.VareNummer != 0)
+			{
+                Database.ProductRepository.Update(Produkt);
+			}
+			else
+			{
+				Database.ProductRepository.Create(Produkt);
+			}
 			Console.WriteLine("Ændringerne blev gemt");
 		}
 		else
