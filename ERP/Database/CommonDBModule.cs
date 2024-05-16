@@ -21,7 +21,7 @@ public partial class CommonDBModule<T>
         }
 
     }
-    protected T ExecuteDapperSingleQuery<T>(string command)
+    protected T ExecuteDapperSingleQuery(string command)
     {
         using (var con = GetConnection())
         {
@@ -29,7 +29,7 @@ public partial class CommonDBModule<T>
             return results;
         }
     }
-    protected List<T> ExecuteDapperQuery<T>(string command)
+    protected List<T> ExecuteDapperQuery(string command)
     {
         using (var con = GetConnection())
         {
