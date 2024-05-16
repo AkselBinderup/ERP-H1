@@ -30,7 +30,7 @@ public class KundeListe : Screen
         var db = Database.KundeRepository.Read();
         foreach (Kunde virksomhed in db)
         {
-            side.Add(item);
+            side.Add(virksomhed);
         }
 
         var kunde = side.Select();

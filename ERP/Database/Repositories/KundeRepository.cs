@@ -25,7 +25,7 @@ public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
     }
     public List<Kunde> Read()
     {
-        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
+        return ExecuteDapperQuery<Kunde>($"SELECT * FROM {dbName}");
     }
     public bool Update(Kunde obj)
     {

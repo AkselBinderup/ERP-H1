@@ -20,11 +20,11 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
     }
     public List<Virksomhed> Read()
     {
-        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
+        return ExecuteDapperQuery<Virksomhed>($"SELECT * FROM {dbName}");
     }
     public Virksomhed ReadSingle(int id)
     {
-        return ExecuteDapperSingleQuery($"SELECT * FROM {dbName} WHERE ID={id}");
+        return ExecuteDapperSingleQuery<Virksomhed>($"SELECT * FROM {dbName} WHERE ID={id}");
     }
 
     public bool Update(Virksomhed obj)

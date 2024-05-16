@@ -19,7 +19,7 @@ public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<Sa
 
     public List<SalgsOrdreHoved> Read()
     {
-        return ExecuteDapperQuery($"Select * from {dbName}");
+        return ExecuteDapperQuery<SalgsOrdreHoved>($"Select * from {dbName}");
     }
 
     public bool Update(SalgsOrdreHoved obj)
