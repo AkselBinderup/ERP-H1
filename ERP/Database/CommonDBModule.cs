@@ -19,9 +19,8 @@ public partial class CommonDBModule<T>
             var rowsAffected = con.Execute(command);
             return rowsAffected > 0;
         }
-
     }
-    protected T ExecuteDapperSingleQuery(string command)
+    protected T ExecuteDapperSingleQuery<T>(string command)
     {
         using (var con = GetConnection())
         {
@@ -29,7 +28,18 @@ public partial class CommonDBModule<T>
             return results;
         }
     }
-    protected List<T> ExecuteDapperQuery(string command)
+    //protected IEnumerable<T> ExecuteObject<T>(string sql)
+    //{
+    //    List<T> items = new List<T>();
+    //    var data = ExecuteDataTable(sql); 
+    //    foreach (var row in data.Rows)
+    //    {
+    //        T item = (T)Activator.CreateInstance(typeof(T), row);
+    //        items.Add(item);
+    //    }
+    //    return items;
+    //}
+    protected List<T> ExecuteDapperQuery<T>(string command)
     {
         using (var con = GetConnection())
         {

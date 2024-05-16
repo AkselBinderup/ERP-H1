@@ -2,29 +2,29 @@
 
 public class ProductRepository : CommonDBModule<Produkt>, IDBrepository<Produkt>
 {
-    private readonly string dbName = "";
-    private readonly string dbFields = "";
+    private readonly string dbName = "dbo.Produkt";
+    private readonly string dbFields = "(Navn, Beskrivelse, SalgsPris, " +
+        "Indkøbspris, Lokation, AntalLager, Enhed, Avance)";
 
     public bool Create(Produkt obj)
     {
         return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +
-            $"('{obj.VareNummer}'," +
-            $"'{obj.Navn}'," +
+            $"('{obj.Navn}'," +
             $"'{obj.Beskrivelse}'," +
-            $"'{obj.SalgsPris}'," +
-            $"'{obj.IndkøbsPris}'," +
+            $"{obj.SalgsPris}," +
+            $"{obj.IndkøbsPris}," +
             $"'{obj.Lokation}'," +
-            $"'{obj.AntalLager}'," +
-            $"'{obj.AntalLager}'");
+            $"{obj.AntalLager}," +
+            $"'{obj.Enhed}'," +
+            $"{obj.Avance})");
     }
     public List<Produkt> Read()
     {
-        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
+        return ExecuteDapperQuery<Produkt>($"SELECT * FROM {dbName}");
     }
     public bool Update(Produkt obj)
     {
-        return ExecuteCommand($"UPDATE {dbName} " +
-            $"SET VareNummer = {obj.VareNummer}," +
+        return ExecuteCommand($"UPDATE {dbName} SET" +
             $"Navn = {obj.Navn}," +
             $"Beskrivelse = {obj.Beskrivelse}," +
             $"SalgsPris = {obj.SalgsPris}," +

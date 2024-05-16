@@ -21,4 +21,11 @@ public class Person
         By = adresse.By;
         PostNummer = adresse.PostNummer;
     }
+    public Person(string fornavn, string efternavn, string email, int telefonNummer)
+    {
+        Fornavn = fornavn;
+        Efternavn = efternavn;
+        EmailAdresse= email;
+        TelefonNummer = telefonNummer;
+    }
 }

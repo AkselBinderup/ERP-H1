@@ -33,15 +33,11 @@ public partial class VirksomhedRedigering : Screen
         if (form.Edit(Virksomhed))
         {
             if (Virksomhed.Id != 0)
-            {
-                //todo implementer database tak (;
-                //database.Update(Virksomhed);
-            }
+                Database.CompanyDatabase.Update(Virksomhed);
             else
-            {
-                //database.Create(Virksomhed);
-            }
-            Console.WriteLine("|Ændringerne blev gemt");
+                Database.CompanyDatabase.Create(Virksomhed);
+
+            Console.WriteLine("Ændringerne blev gemt");
         }
         else
         {

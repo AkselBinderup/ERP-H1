@@ -27,11 +27,10 @@ public class KundeListe : Screen
         side.AddColumn("Telefonnummer", nameof(Kunde.TelefonNummer), 15);
         side.AddColumn("Email", nameof(Kunde.EmailAdresse), 20);
 
-        TempKundeInfo db = new TempKundeInfo();
-        var Kunder = db.GetData();
-        foreach (var item in Kunder)
+        var db = Database.KundeRepository.Read();
+        foreach (Kunde virksomhed in db)
         {
-            side.Add(item);
+            side.Add(virksomhed);
         }
 
         var kunde = side.Select();

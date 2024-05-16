@@ -27,7 +27,15 @@ public class ÆndringAfSalgsordre : Screen
 
         if (form.Edit(SalgsOrdreHoved))
         {
-            Console.WriteLine("|Ændringerne blev gemt");
+            if(SalgsOrdreHoved.FuldeNavn != null)
+            {
+                Database.SalgsRepository.Update(SalgsOrdreHoved);
+            }
+            else
+            {
+                Database.SalgsRepository.Create(SalgsOrdreHoved);
+            }
+            Console.WriteLine("Ændringerne blev gemt");
         }
         else
         {

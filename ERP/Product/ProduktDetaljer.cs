@@ -26,7 +26,7 @@ public partial class ProductDetaljer : Screen
                           $"Lokation: {Produkt.Lokation}\n" +
                           $"Antal på lager: {Produkt.AntalLager}\n" +
                           $"Enhed: {Produkt.Enhed}\n" +
-                          $"Avance i Procent: {Produkt.BeregnAvanceProcent}\n" +
+                          $"Avance i Procent: {Produkt.Avance}\n" +
                           $"Avance i kr: {Produkt.BeregnFortjeneste()}\n");
     }
 }
