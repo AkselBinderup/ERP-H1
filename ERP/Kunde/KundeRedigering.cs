@@ -24,9 +24,9 @@ public partial class KundeRedigering : Screen
         form.TextBox("Vejnavn", nameof(Kunde.VejNavn));
         form.TextBox("Vejnummer", nameof(Kunde.VejNummer));
         form.TextBox("Postnummer", nameof(Kunde.PostNummer));
-        form.TextBox("by", nameof(Kunde.By));
+        form.TextBox("By", nameof(Kunde.By));
         form.TextBox("Email", nameof(Kunde.EmailAdresse));
-        form.TextBox("TLF nummer", nameof(Kunde.TelefonNummer));
+        form.TextBox("Telefon nummer", nameof(Kunde.TelefonNummer));
 
 
         if (form.Edit(Kunde))
@@ -37,10 +37,6 @@ public partial class KundeRedigering : Screen
             }
             else
             {
-                Debug.WriteLine(Kunde.VejNavn);
-                Debug.WriteLine(Kunde.VejNummer);
-                Debug.WriteLine(Kunde.By);
-                Debug.WriteLine(Kunde.PostNummer);
                 Adresse opdateretAdresse = new Adresse(Kunde.VejNavn, Kunde.VejNummer,
                     Kunde.By, Kunde.PostNummer);
                 var adresseId = Database.AdresseRepository.GetSingleId(opdateretAdresse);

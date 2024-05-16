@@ -17,7 +17,7 @@ public partial class CompanyDatabase : CommonDBModule<Virksomhed>, IDBrepository
     }
     public List<Virksomhed> Read()
     {
-        return ExecuteDapperQuery<Virksomhed>($"SELECT * FROM {dbName}");
+        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
     }
     public Virksomhed ReadSingle(int id)
     {

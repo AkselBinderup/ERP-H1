@@ -4,12 +4,11 @@ public class Kunde : Person
 {
     public int KundeNummer { get; set; }
     public DateTime SidsteKøb { get; set; }
-    public string? VejNavn { get; set; }
-    public int VejNummer { get; set; }
-    public string By { get; set; }
-    public int PostNummer { get; set; }
+    public new string? VejNavn { get; set; }
+    public new int VejNummer { get; set; }
+    public new string? By { get; set; }
+    public new int PostNummer { get; set; }
     public Kunde() { }
-
     public Kunde(Adresse adresse)
     {
         VejNavn = adresse.VejNavn;
