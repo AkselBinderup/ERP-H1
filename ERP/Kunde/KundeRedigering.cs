@@ -48,11 +48,11 @@ public partial class KundeRedigering : Screen
                 var personID = Database.PersonRepository.GetIntFromPerson(opdateretPerson, adresseId);
                 Database.KundeRepository.CreateWithId(Kunde, personID);
             }
-            Console.WriteLine("Ændringerne blev gemt");
+            Console.WriteLine("|Ændringerne blev gemt");
         }
         else
         {
-            Console.WriteLine("Ingen ændringer");
+            Console.WriteLine("|Ingen ændringer");
         }
     }
 }
