@@ -14,11 +14,11 @@ public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
     }
     public Kunde ReadSingle(int id)
     {
-        return ExecuteDapperSingleQuery<Kunde>($"SELECT * FROM {dbName} WHERE Id = '{id}");
+        return ExecuteDapperSingleQuery($"SELECT * FROM {dbName} WHERE Id = '{id}");
     }
     public List<Kunde> Read()
     {
-        return ExecuteDapperQuery<Kunde>($"SELECT * FROM {dbName}");
+        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
     }
 
     public bool Update(Kunde obj)
