@@ -14,8 +14,14 @@ public class SalgsOrdreListe : Screen
 
         ListPage<SalgsOrdreHoved> side = new ListPage<SalgsOrdreHoved>();
 
-        side.AddKey(ConsoleKey.F2, EditCompany);
-        Console.WriteLine("Tryk F2 for at redigere virksomhed");
+        side.AddKey(ConsoleKey.F2, Editorder);
+        Console.WriteLine("Tryk F2 for at redigere ordre");
+
+        side.AddKey(ConsoleKey.F3, newOrder);
+        Console.WriteLine("Tryk F3 for at lave en ny ordre");
+
+        side.AddKey(ConsoleKey.F5, EditCompany);
+        Console.WriteLine("Tryk F5 for at slette den valgte ordre");
 
         side.AddColumn("Salgsodrenummer", nameof(SalgsOrdreHoved.OrdreNummer));
         side.AddColumn("Dato", nameof(SalgsOrdreHoved.OprettelsesTidspunkt), 20);
@@ -38,9 +44,15 @@ public class SalgsOrdreListe : Screen
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
         }
 
-        void EditCompany(SalgsOrdreHoved virksomhed)
+        void Editorder(SalgsOrdreHoved vælgSalgOdreHoved)
         {
-            Display(new ÆndringAfSalgsordre(virksomhed));
+            Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
+        }
+        
+        void newOrder()
+        {
+            SalgsOrdreHoved nyorder = new SalgsOrdreHoved();
+            Display(new ÆndringAfSalgsordre(nyorder));
         }
     }
 }

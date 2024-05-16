@@ -18,6 +18,8 @@ public partial class ProduktListeStart : Screen
 		Console.WriteLine("Tryk F2 for at Ændre et produkt");
 		listPage.AddKey(ConsoleKey.F3, CreateNewProduct);
         Console.WriteLine("Tryk F3 for at oprette et produkt");
+        listPage.AddKey(ConsoleKey.F5, deleteProduct);
+        Console.WriteLine("Tryk F5 for at oprette et produkt");
 
         listPage.AddColumn("Varenummer:", nameof(Produkt.VareNummer), 40);
         listPage.AddColumn("Navn", nameof(Produkt.Navn));
