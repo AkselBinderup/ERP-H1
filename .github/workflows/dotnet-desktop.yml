@@ -16,7 +16,7 @@ jobs:
 
     env:
       Solution_Name: ERP.sln
-      Test_Project_Path: ERP-H1\UnitTests\UnitTest.csproj  # Updated path to your test project
+      Test_Project_Path: UnitTests\UnitTest.csproj  # Updated path to your test project
 
     steps:
     - name: Checkout
