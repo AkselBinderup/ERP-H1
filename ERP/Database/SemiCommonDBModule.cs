@@ -42,6 +42,4 @@ public partial class Database<T>
 			sqlCommand.ExecuteNonQuery();
 		}
 	}
-
-
 }

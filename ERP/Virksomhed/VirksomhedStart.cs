@@ -35,8 +35,6 @@ public partial class VirksomhedStart : Screen
         {
             Display(new VirksomhedDetaljer(vælgVirksomhed));
         }
-
-        
     }
 
 	private void CreateNewCompany(Virksomhed _)

@@ -5,6 +5,7 @@ namespace ERP;
 public class MainMenu : Screen
 {
     public override string Title { get; set; } = "LNE Security A/S";
+
     protected override void Draw()
     {
         Menu menu = new();

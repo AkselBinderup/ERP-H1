@@ -20,6 +20,7 @@ public partial class CommonDBModule<T>
             return rowsAffected > 0;
         }
     }
+
     protected Type ExecuteDapperSingleQuery<Type>(string command)
     {
         using (var con = GetConnection())

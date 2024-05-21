@@ -5,6 +5,7 @@ public class KundeInfoScreen : Screen
 {
     public override string Title { get; set; } = "Kunde info";
     Kunde Kunde = new();
+
     public KundeInfoScreen(Kunde kunde)
     {
         Title = "Detaljer for " + kunde.FuldeNavn;

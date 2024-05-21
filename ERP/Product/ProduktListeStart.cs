@@ -7,7 +7,6 @@ public partial class ProduktListeStart : Screen
 
     protected override void Draw()
     {
-		
 		ExitOnEscape();
 
         Console.CursorVisible = false;

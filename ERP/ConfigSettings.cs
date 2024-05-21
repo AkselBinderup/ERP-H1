@@ -7,6 +7,7 @@ namespace ERP
         public static string? ConnectionString { get; private set; }
 
         private static readonly string JsonPath = "../../../appsettings.json";
+
         public static void ReadConfigSettings()
         {
             var jsonContent = File.ReadAllText(JsonPath);

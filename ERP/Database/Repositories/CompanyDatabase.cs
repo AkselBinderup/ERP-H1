@@ -4,6 +4,7 @@ public partial class CompanyDatabase : CommonDBModule<Virksomhed>, IDBrepository
 {
     private readonly string dbName = "dbo.Virksomhed";
     private readonly string dbFields = "(FirmaNavn, Vej, HusNummer, PostNummer, ByNavn, Land, Valuta)";
+
     public bool Create(Virksomhed obj)
     {
         return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +

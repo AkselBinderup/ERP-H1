@@ -9,6 +9,7 @@ public class PersonRepository : CommonDBModule<Person>, IDBrepository<Person>
     {
         throw new NotImplementedException();
     }
+
     public int GetIntFromPerson(Person obj, int id) {
         return ExecuteDapperSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
         $"('{obj.Fornavn}'," +
@@ -17,6 +18,7 @@ public class PersonRepository : CommonDBModule<Person>, IDBrepository<Person>
         $"{obj.TelefonNummer}," +
         $"{id})SELECT SCOPE_IDENTITY()");
     }
+
     public List<Person> Read()
     {
         return ExecuteDapperQuery($"SELECT * FROM {dbName}");
@@ -26,6 +28,7 @@ public class PersonRepository : CommonDBModule<Person>, IDBrepository<Person>
     {
         throw new NotImplementedException();
     }
+
     public bool Delete(int obj)
     {
         throw new NotImplementedException();

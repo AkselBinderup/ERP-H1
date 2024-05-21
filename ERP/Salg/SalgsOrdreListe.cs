@@ -39,8 +39,6 @@ public class SalgsOrdreListe : Screen
         var vælgSalgOdreHoved = side.Select();
         if (vælgSalgOdreHoved != null)
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
-
-        
     }
 
 	private void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
