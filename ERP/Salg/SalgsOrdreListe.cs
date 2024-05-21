@@ -12,7 +12,7 @@ public class SalgsOrdreListe : Screen
 
         Console.CursorVisible = false;
 
-        ListPage<SalgsOrdreHoved> side = new ListPage<SalgsOrdreHoved>();
+        ListPage<SalgsOrdreHoved> side = new();
 
         side.AddKey(ConsoleKey.F2, EditOrder);
         Console.WriteLine("Tryk F2 for at redigere ordre");
@@ -41,16 +41,16 @@ public class SalgsOrdreListe : Screen
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
     }
 
-	private void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
-	{
-		Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
-	}
-
-	private void CreateNewOrder(SalgsOrdreHoved vælgSalgOdreHoved)
-	{
-		SalgsOrdreHoved nyorder = new SalgsOrdreHoved();
-		Display(new ÆndringAfSalgsordre(nyorder));
-	}
+        void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
+        {
+            Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
+        }
+        
+        void CreateNewOrder(SalgsOrdreHoved vælgSalgOdreHoved)
+        {
+            Display(new SalgKundeSide());
+        }
+    
 
 	private void DeleteOrder(SalgsOrdreHoved hoved)
     {

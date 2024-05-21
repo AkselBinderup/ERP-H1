@@ -10,8 +10,7 @@ public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
     {
         throw new NotImplementedException();
     }
-
-    public bool CreateWithId(Kunde obj, int personId)
+    public bool CreateWithId(Kunde _, int personId)
     {
         return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +
             $"(GETDATE()," +

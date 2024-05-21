@@ -3,16 +3,10 @@ using TECHCOOL.UI;
 
 namespace ERP;
 
-public partial class KundeRedigering : Screen
+public partial class KundeRedigering(Kunde kunde) : Screen
 {
-    public override string Title { get; set; } = "Kunde";
-    Kunde Kunde = new();
-
-    public KundeRedigering(Kunde kunde)
-    {
-        Title = "Redigerer for " + kunde.FuldeNavn;
-        Kunde = kunde;
-    }
+    public override string Title { get; set; } = "Redigerer for " + kunde.FuldeNavn;
+    private readonly Kunde Kunde = kunde;
 
     protected override void Draw()
     {
@@ -35,7 +29,7 @@ public partial class KundeRedigering : Screen
                 Database.KundeRepository.Update(Kunde);
             else
             {
-                Adresse opdateretAdresse = new Adresse(Kunde.VejNavn, Kunde.VejNummer,
+                Adresse opdateretAdresse = new(Kunde.VejNavn, Kunde.VejNummer,
                     Kunde.By, Kunde.PostNummer);
                 var adresseId = Database.AdresseRepository.GetSingleId(opdateretAdresse);
                 Person opdateretPerson = new(Kunde.Fornavn, Kunde.Efternavn, Kunde.EmailAdresse, Kunde.TelefonNummer);

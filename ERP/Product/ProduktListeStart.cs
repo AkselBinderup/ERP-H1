@@ -11,7 +11,7 @@ public partial class ProduktListeStart : Screen
 
         Console.CursorVisible = false;
 
-        ListPage<Produkt> listPage = new ListPage<Produkt>();
+        ListPage<Produkt> listPage = new();
 
         listPage.AddKey(ConsoleKey.F2, EditProduct);
 		Console.WriteLine("Tryk F2 for at Ændre et produkt");
@@ -37,7 +37,6 @@ public partial class ProduktListeStart : Screen
         if (vælgProdukt != null)
             Display(new ProductDetaljer(vælgProdukt));
     }
-
     private void CreateNewProduct(Produkt produkt)
 	{
         Produkt newProdukt = new();

@@ -27,8 +27,8 @@ public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<Sa
     {
         return ExecuteCommand($"UPDATE {dbName} " +
             $"SET OrdreNummer = {obj.OrdreNummer}," +
-            $"OprettelsesTidspunkt = {obj.OprettelsesTidspunkt}," +
-            $"GennemførelsesTidspunkt = {obj.GennemførelsesTidspunkt}," +
+            $"OprettelsesTidspunkt = GETDATE()," +
+            $"GennemførelsesTidspunkt = GETDATE()," +
             $"KundeNummer = {obj.KundeNummer}," +
             $"Tilstand = {obj.Tilstand}," +
             $"Ordrebeløb = {obj.Ordrebeløb}," + "WHERE Id = {id}");

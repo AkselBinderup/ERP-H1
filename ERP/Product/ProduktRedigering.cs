@@ -1,20 +1,15 @@
 ﻿using TECHCOOL.UI;
 namespace ERP;
 
-public class ProduktRedigering : Screen
+public class ProduktRedigering(Produkt produkt) : Screen
 {
-	public override string Title { get; set; } = "Produkt redigering";
-	Produkt Produkt = new();
-	public ProduktRedigering(Produkt produkt)
-	{
-		Title = "Redigerer for" + produkt.Navn;
-		Produkt = produkt;
-	}
-	
-	protected override void Draw()
+    public override string Title { get; set; } = "Redigerer for" + produkt.Navn;
+    private readonly Produkt Produkt = produkt;
+
+    protected override void Draw()
 	{
 		ExitOnEscape();
-		Form<Produkt> form = new Form<Produkt>();
+		Form<Produkt> form = new();
 
         form.TextBox("Navn", nameof(Produkt.Navn));
         form.TextBox("Beskrivelse", nameof(Produkt.Beskrivelse));
