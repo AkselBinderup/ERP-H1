@@ -28,16 +28,14 @@ public partial class ProduktListeStart : Screen
         listPage.AddColumn("Avance i Procent", nameof(Produkt.Avance));
 
         var db = Database.ProductRepository.Read();
+
         foreach (Produkt model in db)
-        {
             listPage.Add(model);
-        }
 
         var vælgProdukt = listPage.Select();
+
         if (vælgProdukt != null)
-        {
             Display(new ProductDetaljer(vælgProdukt));
-        }
     }
 
     private void CreateNewProduct(Produkt produkt)

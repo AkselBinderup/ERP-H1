@@ -27,16 +27,14 @@ public class KundeListe : Screen
         side.AddColumn("Email", nameof(Kunde.EmailAdresse), 20);
 
         var db = Database.KundeRepository.Read();
+
         foreach (Kunde virksomhed in db)
-        {
             side.Add(virksomhed);
-        }
 
         var kunde = side.Select();
+
         if (kunde != null)
-        {
             Display(new KundeInfoScreen(kunde));
-        }
     }
 
 	private void CreateNewKunde(Kunde _)

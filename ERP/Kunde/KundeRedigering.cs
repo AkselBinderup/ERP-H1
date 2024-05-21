@@ -32,9 +32,7 @@ public partial class KundeRedigering : Screen
         if (form.Edit(Kunde))
         {
             if (Kunde.KundeNummer != 0)
-            {
                 Database.KundeRepository.Update(Kunde);
-            }
             else
             {
                 Adresse opdateretAdresse = new Adresse(Kunde.VejNavn, Kunde.VejNummer,
@@ -48,8 +46,6 @@ public partial class KundeRedigering : Screen
             Console.WriteLine("|Ændringerne blev gemt");
         }
         else
-        {
             Console.WriteLine("|Ingen ændringer");
-        }
     }
 }

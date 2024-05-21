@@ -30,18 +30,13 @@ public class ProduktRedigering : Screen
         if (form.Edit(Produkt))
 		{
 			if(Produkt.VareNummer != 0)
-			{
                 Database.ProductRepository.Update(Produkt);
-			}
 			else
-			{
 				Database.ProductRepository.Create(Produkt);
-			}
+			
 			Console.WriteLine("Ændringerne blev gemt");
 		}
 		else
-		{
 			Console.WriteLine("Ingen ændringer");
-		}
 	}
 }
