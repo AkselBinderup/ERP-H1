@@ -20,11 +20,11 @@ public partial class CommonDBModule<T>
             return rowsAffected > 0;
         }
     }
-    protected T ExecuteDapperSingleQuery<T>(string command)
+    protected Type ExecuteDapperSingleQuery<Type>(string command)
     {
         using (var con = GetConnection())
         {
-            T results = con.QuerySingle<T>(command);
+            Type results = con.QuerySingle<Type>(command);
             return results;
         }
     }
@@ -39,7 +39,7 @@ public partial class CommonDBModule<T>
     //    }
     //    return items;
     //}
-    protected List<T> ExecuteDapperQuery<T>(string command)
+    protected List<T> ExecuteDapperQuery(string command)
     {
         using (var con = GetConnection())
         {

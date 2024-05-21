@@ -19,7 +19,7 @@ public class PersonRepository : CommonDBModule<Person>, IDBrepository<Person>
     }
     public List<Person> Read()
     {
-        return ExecuteDapperQuery<Person>($"SELECT * FROM {dbName}");
+        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
     }
 
     public bool Update(Person obj)
