@@ -1,29 +1,26 @@
-﻿using TECHCOOL.UI;
+﻿using Org.BouncyCastle.Bcpg;
+using System;
+using TECHCOOL.UI;
 namespace ERP;
-public class ÆndringAfSalgsordre : Screen
+public class ÆndringAfSalgsordre(SalgsOrdreHoved salgsOrdreHoved) : Screen
 {
-    public override string Title { get; set; } = "Ændring af salgsordre";
-    SalgsOrdreHoved SalgsOrdreHoved = new();
-
-    public ÆndringAfSalgsordre(SalgsOrdreHoved salgsOrdreHoved)
-    {
-        Title = "Redigerer for " + salgsOrdreHoved.FuldeNavn;
-        SalgsOrdreHoved = salgsOrdreHoved;
-    }
+    public override string Title { get; set; } = "Opretter salgsordre for " + salgsOrdreHoved.FuldeNavn;
+    private readonly SalgsOrdreHoved SalgsOrdreHoved = salgsOrdreHoved;
 
     protected override void Draw()
     {
         ExitOnEscape();
         Form<SalgsOrdreHoved> form = new();
 
-        form.TextBox("Fornavn", nameof(SalgsOrdreHoved.Fornavn));
-        form.TextBox("Efternavn", nameof(SalgsOrdreHoved.Efternavn));
-        form.TextBox("VejNavn", nameof(SalgsOrdreHoved.Adresse.VejNavn));
-        form.TextBox("Vejnummer", nameof(SalgsOrdreHoved.Adresse.VejNummer));
-        form.TextBox("PostNummer", nameof(SalgsOrdreHoved.Adresse.PostNummer));
-        form.TextBox("By", nameof(SalgsOrdreHoved.Adresse.By));
-        form.TextBox("Telefonnummer", nameof(SalgsOrdreHoved.TelefonNummer));
-        form.TextBox("Email", nameof(SalgsOrdreHoved.EmailAdresse));
+        form.TextBox("OrdreNummer", nameof(SalgsOrdreHoved.OrdreNummer));
+        form.TextBox("KundeNummer", nameof(SalgsOrdreHoved.KundeNummer));
+        form.TextBox("OrdreLinjer", nameof(SalgsOrdreHoved.OrdreLinjer));
+        form.SelectBox("Tilstand", nameof(SalgsOrdreHoved.Tilstand));
+        form.AddOption("Tilstand", "Ingen", nameof(Tilstand.Ingen));
+        form.AddOption("Tilstand", "Oprettet", nameof(Tilstand.Oprettet));
+        form.AddOption("Tilstand", "Bekræftet", nameof(Tilstand.Bekræftet));
+        form.AddOption("Tilstand", "Pakket", nameof(Tilstand.Pakket));
+        form.AddOption("Tilstand", "Færdig", nameof(Tilstand.Færdig));
 
         if (form.Edit(SalgsOrdreHoved))
         {

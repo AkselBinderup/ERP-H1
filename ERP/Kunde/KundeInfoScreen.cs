@@ -1,15 +1,10 @@
 ﻿using TECHCOOL.UI;
 namespace ERP;
 
-public class KundeInfoScreen : Screen
+public class KundeInfoScreen(Kunde kunde) : Screen
 {
-    public override string Title { get; set; } = "Kunde info";
-    Kunde Kunde = new();
-    public KundeInfoScreen(Kunde kunde)
-    {
-        Title = "Detaljer for " + kunde.FuldeNavn;
-        Kunde = kunde;
-    }
+    public override string Title { get; set; } = "Detaljer for " + kunde.FuldeNavn;
+    private readonly Kunde Kunde = kunde;
 
     protected override void Draw()
     {

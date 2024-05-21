@@ -2,15 +2,10 @@
 
 namespace ERP;
 
-class SalgsOrdreDetaljer : Screen
+class SalgsOrdreDetaljer(SalgsOrdreHoved salgsOrdreHoved) : Screen
 {
-	public override string Title { get; set; } = "Salgs Ordre Hoveder";
-	SalgsOrdreHoved SalgsOrdreHoved = new();
-	public SalgsOrdreDetaljer(SalgsOrdreHoved salgsOrdreHoved)
-	{
-		Title = "Detaljer for Odrenummer " + salgsOrdreHoved.OrdreNummer;
-		SalgsOrdreHoved = salgsOrdreHoved;
-	}
+    public override string Title { get; set; } = "Detaljer for Odrenummer " + salgsOrdreHoved.OrdreNummer;
+    private readonly SalgsOrdreHoved SalgsOrdreHoved = salgsOrdreHoved;
 
     protected override void Draw()
     {

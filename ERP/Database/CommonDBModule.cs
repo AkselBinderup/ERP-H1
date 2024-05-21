@@ -7,26 +7,22 @@ public partial class CommonDBModule<T>
 {
     protected SqlConnection GetConnection()
     {
-        SqlConnection sqlConnection = new SqlConnection(ConfigSettings.ConnectionString);
+        SqlConnection sqlConnection = new(ConfigSettings.ConnectionString);
         sqlConnection.Open();
         return sqlConnection;
     }
 
     protected bool ExecuteCommand(string command)
     {
-        using (var con = GetConnection())
-        {
-            var rowsAffected = con.Execute(command);
-            return rowsAffected > 0;
-        }
+        using var con = GetConnection();
+        var rowsAffected = con.Execute(command);
+        return rowsAffected > 0;
     }
     protected Type ExecuteDapperSingleQuery<Type>(string command)
     {
-        using (var con = GetConnection())
-        {
-            Type results = con.QuerySingle<Type>(command);
-            return results;
-        }
+        using var con = GetConnection();
+        Type results = con.QuerySingle<Type>(command);
+        return results;
     }
     //protected IEnumerable<T> ExecuteObject<T>(string sql)
     //{
@@ -41,10 +37,8 @@ public partial class CommonDBModule<T>
     //}
     protected List<T> ExecuteDapperQuery(string command)
     {
-        using (var con = GetConnection())
-        {
-            List<T> results = con.Query<T>(command).ToList();
-            return results;
-        }
+        using var con = GetConnection();
+        List<T> results = con.Query<T>(command).ToList();
+        return results;
     }
 }
