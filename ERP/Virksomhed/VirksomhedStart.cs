@@ -36,21 +36,22 @@ public partial class VirksomhedStart : Screen
             Display(new VirksomhedDetaljer(vælgVirksomhed));
         }
 
-        void CreateNewCompany(Virksomhed _)
-        {
-            Virksomhed NyVirksomhed = new();
-            Display(new VirksomhedRedigering(NyVirksomhed));
-        }
-
-        void EditCompany(Virksomhed virksomhed)
-        {
-            Display(new VirksomhedRedigering(virksomhed));
-        }
-
-        void DeleteCompany(Virksomhed virksomhed)
-        {
-            //Database db = new Database();
-            //db.Delete(Virksomhed.Id);
-        }
+        
     }
+
+	private void CreateNewCompany(Virksomhed _)
+	{
+		Virksomhed NyVirksomhed = new();
+		Display(new VirksomhedRedigering(NyVirksomhed));
+	}
+
+	private void EditCompany(Virksomhed virksomhed)
+	{
+		Display(new VirksomhedRedigering(virksomhed));
+	}
+
+	private void DeleteCompany(Virksomhed virksomhed)
+	{
+		Database.CompanyDatabase.Delete(virksomhed.Id);
+	}
 }

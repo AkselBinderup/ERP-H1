@@ -41,11 +41,6 @@ public partial class ProduktListeStart : Screen
         }
     }
 
-    private void deleteProduct(Produkt produkt)
-    {
-        throw new NotImplementedException();
-    }
-
     private void CreateNewProduct(Produkt produkt)
 	{
         Produkt newProdukt = new();
@@ -59,6 +54,6 @@ public partial class ProduktListeStart : Screen
 
     private void DeleteProduct(Produkt produkt)
     {
-
+        Database.KundeRepository.Delete(produkt.VareNummer);
     }
 }
