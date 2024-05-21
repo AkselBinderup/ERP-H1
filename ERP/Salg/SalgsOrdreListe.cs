@@ -41,16 +41,15 @@ public class SalgsOrdreListe : Screen
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
     }
 
-        void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
-        {
-            Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
-        }
+    private void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
+    {
+        Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
+    }
         
-        void CreateNewOrder(SalgsOrdreHoved vælgSalgOdreHoved)
-        {
-            Display(new SalgKundeSide());
-        }
-    
+    private void CreateNewOrder(SalgsOrdreHoved vælgSalgOdreHoved)
+    {
+        Display(new SalgKundeSide());
+    }
 
 	private void DeleteOrder(SalgsOrdreHoved hoved)
     {
