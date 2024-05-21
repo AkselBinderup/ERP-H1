@@ -10,7 +10,6 @@ public class KundeListe : Screen
     {
         ExitOnEscape();
 
-
         ListPage<Kunde> side = new();
 
         side.AddKey(ConsoleKey.F1, CreateNewKunde);
@@ -38,21 +37,21 @@ public class KundeListe : Screen
         {
             Display(new KundeInfoScreen(kunde));
         }
-
-        void CreateNewKunde(Kunde _)
-        {
-            Kunde nyKunde = new();
-            Display(new KundeRedigering(nyKunde));
-        }
-
-        void EditKunde(Kunde kunde)
-        {
-            Display(new KundeRedigering(kunde));
-        }
-        
-        void DeleteKunde(Kunde kunde)
-        {
-            //to be added
-        }
     }
+
+	private void CreateNewKunde(Kunde _)
+	{
+		Kunde nyKunde = new();
+		Display(new KundeRedigering(nyKunde));
+	}
+
+	private void EditKunde(Kunde kunde)
+	{
+		Display(new KundeRedigering(kunde));
+	}
+
+	private void DeleteKunde(Kunde kunde)
+	{
+		Database.KundeRepository.Delete(kunde.KundeNummer);
+	}
 }

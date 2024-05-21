@@ -18,10 +18,12 @@ public class ProductRepository : CommonDBModule<Produkt>, IDBrepository<Produkt>
             $"'{obj.Enhed}'," +
             $"{obj.Avance})");
     }
+
     public List<Produkt> Read()
     {
         return ExecuteDapperQuery($"SELECT * FROM {dbName}");
     }
+
     public bool Update(Produkt obj)
     {
         return ExecuteCommand($"UPDATE {dbName} SET" +
@@ -33,6 +35,7 @@ public class ProductRepository : CommonDBModule<Produkt>, IDBrepository<Produkt>
             $"AntalLager = {obj.AntalLager}," +
             $"Enhed = {obj.AntalLager} WHERE Id = {obj.VareNummer}");
     }
+
     public bool Delete(int obj)
     {
         return ExecuteCommand($"DELETE * FROM {dbName} WHERE Id = '{obj}'");

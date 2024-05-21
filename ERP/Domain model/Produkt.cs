@@ -10,8 +10,10 @@ public class Produkt
     public string? Lokation { get; set; }
     public decimal AntalLager { get; set; }
     public Enheder Enhed { get; set; }
+
     public decimal Avance =>
         Math.Round(IndkøbsPris / BeregnFortjeneste() * 100);
+
     public decimal BeregnFortjeneste() =>
         SalgsPris - IndkøbsPris;
 }

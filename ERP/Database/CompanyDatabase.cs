@@ -4,6 +4,7 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
 {
     private readonly string dbName = "";
     private readonly string dbFields = "";
+
     public bool Create(Virksomhed obj)
     {
         if (obj.Id == 0)
@@ -18,10 +19,12 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
                     $"'{obj.Vej}'");
         else return false;
     }
+
     public List<Virksomhed> Read()
     {
         return ExecuteDapperQuery($"SELECT * FROM {dbName}");
     }
+
     public Virksomhed ReadSingle(int id)
     {
         return ExecuteDapperSingleQuery<Virksomhed>($"SELECT * FROM {dbName} WHERE ID={id}");

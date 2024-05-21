@@ -7,7 +7,6 @@ public partial class ProduktListeStart : Screen
 
     protected override void Draw()
     {
-		
 		ExitOnEscape();
 
         Console.CursorVisible = false;
@@ -53,6 +52,6 @@ public partial class ProduktListeStart : Screen
 
     private void DeleteProduct(Produkt produkt)
     {
-
+        Database.KundeRepository.Delete(produkt.VareNummer);
     }
 }

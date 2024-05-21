@@ -32,6 +32,7 @@ public class ÆndringAfSalgsordre(SalgsOrdreHoved salgsOrdreHoved) : Screen
             {
                 Database.SalgsRepository.Create(SalgsOrdreHoved);
             }
+
             Console.WriteLine("|Ændringerne blev gemt");
         }
         else

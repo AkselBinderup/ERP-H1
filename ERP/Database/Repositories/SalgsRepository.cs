@@ -5,6 +5,7 @@ public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<Sa
     private readonly string dbName = "dbo.SalgsOrdreHoved";
     private readonly string dbFields = "(OrdreNummer, OprettelsesTidspunkt, GennemførlsesTidspunkt, " +
         "KundeNummer, Tilstand, OrdreBeløb, OrdreLinjer)";
+
     public bool Create(SalgsOrdreHoved obj)
     {
         return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +

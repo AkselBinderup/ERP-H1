@@ -8,10 +8,12 @@ public class AdresseRepository : CommonDBModule<Adresse>, IDBrepository<Adresse>
 {
     private readonly string dbName = "dbo.Adresse";
     private readonly string dbFields = "(VejNavn, VejNummer, ByNavn, PostNummer)";
+
     public bool Create(Adresse obj)
     {
         throw new NotImplementedException();
     }
+
     public int GetSingleId(Adresse obj)
     {
         return ExecuteDapperSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
@@ -21,14 +23,17 @@ public class AdresseRepository : CommonDBModule<Adresse>, IDBrepository<Adresse>
             $"'{obj.PostNummer}') SELECT SCOPE_IDENTITY()");
         
     }
+
     public List<Adresse> Read()
     {
         throw new NotImplementedException();
     }
+
     public bool Update(Adresse obj)
     {
         throw new NotImplementedException();
     }
+
     public bool Delete(int obj)
     {
         throw new NotImplementedException();

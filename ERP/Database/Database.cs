@@ -8,6 +8,7 @@ public partial class Database
     public static SalgsRepository SalgsRepository { get; private set; } = new SalgsRepository();
     public static AdresseRepository AdresseRepository { get; private set; } = new AdresseRepository();
     public static PersonRepository PersonRepository { get; private set; } = new PersonRepository();
+
     private Database()
     {
 

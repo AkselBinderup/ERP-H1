@@ -28,7 +28,7 @@ public class SalgsOrdreListe : Screen
         side.AddColumn("Kundenummer", nameof(SalgsOrdreHoved.KundeNummer));
         side.AddColumn("Fuldenavn", nameof(SalgsOrdreHoved.FuldeNavn));
         side.AddColumn("Beløb", nameof(SalgsOrdreHoved.Ordrebeløb), 15);
-
+        
 
         var db = Database.SalgsRepository.Read();
         foreach (SalgsOrdreHoved model in db)
@@ -39,6 +39,7 @@ public class SalgsOrdreListe : Screen
         var vælgSalgOdreHoved = side.Select();
         if (vælgSalgOdreHoved != null)
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
+    }
 
         void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
         {
@@ -51,8 +52,8 @@ public class SalgsOrdreListe : Screen
         }
     }
 
-    private void DeleteOrder(SalgsOrdreHoved hoved)
+	private void DeleteOrder(SalgsOrdreHoved hoved)
     {
-        throw new NotImplementedException();
+        Database.SalgsRepository.Delete(hoved.KundeNummer);
     }
 }
