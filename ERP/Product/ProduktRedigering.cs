@@ -29,9 +29,9 @@ public class ProduktRedigering(Produkt produkt) : Screen
 			else
 				Database.ProductRepository.Create(Produkt);
 			
-			Console.WriteLine("Ændringerne blev gemt");
+			Console.WriteLine("|Ændringerne blev gemt");
 		}
 		else
-			Console.WriteLine("Ingen ændringer");
+			Console.WriteLine("|Ingen ændringer");
 	}
 }
