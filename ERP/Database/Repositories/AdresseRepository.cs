@@ -36,6 +36,6 @@ public class AdresseRepository : CommonDBModule<Adresse>, IDBrepository<Adresse>
 
     public bool Delete(int obj)
     {
-        throw new NotImplementedException();
+        return ExecuteCommand($"DELETE * FROM {dbName} where Id = '{obj}'");
     }
 }

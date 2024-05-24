@@ -37,6 +37,7 @@ public partial class ProduktListeStart : Screen
         if (vælgProdukt != null)
             Display(new ProductDetaljer(vælgProdukt));
     }
+    
     private void CreateNewProduct(Produkt produkt)
 	{
         Produkt newProdukt = new();

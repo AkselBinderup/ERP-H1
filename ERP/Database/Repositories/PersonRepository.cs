@@ -31,6 +31,6 @@ public class PersonRepository : CommonDBModule<Person>, IDBrepository<Person>
 
     public bool Delete(int obj)
     {
-        throw new NotImplementedException();
+        return ExecuteCommand($"DELETE * FROM {dbName} where Id = '{obj}'");
     }
 }
