@@ -48,7 +48,6 @@ public class SalgsOrdreListe : Screen
     {
         Display(new SalgKundeSide());
     }
-   	private void DeleteOrder(SalgsOrdreHoved hoved)
 	private void DeleteOrder(SalgsOrdreHoved hoved)
     {
         Database.SalgsRepository.Delete(hoved.KundeId);
