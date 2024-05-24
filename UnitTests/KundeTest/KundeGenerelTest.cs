@@ -9,7 +9,7 @@ public class KundeGenerelTest
     {
         Adresse adresseEksempel = new Adresse(vejNavn: "Struervej", 70, "Aalborg", 9000);
 
-        Kunde jon = new Kunde { KundeNummer = 1, Fornavn = "Jon", Efternavn = "Hedegaard", TelefonNummer = 88888888, EmailAdresse = "Jon@gmail.com", Adresse = adresseEksempel, SidsteKøb = DateTime.Now };
+        Kunde jon = new Kunde { KundeId = 1, Fornavn = "Jon", Efternavn = "Hedegaard", TelefonNummer = 88888888, Email = "Jon@gmail.com", Adresse = adresseEksempel, SidsteKøb = DateTime.Now };
 
         KundeInfoScreen kunde = new KundeInfoScreen(jon);
 

@@ -25,7 +25,7 @@ public class SalgsOrdreListe : Screen
 
         side.AddColumn("Salgsodrenummer", nameof(SalgsOrdreHoved.OrdreNummer));
         side.AddColumn("Dato", nameof(SalgsOrdreHoved.OprettelsesTidspunkt), 20);
-        side.AddColumn("Kundenummer", nameof(SalgsOrdreHoved.KundeNummer));
+        side.AddColumn("Kundenummer", nameof(SalgsOrdreHoved.KundeId));
         side.AddColumn("Fuldenavn", nameof(SalgsOrdreHoved.FuldeNavn));
         side.AddColumn("Beløb", nameof(SalgsOrdreHoved.Ordrebeløb), 15);
         
@@ -40,20 +40,16 @@ public class SalgsOrdreListe : Screen
         if (vælgSalgOdreHoved != null)
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
     }
-
-        void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
-        {
-            Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
-        }
-        
-        void CreateNewOrder(SalgsOrdreHoved vælgSalgOdreHoved)
-        {
-            Display(new SalgKundeSide());
-        }
-    
-
-	private void DeleteOrder(SalgsOrdreHoved hoved)
+    private void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
     {
-        Database.SalgsRepository.Delete(hoved.KundeNummer);
+        Display(new ÆndringAfSalgsordre(vælgSalgOdreHoved));
+    }   
+    private void CreateNewOrder(SalgsOrdreHoved vælgSalgOdreHoved)
+    {
+        Display(new SalgKundeSide());
+    }
+   	private void DeleteOrder(SalgsOrdreHoved hoved)
+    {
+        Database.SalgsRepository.Delete(hoved.KundeId);
     }
 }

@@ -19,20 +19,20 @@ public partial class KundeRedigering(Kunde kunde) : Screen
         form.TextBox("Vejnummer", nameof(Kunde.VejNummer));
         form.TextBox("Postnummer", nameof(Kunde.PostNummer));
         form.TextBox("By", nameof(Kunde.By));
-        form.TextBox("Email", nameof(Kunde.EmailAdresse));
+        form.TextBox("Email", nameof(Kunde.Email));
         form.TextBox("Telefon nummer", nameof(Kunde.TelefonNummer));
 
 
         if (form.Edit(Kunde))
         {
-            if (Kunde.KundeNummer != 0)
+            if (Kunde.KundeId != 0)
                 Database.KundeRepository.Update(Kunde);
             else
             {
                 Adresse opdateretAdresse = new(Kunde.VejNavn, Kunde.VejNummer,
                     Kunde.By, Kunde.PostNummer);
                 var adresseId = Database.AdresseRepository.GetSingleId(opdateretAdresse);
-                Person opdateretPerson = new(Kunde.Fornavn, Kunde.Efternavn, Kunde.EmailAdresse, Kunde.TelefonNummer);
+                Person opdateretPerson = new(Kunde.Fornavn, Kunde.Efternavn, Kunde.Email, Kunde.TelefonNummer);
                 var personID = Database.PersonRepository.GetIntFromPerson(opdateretPerson, adresseId);
                 Database.KundeRepository.CreateWithId(Kunde, personID);
             }

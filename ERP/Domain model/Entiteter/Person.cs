@@ -5,7 +5,7 @@ public class Person
     public string? Fornavn { get; set; }
     public string? Efternavn { get; set; }
     public Adresse? Adresse { get; set; }
-    public string? EmailAdresse { get; set; }
+    public string? Email { get; set; }
     public int TelefonNummer { get; set; }
     public string? FuldeNavn => $"{Fornavn} {Efternavn}";
     public string? VejNavn { get;  set; }
@@ -27,7 +27,7 @@ public class Person
     {
         Fornavn = fornavn;
         Efternavn = efternavn;
-        EmailAdresse= email;
+        Email= email;
         TelefonNummer = telefonNummer;
     }
 }

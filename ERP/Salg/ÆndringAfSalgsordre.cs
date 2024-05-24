@@ -13,7 +13,7 @@ public class ÆndringAfSalgsordre(SalgsOrdreHoved salgsOrdreHoved) : Screen
         Form<SalgsOrdreHoved> form = new();
 
         form.TextBox("OrdreNummer", nameof(SalgsOrdreHoved.OrdreNummer));
-        form.TextBox("KundeNummer", nameof(SalgsOrdreHoved.KundeNummer));
+        form.TextBox("KundeNummer", nameof(SalgsOrdreHoved.KundeId));
         form.TextBox("OrdreLinjer", nameof(SalgsOrdreHoved.OrdreLinjer));
         form.SelectBox("Tilstand", nameof(SalgsOrdreHoved.Tilstand));
         form.AddOption("Tilstand", "Ingen", nameof(Tilstand.Ingen));

@@ -14,7 +14,7 @@ public class PersonRepository : CommonDBModule<Person>, IDBrepository<Person>
         return ExecuteDapperSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
         $"('{obj.Fornavn}'," +
         $"'{obj.Efternavn}'," +
-        $"'{obj.EmailAdresse}'," +
+        $"'{obj.Email}'," +
         $"{obj.TelefonNummer}," +
         $"{id})SELECT SCOPE_IDENTITY()");
     }

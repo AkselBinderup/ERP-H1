@@ -21,10 +21,10 @@ public class KundeListe : Screen
         side.AddKey(ConsoleKey.F5, DeleteKunde);
         Console.WriteLine("Tryk F5 for at Slette kunde");
 
-        side.AddColumn("Kundenummer", nameof(Kunde.KundeNummer));
+        side.AddColumn("Kundenummer", nameof(Kunde.KundeId));
         side.AddColumn("Fornavn og Efternavn", nameof(Kunde.FuldeNavn), 20);
         side.AddColumn("Telefonnummer", nameof(Kunde.TelefonNummer), 15);
-        side.AddColumn("Email", nameof(Kunde.EmailAdresse), 20);
+        side.AddColumn("Email", nameof(Kunde.Email), 20);
 
         var db = Database.KundeRepository.Read();
 
@@ -50,6 +50,6 @@ public class KundeListe : Screen
 
 	private void DeleteKunde(Kunde kunde)
 	{
-		Database.KundeRepository.Delete(kunde.KundeNummer);
+		Database.KundeRepository.Delete(kunde.KundeId);
 	}
 }

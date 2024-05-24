@@ -11,10 +11,10 @@ class SalgsOrdreDetaljer(SalgsOrdreHoved salgsOrdreHoved) : Screen
     {
         ExitOnEscape();
 
-		Console.WriteLine($"Ordre Nummer: {SalgsOrdreHoved.KundeNummer}\n" +
+		Console.WriteLine($"Ordre Nummer: {SalgsOrdreHoved.KundeId}\n" +
 			$"Oprettelses tidspunkt: {SalgsOrdreHoved.OprettelsesTidspunkt}\n" +
 			$"gennemført tidspunkt: {SalgsOrdreHoved.GennemførelsesTidspunkt}\n" +
-			$"Kunde nummer: {SalgsOrdreHoved.KundeNummer} \n" +
+			$"Kunde nummer: {SalgsOrdreHoved.KundeId} \n" +
 			$"Fulde navn: {SalgsOrdreHoved.FuldeNavn} \n"
 			);
     }

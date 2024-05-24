@@ -4,7 +4,7 @@ public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
 {
     private readonly string dbName = "dbo.Kunde";
     private readonly string dbFields = "(SidsteKøb, PersonId)";
-    //private readonly string dbFields = "(KundeNummer, SidsteKøb, ProduktId, personId)";
+    //private readonly string dbFields = "(KundeId, SidsteKøb, ProduktId, personId)";
 
     public bool Create(Kunde obj)
     {
@@ -26,16 +26,14 @@ public class KundeRepository : CommonDBModule<Kunde>, IDBrepository<Kunde>
     {  
         return ExecuteDapperSingleQuery<Kunde>($"SELECT * FROM {dbName} WHERE Id = '{id}");
     }
-
     public List<Kunde> Read()
     {
-        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
+        return ExecuteDapperQuery($"SELECT * FROM {dbName} INNER JOIN Person ON Kunde.PersonId = Person.PersonId");
     }
-
     public bool Update(Kunde obj)
     {
         return ExecuteCommand($"UPDATE {dbName} SET" +
-            $"KundeNummer = '({obj.KundeNummer}'," +
+            $"KundeNummer = '({obj.KundeId}'," +
             $"SidsteKøb = '({obj.SidsteKøb}'");
     }
 }

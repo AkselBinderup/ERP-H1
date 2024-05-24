@@ -12,7 +12,7 @@ public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<Sa
             $"('{obj.OrdreNummer}'," +
             $"'{obj.OprettelsesTidspunkt}'," +
             $"'{obj.GennemførelsesTidspunkt}'," +
-            $"'{obj.KundeNummer}'," +
+            $"'{obj.KundeId}'," +
             $"'{obj.Tilstand}'," +
             $"'{obj.Ordrebeløb}'," +
             $"'{obj.OrdreLinjer}'");
@@ -29,7 +29,7 @@ public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<Sa
             $"SET OrdreNummer = {obj.OrdreNummer}," +
             $"OprettelsesTidspunkt = GETDATE()," +
             $"GennemførelsesTidspunkt = GETDATE()," +
-            $"KundeNummer = {obj.KundeNummer}," +
+            $"KundeNummer = {obj.KundeId}," +
             $"Tilstand = {obj.Tilstand}," +
             $"Ordrebeløb = {obj.Ordrebeløb}," + "WHERE Id = {id}");
     }
