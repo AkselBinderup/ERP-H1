@@ -11,7 +11,7 @@ public class ÆndringAfSalgsordre(SalgsOrdreHoved salgsOrdreHoved) : Screen
     {
         ExitOnEscape();
         Form<SalgsOrdreHoved> form = new();
-
+        
         form.TextBox("OrdreNummer", nameof(SalgsOrdreHoved.OrdreNummer));
         form.TextBox("KundeNummer", nameof(SalgsOrdreHoved.KundeId));
         form.TextBox("OrdreLinjer", nameof(SalgsOrdreHoved.OrdreLinjer));
@@ -24,7 +24,7 @@ public class ÆndringAfSalgsordre(SalgsOrdreHoved salgsOrdreHoved) : Screen
 
         if (form.Edit(SalgsOrdreHoved))
         {
-            if(SalgsOrdreHoved.FuldeNavn != null)
+            if(SalgsOrdreHoved.SalgsOrdreHovedId != null)
             {
                 Database.SalgsRepository.Update(SalgsOrdreHoved);
             }

@@ -25,8 +25,10 @@ public partial class KundeRedigering(Kunde kunde) : Screen
 
         if (form.Edit(Kunde))
         {
-            if (Kunde.KundeId != 0)
+            if (Kunde.KundeId != 0) 
+            {
                 Database.KundeRepository.Update(Kunde);
+            }
             else
             {
                 Adresse opdateretAdresse = new(Kunde.VejNavn, Kunde.VejNummer,

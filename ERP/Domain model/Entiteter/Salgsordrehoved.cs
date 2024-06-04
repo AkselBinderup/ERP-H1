@@ -2,7 +2,9 @@
 
 namespace ERP;
 public class SalgsOrdreHoved : Kunde
+
 {
+    public int? SalgsOrdreHovedId { get; private set; }
     public int OrdreNummer { get; private set; }
     public DateTime? OprettelsesTidspunkt { get; private set; }
     public DateTime? GennemførelsesTidspunkt { get; private set; }
@@ -25,7 +27,7 @@ public class SalgsOrdreHoved : Kunde
     }
     public SalgsOrdreHoved(
         string fornavn, string efternavn, Adresse adresse, string emailAdresse, int telefonNummer, DateTime sidsteKøb,
-        int ordreNummer, DateTime oprettelseTid, DateTime gennemførtTid, int kundeNummer, Tilstand tilstand, float ordreBeløb
+        int? salgsOrdreHovedId, int ordreNummer, DateTime oprettelseTid, DateTime gennemførtTid, int kundeNummer, Tilstand tilstand, float ordreBeløb
     )
     {
         Fornavn = fornavn;
@@ -34,6 +36,7 @@ public class SalgsOrdreHoved : Kunde
         Email = emailAdresse;
         TelefonNummer = telefonNummer;
         SidsteKøb = sidsteKøb;
+        SalgsOrdreHovedId = salgsOrdreHovedId;
         OrdreNummer = ordreNummer;
         OprettelsesTidspunkt = oprettelseTid;
         GennemførelsesTidspunkt = gennemførtTid;

@@ -31,7 +31,7 @@ public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<Sa
             $"GennemførelsesTidspunkt = GETDATE()," +
             $"KundeNummer = {obj.KundeId}," +
             $"Tilstand = {obj.Tilstand}," +
-            $"Ordrebeløb = {obj.Ordrebeløb}," + "WHERE Id = {id}");
+            $"Ordrebeløb = {obj.Ordrebeløb}," + "WHERE SalgsOrdreHovedId = " + $"{obj.SalgsOrdreHovedId}");
     }
 
     public bool Delete(int obj)
