@@ -13,7 +13,7 @@ public class AdresseRepository : CommonDBModule<Adresse>, IDBrepository<Adresse>
     {
         throw new NotImplementedException();
     }
-
+    
     public int GetSingleId(Adresse obj)
     {
         return ExecuteDapperSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
