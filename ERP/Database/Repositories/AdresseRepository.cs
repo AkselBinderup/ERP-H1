@@ -15,17 +15,18 @@ public class AdresseRepository : SemiCommonDBModule<Adresse>
         return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES ('{obj.VejNavn}', {obj.VejNummer}, '{obj.By}', {obj.PostNummer})");
     }
 
-    //public int GetSingleId(Adresse obj)
-    //{
-    //    return ExecuteDapperSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
-    //        $"('{obj.VejNavn}'," +
-    //        $"'{obj.VejNummer}'," +
-    //        $"'{obj.By}'," +
-    //        $"'{obj.PostNummer}') SELECT SCOPE_IDENTITY()");
-    //    return 1;
-    //}
+    public int GetSingleId(Adresse obj)
+    {
+        //    return ExecuteDapperSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
+        //        $"('{obj.VejNavn}'," +
+        //        $"'{obj.VejNummer}'," +
+        //        $"'{obj.By}'," +
+        //        $"'{obj.PostNummer}') SELECT SCOPE_IDENTITY()");
+        //    return 1;
+        throw new NotImplementedException();
+    }
 
-    public List<Adresse> Read()
+public List<Adresse> Read()
     {
         return Reader<Adresse>($"SELECT * FROM {dbName}");
     }

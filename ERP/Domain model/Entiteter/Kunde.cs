@@ -2,7 +2,7 @@
 
 public class Kunde : Person
 {
-    public int KundeId { get; set; }
+    public int KundeNummer { get; set; }
     public DateTime SidsteKøb { get; set; }
     public new string? VejNavn { get; set; }
     public new int VejNummer { get; set; }

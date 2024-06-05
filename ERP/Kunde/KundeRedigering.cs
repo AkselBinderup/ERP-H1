@@ -25,7 +25,7 @@ public partial class KundeRedigering(Kunde kunde) : Screen
 
         if (form.Edit(Kunde))
         {
-            if (Kunde.KundeId != 0) 
+            if (Kunde.KundeNummer != 0) 
             {
                 Database.KundeRepository.Update(Kunde);
             }
@@ -35,7 +35,7 @@ public partial class KundeRedigering(Kunde kunde) : Screen
                     Kunde.By, Kunde.PostNummer);
                 var adresseId = Database.AdresseRepository.GetSingleId(opdateretAdresse);
 
-                Person opdateretPerson = new(Kunde.Fornavn, Kunde.Efternavn, Kunde.EmailAdresse, Kunde.TelefonNummer);
+                Person opdateretPerson = new(Kunde.Fornavn, Kunde.Efternavn, Kunde.Email, Kunde.TelefonNummer);
                 var personID = Database.PersonRepository.GetIntFromPerson(opdateretPerson, adresseId);
 
                 Database.KundeRepository.CreateWithId(Kunde, personID);

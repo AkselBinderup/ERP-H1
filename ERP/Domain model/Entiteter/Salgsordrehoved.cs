@@ -18,7 +18,7 @@ public class SalgsOrdreHoved : Kunde
         Fornavn = kunde.Fornavn;
         Efternavn = kunde.Efternavn;
         Adresse = kunde.Adresse;
-        EmailAdresse = kunde.EmailAdresse;
+        Email = kunde.Email;
         TelefonNummer = kunde.TelefonNummer;
         SidsteKøb = kunde.SidsteKøb;
         KundeNummer = kunde.KundeNummer;

@@ -13,7 +13,7 @@ public class SalgKundeSide : Screen
         ExitOnEscape();
         ListPage<Kunde> side = new();
 
-        side.AddColumn("Kundenummer", nameof(Kunde.KundeId));
+        side.AddColumn("Kundenummer", nameof(Kunde.KundeNummer));
         side.AddColumn("Fornavn og Efternavn", nameof(Kunde.FuldeNavn), 20);
         side.AddColumn("Telefonnummer", nameof(Kunde.TelefonNummer), 15);
         side.AddColumn("Email", nameof(Kunde.Email), 20);

@@ -25,7 +25,7 @@ public class SalgsOrdreListe : Screen
 
         side.AddColumn("Salgsodrenummer", nameof(SalgsOrdreHoved.OrdreNummer));
         side.AddColumn("Dato", nameof(SalgsOrdreHoved.OprettelsesTidspunkt), 20);
-        side.AddColumn("Kundenummer", nameof(SalgsOrdreHoved.KundeId));
+        side.AddColumn("Kundenummer", nameof(SalgsOrdreHoved.KundeNummer));
         side.AddColumn("Fuldenavn", nameof(SalgsOrdreHoved.FuldeNavn));
         side.AddColumn("Beløb", nameof(SalgsOrdreHoved.Ordrebeløb), 15);
         
