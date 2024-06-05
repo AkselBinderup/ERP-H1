@@ -7,13 +7,13 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
 
     public bool Create(Virksomhed obj)
     {
-        if (obj.Id == 0)
+        if (obj.VirksomhedsId == 0)
             return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +
                     $"('{obj.FirmaNavn}'," +
                     $"'{obj.PostNummer}'," +
                     $"'{obj.HusNummer}'," +
                     $"'{obj.Valuta}'," +
-                    $"'{obj.Id}'," +
+                    $"'{obj.VirksomhedsId}'," +
                     $"'{obj.By}'," +
                     $"'{obj.Land},'" +
                     $"'{obj.Vej}'");
@@ -32,7 +32,7 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
 
     public bool Update(Virksomhed obj)
     {
-        if (obj.Id != 0)
+        if (obj.VirksomhedsId != 0)
             return ExecuteCommand($"UPDATE {dbName} " +
               $"SET FirmaNavn = '{obj.FirmaNavn}'," +
               $"PostNummer = '{obj.PostNummer}'," +
@@ -40,7 +40,7 @@ public partial class Database : CommonDBModule<Virksomhed>, IDBrepository<Virkso
               $"Valuta = '{obj.Valuta}'," +
               $"By = '{obj.By}'," +
               $"Land = '{obj.Land}'," +
-              $"Vej = '{obj.Vej}' WHERE Id = {obj.Id}");
+              $"Vej = '{obj.Vej}' WHERE Id = {obj.VirksomhedsId}");
         else
             return false;
     }

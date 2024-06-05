@@ -32,8 +32,10 @@ public partial class KundeRedigering(Kunde kunde) : Screen
                 Adresse opdateretAdresse = new(Kunde.VejNavn, Kunde.VejNummer,
                     Kunde.By, Kunde.PostNummer);
                 var adresseId = Database.AdresseRepository.GetSingleId(opdateretAdresse);
+
                 Person opdateretPerson = new(Kunde.Fornavn, Kunde.Efternavn, Kunde.EmailAdresse, Kunde.TelefonNummer);
                 var personID = Database.PersonRepository.GetIntFromPerson(opdateretPerson, adresseId);
+
                 Database.KundeRepository.CreateWithId(Kunde, personID);
             }
 

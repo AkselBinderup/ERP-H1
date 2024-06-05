@@ -7,8 +7,6 @@ public class SalgKundeSide : Screen
 {
     public override string Title { get; set; } = "Kundeliste";
     public static Kunde? ValgteKunde { get; set; }
-
-    
     
     protected override void Draw()
     {
@@ -30,7 +28,7 @@ public class SalgKundeSide : Screen
         if (kunde != null)
         {
             ValgteKunde = kunde;
-            SalgsOrdreHoved nyorder = new();
+            SalgsOrdreHoved nyorder = new(kunde);
             Display(new ÆndringAfSalgsordre(nyorder));
         }
     }

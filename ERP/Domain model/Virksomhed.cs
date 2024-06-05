@@ -2,7 +2,7 @@
 
 public class Virksomhed
 {
-    public int Id { get; set; }
+    public int VirksomhedsId { get; set; }
     public string? FirmaNavn { get; set; }
     public string? Vej { get; set; }
     public string? HusNummer { get; set; }

@@ -18,7 +18,7 @@ public partial class ProduktListeStart : Screen
 		listPage.AddKey(ConsoleKey.F3, CreateNewProduct);
         Console.WriteLine("Tryk F3 for at oprette et produkt");
         listPage.AddKey(ConsoleKey.F5, DeleteProduct);
-        Console.WriteLine("Tryk F5 for at oprette et produkt");
+        Console.WriteLine("Tryk F5 for at slette et produkt");
 
         listPage.AddColumn("Varenummer:", nameof(Produkt.VareNummer), 40);
         listPage.AddColumn("Navn", nameof(Produkt.Navn));
@@ -51,6 +51,6 @@ public partial class ProduktListeStart : Screen
 
     private void DeleteProduct(Produkt produkt)
     {
-        Database.KundeRepository.Delete(produkt.VareNummer);
+        Database.ProductRepository.Delete(produkt.VareNummer);
     }
 }

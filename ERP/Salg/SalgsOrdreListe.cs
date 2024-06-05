@@ -53,6 +53,6 @@ public class SalgsOrdreListe : Screen
 
 	private void DeleteOrder(SalgsOrdreHoved hoved)
     {
-        Database.SalgsRepository.Delete(hoved.KundeNummer);
+        Database.SalgsRepository.Delete(hoved.OrdreNummer);
     }
 }

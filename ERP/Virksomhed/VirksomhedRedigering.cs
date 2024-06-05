@@ -32,7 +32,7 @@ public partial class VirksomhedRedigering : Screen
 
         if (form.Edit(Virksomhed))
         {
-            if (Virksomhed.Id != 0)
+            if (Virksomhed.VirksomhedsId != 0)
                 Database.CompanyDatabase.Update(Virksomhed);
             else
                 Database.CompanyDatabase.Create(Virksomhed);

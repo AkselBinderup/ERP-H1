@@ -1,41 +1,56 @@
-﻿namespace ERP;
+﻿using Mysqlx.Crud;
+using TECHCOOL.UI;
 
-public class SalgsRepository : CommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOrdreHoved>
+namespace ERP;
+
+public class SalgsRepository : SemiCommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOrdreHoved>
 {
     private readonly string dbName = "dbo.SalgsOrdreHoved";
-    private readonly string dbFields = "(OrdreNummer, OprettelsesTidspunkt, GennemførlsesTidspunkt, " +
-        "KundeNummer, Tilstand, OrdreBeløb, OrdreLinjer)";
+    private readonly string dbFields = "(OprettelsesTidspunkt, " +
+        "KundeNummer, Tilstand, OrdreBeløb)";
 
     public bool Create(SalgsOrdreHoved obj)
     {
-        return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +
-            $"('{obj.OrdreNummer}'," +
-            $"'{obj.OprettelsesTidspunkt}'," +
-            $"'{obj.GennemførelsesTidspunkt}'," +
-            $"'{obj.KundeNummer}'," +
+        bool isCreated = ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES(" +
+            $" GETDATE()," +
+            $"{obj.KundeNummer}," +
             $"'{obj.Tilstand}'," +
-            $"'{obj.Ordrebeløb}'," +
-            $"'{obj.OrdreLinjer}'");
-    }
+            $"{obj.Ordrebeløb})"
+            );
+		
+        CheckGennemFørt(obj);
+
+        return isCreated;
+	}
 
     public List<SalgsOrdreHoved> Read()
     {
-        return ExecuteDapperQuery($"Select * from {dbName}");
+        return Reader<SalgsOrdreHoved>($"Select * from {dbName}");
     }
 
     public bool Update(SalgsOrdreHoved obj)
     {
-        return ExecuteCommand($"UPDATE {dbName} " +
-            $"SET OrdreNummer = {obj.OrdreNummer}," +
-            $"OprettelsesTidspunkt = GETDATE()," +
-            $"GennemførelsesTidspunkt = GETDATE()," +
-            $"KundeNummer = {obj.KundeNummer}," +
-            $"Tilstand = {obj.Tilstand}," +
-            $"Ordrebeløb = {obj.Ordrebeløb}," + "WHERE Id = {id}");
+        CheckGennemFørt(obj);
+
+        return ExecuteCommand($"UPDATE {dbName} Set " +
+            $"Tilstand = '{obj.Tilstand}'," +
+            $"Ordrebeløb = {obj.Ordrebeløb}, " +
+			$"KundeNummer = {obj.KundeNummer} " +
+			$"WHERE OrdreNummer = {obj.OrdreNummer}");
     }
+
+    private void CheckGennemFørt(SalgsOrdreHoved obj)
+    {
+		if (obj.Tilstand == Tilstand.Færdig)
+		{
+			ExecuteCommand($"UPDATE {dbName} SET " +
+				$"GennemførelsesTidspunkt = GETDATE() " +
+				$"WHERE OrdreNummer = {obj.OrdreNummer}");
+		}
+	}
 
     public bool Delete(int obj)
     {
-        return ExecuteCommand($"DELETE * FROM {dbName} where Id = '{obj}'");
+        return ExecuteCommand($"DELETE {dbName} WHERE OrdreNummer = {obj}");
     }
 }

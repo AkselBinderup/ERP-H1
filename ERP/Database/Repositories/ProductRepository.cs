@@ -1,6 +1,6 @@
 ﻿namespace ERP;
 
-public class ProductRepository : CommonDBModule<Produkt>, IDBrepository<Produkt>
+public class ProductRepository : SemiCommonDBModule<Produkt>, IDBrepository<Produkt>
 {
     private readonly string dbName = "dbo.Produkt";
     private readonly string dbFields = "(Navn, Beskrivelse, SalgsPris, " +
@@ -21,23 +21,25 @@ public class ProductRepository : CommonDBModule<Produkt>, IDBrepository<Produkt>
 
     public List<Produkt> Read()
     {
-        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
+        return Reader<Produkt>($"SELECT * FROM {dbName}");
     }
 
     public bool Update(Produkt obj)
     {
-        return ExecuteCommand($"UPDATE {dbName} SET" +
-            $"Navn = {obj.Navn}," +
-            $"Beskrivelse = {obj.Beskrivelse}," +
+        return ExecuteCommand($"UPDATE {dbName} SET " +
+            $"Navn = '{obj.Navn}'," +
+            $"Beskrivelse = '{obj.Beskrivelse}'," +
             $"SalgsPris = {obj.SalgsPris}," +
             $"IndkøbsPris = {obj.IndkøbsPris}," +
-            $"Lokation = {obj.Lokation}," +
+            $"Lokation = '{obj.Lokation}'," +
             $"AntalLager = {obj.AntalLager}," +
-            $"Enhed = {obj.AntalLager} WHERE Id = {obj.VareNummer}");
+            $"Enhed = '{obj.Enhed}'," +
+            $"Avance = {obj.Avance} " +
+            $"WHERE VareNummer = {obj.VareNummer}");
     }
 
     public bool Delete(int obj)
     {
-        return ExecuteCommand($"DELETE * FROM {dbName} WHERE Id = '{obj}'");
+        return ExecuteCommand($"DELETE {dbName} WHERE VareNummer = '{obj}'");
     }
 }

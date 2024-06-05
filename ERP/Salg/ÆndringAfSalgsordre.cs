@@ -12,9 +12,7 @@ public class ÆndringAfSalgsordre(SalgsOrdreHoved salgsOrdreHoved) : Screen
         ExitOnEscape();
         Form<SalgsOrdreHoved> form = new();
 
-        form.TextBox("OrdreNummer", nameof(SalgsOrdreHoved.OrdreNummer));
-        form.TextBox("KundeNummer", nameof(SalgsOrdreHoved.KundeNummer));
-        form.TextBox("OrdreLinjer", nameof(SalgsOrdreHoved.OrdreLinjer));
+        form.TextBox("Odrebeløb", nameof(SalgsOrdreHoved.Ordrebeløb));
         form.SelectBox("Tilstand", nameof(SalgsOrdreHoved.Tilstand));
         form.AddOption("Tilstand", "Ingen", nameof(Tilstand.Ingen));
         form.AddOption("Tilstand", "Oprettet", nameof(Tilstand.Oprettet));
@@ -24,14 +22,10 @@ public class ÆndringAfSalgsordre(SalgsOrdreHoved salgsOrdreHoved) : Screen
 
         if (form.Edit(SalgsOrdreHoved))
         {
-            if(SalgsOrdreHoved.FuldeNavn != null)
-            {
+            if(SalgsOrdreHoved.OrdreNummer != 0)
                 Database.SalgsRepository.Update(SalgsOrdreHoved);
-            }
             else
-            {
                 Database.SalgsRepository.Create(SalgsOrdreHoved);
-            }
 
             Console.WriteLine("|Ændringerne blev gemt");
         }

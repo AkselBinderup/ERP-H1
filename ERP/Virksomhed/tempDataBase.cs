@@ -3,8 +3,8 @@
 public class TempDataBase
 {
     List<Virksomhed> Virksomheder = new() {
-            new Virksomhed {Id = 1, FirmaNavn = "Techcollege ", Vej = "Årestrupsvej", HusNummer = "2", PostNummer = "9000", By = "Aalborg", Land = "Danmark", Valuta = Currency.DKK },
-            new Virksomhed {Id = 2, FirmaNavn = "Lichtenstein PD", Vej = "Årestrupsvej", HusNummer = "2", PostNummer = "9000", By = "Aalborg", Land = "Lichenstein", Valuta = Currency.SEK}
+            new Virksomhed {VirksomhedsId = 1, FirmaNavn = "Techcollege ", Vej = "Årestrupsvej", HusNummer = "2", PostNummer = "9000", By = "Aalborg", Land = "Danmark", Valuta = Currency.DKK },
+            new Virksomhed {VirksomhedsId = 2, FirmaNavn = "Lichtenstein PD", Vej = "Årestrupsvej", HusNummer = "2", PostNummer = "9000", By = "Aalborg", Land = "Lichenstein", Valuta = Currency.SEK}
     };
 
     public List<Virksomhed> GetData()

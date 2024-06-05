@@ -8,7 +8,7 @@ public class Kunde : Person
     public new int VejNummer { get; set; }
     public new string? By { get; set; }
     public new int PostNummer { get; set; }
-
+    
     public Kunde() { }
 
     public Kunde(Adresse adresse)

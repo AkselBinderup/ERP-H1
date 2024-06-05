@@ -14,4 +14,6 @@ public class Adresse
         VejNummer = vejNummer;
         PostNummer = postNummer;
     }
+
+    public Adresse() { }
 }

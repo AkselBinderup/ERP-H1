@@ -50,6 +50,6 @@ public partial class VirksomhedStart : Screen
 
 	private void DeleteCompany(Virksomhed virksomhed)
 	{
-		Database.CompanyDatabase.Delete(virksomhed.Id);
+		Database.CompanyDatabase.Delete(virksomhed.VirksomhedsId);
 	}
 }

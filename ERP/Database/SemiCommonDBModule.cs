@@ -5,8 +5,40 @@ using System.Data.SqlClient;
 
 namespace ERP;
 
-public partial class Database<T>
+public class SemiCommonDBModule<T>
 {
+	private T Map<T>(IDataRecord record) where T : new()
+	{
+		T obj = new T();
+		var type = typeof(T);
+		var properties = type.GetProperties();
+		
+		foreach (var property in properties)
+		{
+			try
+			{
+				if (record[property.Name] != DBNull.Value)
+				{
+					try
+					{
+						property.SetValue(obj, Convert.ChangeType(record[property.Name], property.PropertyType));
+					}
+					catch
+					{
+						property.SetValue(obj, Enum.Parse(property.PropertyType, record[property.Name].ToString()));
+					}
+				}
+			}
+			catch 
+			{
+				
+			}
+
+		}
+
+		return obj;
+	}
+
 	private SqlConnection GetConnection()
 	{
 		SqlConnection connection = new(ConfigSettings.ConnectionString);
@@ -14,7 +46,7 @@ public partial class Database<T>
 		return connection;
 	}
 
-	public List<T> Reader(string queryString, Func<IDataRecord, T> mapFuncion)
+	protected List<T> Reader<T>(string queryString) where T : new()
 	{
 		List<T> list = new List<T>();
 
@@ -26,7 +58,7 @@ public partial class Database<T>
 			{
 				while (sqlDataReader.Read())
 				{
-					T data = mapFuncion(sqlDataReader);
+					T data = Map<T>(sqlDataReader);
 					list.Add(data);
 				}
 				return list;
@@ -34,12 +66,14 @@ public partial class Database<T>
 		}
 	}
 
-	public void ExecuteCommand(string queryString)
+	protected bool ExecuteCommand(string queryString)
 	{
+		int rowsAffected = 0;
 		using (SqlConnection sqlConnection = GetConnection())
 		{
 			SqlCommand sqlCommand = new(queryString, sqlConnection);
-			sqlCommand.ExecuteNonQuery();
+			rowsAffected = sqlCommand.ExecuteNonQuery();
 		}
+		return rowsAffected >= 1;
 	}
 }

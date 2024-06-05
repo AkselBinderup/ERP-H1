@@ -19,8 +19,8 @@ public class ProduktRedigering(Produkt produkt) : Screen
         form.TextBox("Antal på Lager", nameof(Produkt.AntalLager));
         form.SelectBox("Enhed", nameof(Produkt.Enhed));
         form.AddOption("Enhed", "Styk", Enheder.Styk);
-        form.AddOption("Enhed", "Timer", Enheder.Meter);
-        form.AddOption("Enhed", "Meter", Enheder.Timer);
+        form.AddOption("Enhed", "Meter", Enheder.Meter);
+        form.AddOption("Enhed", "Timer", Enheder.Timer);
 
         if (form.Edit(Produkt))
 		{
