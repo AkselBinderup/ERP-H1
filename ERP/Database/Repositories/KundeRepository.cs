@@ -4,7 +4,7 @@ public class KundeRepository : SemiCommonDBModule<Kunde>, IDBrepository<Kunde>
 {
     private readonly string dbName = "dbo.Kunde";
     private readonly string dbFields = "(SidsteKøb, PersonId)";
-    //private readonly string dbFields = "(KundeNummer, SidsteKøb, ProduktId, personId)";
+    //private readonly string dbFields = "(KundeId, SidsteKøb, ProduktId, personId)";
 
     public bool Create(Kunde obj)
     {
@@ -33,7 +33,6 @@ public class KundeRepository : SemiCommonDBModule<Kunde>, IDBrepository<Kunde>
 
         return Reader<Kunde>($"SELECT * FROM {dbName}");
     }
-
     public bool Update(Kunde obj)
     {
         return ExecuteCommand($"UPDATE {dbName} SET" +

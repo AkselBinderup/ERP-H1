@@ -19,14 +19,16 @@ public partial class KundeRedigering(Kunde kunde) : Screen
         form.TextBox("Vejnummer", nameof(Kunde.VejNummer));
         form.TextBox("Postnummer", nameof(Kunde.PostNummer));
         form.TextBox("By", nameof(Kunde.By));
-        form.TextBox("Email", nameof(Kunde.EmailAdresse));
+        form.TextBox("Email", nameof(Kunde.Email));
         form.TextBox("Telefon nummer", nameof(Kunde.TelefonNummer));
 
 
         if (form.Edit(Kunde))
         {
-            if (Kunde.KundeNummer != 0)
+            if (Kunde.KundeId != 0) 
+            {
                 Database.KundeRepository.Update(Kunde);
+            }
             else
             {
                 Adresse opdateretAdresse = new(Kunde.VejNavn, Kunde.VejNummer,

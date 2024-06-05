@@ -13,10 +13,10 @@ public class SalgKundeSide : Screen
         ExitOnEscape();
         ListPage<Kunde> side = new();
 
-        side.AddColumn("Kundenummer", nameof(Kunde.KundeNummer));
+        side.AddColumn("Kundenummer", nameof(Kunde.KundeId));
         side.AddColumn("Fornavn og Efternavn", nameof(Kunde.FuldeNavn), 20);
         side.AddColumn("Telefonnummer", nameof(Kunde.TelefonNummer), 15);
-        side.AddColumn("Email", nameof(Kunde.EmailAdresse), 20);
+        side.AddColumn("Email", nameof(Kunde.Email), 20);
 
         var db = Database.KundeRepository.Read();
         foreach (Kunde kundeListe in db)

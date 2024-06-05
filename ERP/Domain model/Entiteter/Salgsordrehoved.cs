@@ -2,7 +2,9 @@
 
 namespace ERP;
 public class SalgsOrdreHoved : Kunde
+
 {
+    public int? SalgsOrdreHovedId { get; private set; }
     public int OrdreNummer { get; private set; }
     public string? OprettelsesTidspunkt { get; private set; }
     public string? GennemførelsesTidspunkt { get; private set; }
