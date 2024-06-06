@@ -12,6 +12,7 @@ public class SalgsOrdreHoved : Kunde
     public Tilstand Tilstand { get; private set; }
     public List<SalgsOrdreLinje>? OrdreLinjer { get; private set; }
     public string FuldeNavn { get; set; }
+    public Produkt Produkt { get; set; }
     public SalgsOrdreHoved() { }
 
     public SalgsOrdreHoved(Kunde kunde)
@@ -24,6 +25,9 @@ public class SalgsOrdreHoved : Kunde
         SidsteKøb = kunde.SidsteKøb;
         KundeNummer = kunde.KundeNummer;
     }
+
+
+
 
     //public SalgsOrdreHoved(
     //    string fornavn, string efternavn, Adresse adresse, string emailAdresse, int telefonNummer, DateTime sidsteKøb,

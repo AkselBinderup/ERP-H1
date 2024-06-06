@@ -8,39 +8,39 @@ namespace ERP;
 
 public class SemiCommonDBModule<T>
 {
-	private T Map<T>(IDataRecord record) where T : new()
-	{
-		T obj = new T();
-		var type = typeof(T);
-		var properties = type.GetProperties();
-		
-		foreach (var property in properties)
-		{
-			try
-			{
-				if (record[property.Name] != DBNull.Value)
-				{
-					try
-					{
-						property.SetValue(obj, Convert.ChangeType(record[property.Name], property.PropertyType));
-					}
-					catch
-					{
-						property.SetValue(obj, Enum.Parse(property.PropertyType, record[property.Name].ToString()));
-					}
-				}
-			}
-			catch 
-			{
-				
-			}
+    private T Map<T>(IDataRecord record) where T : new()
+    {
+        T obj = new T();
+        var type = typeof(T);
+        var properties = type.GetProperties();
 
-		}
+        foreach (var property in properties)
+        {
+            try
+            {
+                if (record[property.Name] != DBNull.Value)
+                {
+                    try
+                    {
+                        property.SetValue(obj, Convert.ChangeType(record[property.Name], property.PropertyType));
+                    }
+                    catch
+                    {
+                        property.SetValue(obj, Enum.Parse(property.PropertyType, record[property.Name].ToString()));
+                    }
+                }
+            }
+            catch
+            {
 
-		return obj;
-	}
+            }
 
-	private SqlConnection GetConnection()
+        }
+
+        return obj;
+    }
+
+    private SqlConnection GetConnection()
 	{
 		SqlConnection connection = new(ConfigSettings.ConnectionString);
 		connection.Open();

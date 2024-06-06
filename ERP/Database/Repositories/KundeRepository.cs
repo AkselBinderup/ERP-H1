@@ -35,11 +35,16 @@ public class KundeRepository : SemiCommonDBModule<Kunde>, IDBrepository<Kunde>
             $"dbo.Kunde.*, " +
             $"dbo.Person.FuldeNavn, " +
             $"dbo.Person.TelefonNummer, " +
-            $"dbo.Person.Email " +
-            $"FROM " +
-            $"dbo.Kunde " +
-            $"JOIN " +
-            $"dbo.Person ON dbo.Kunde.PersonId = dbo.Person.PersonId");
+            $"dbo.Person.Email, " +
+            $"dbo.Adresse.VejNavn, " +
+            $"dbo.Adresse.VejNummer, " +
+            $"dbo.Adresse.ByNavn, " +
+            $"dbo.Adresse.PostNummer " +
+            $"FROM dbo.Kunde " +
+            $"JOIN dbo.Person ON dbo.Kunde.PersonId = dbo.Person.PersonId " +
+            $"JOIN dbo.Adresse ON dbo.Person.AdresseId = dbo.Adresse.AdresseId");
+
+
     }
     public bool Update(Kunde obj)
     {

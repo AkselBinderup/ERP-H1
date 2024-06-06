@@ -29,7 +29,7 @@ public class SalgKundeSide : Screen
         {
             ValgteKunde = kunde;
             SalgsOrdreHoved nyorder = new(kunde);
-            Display(new ÆndringAfSalgsordre(nyorder));
+            Display(new VaelgProdukt(nyorder));
         }
     }
 }

@@ -5,7 +5,12 @@ VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ERP", "ERP\ERP.csproj", "{D5349D47-3DAD-4914-B7DA-227CF5149D42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTests\UnitTest.csproj", "{BDDE80DD-85C8-43A9-817C-82212E5BE94C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTests\UnitTest.csproj", "{BDDE80DD-85C8-43A9-817C-82212E5BE94C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Diverse Krav", "Diverse Krav", "{17FD0834-0070-4442-BB2C-A54D8D0475E4}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Desktop\SQLScript = ..\..\..\Desktop\SQLScript
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
