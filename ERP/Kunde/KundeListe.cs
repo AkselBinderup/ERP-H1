@@ -28,11 +28,11 @@ public class KundeListe : Screen
 
         var db = Database.KundeRepository.Read();
 
-        foreach (Kunde virksomhed in db)
-            side.Add(virksomhed);
+        foreach (Kunde obj in db)
+            side.Add(obj);
 
         var kunde = side.Select();
-
+        var person = Database.PersonRepository.Read();
         if (kunde != null)
             Display(new KundeInfoScreen(kunde));
     }
