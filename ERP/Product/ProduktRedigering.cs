@@ -7,9 +7,9 @@ public class ProduktRedigering(Produkt produkt) : Screen
     private readonly Produkt Produkt = produkt;
 
     protected override void Draw()
-	{
-		ExitOnEscape();
-		Form<Produkt> form = new();
+    {
+        ExitOnEscape();
+        Form<Produkt> form = new();
 
         form.TextBox("Navn", nameof(Produkt.Navn));
         form.TextBox("Beskrivelse", nameof(Produkt.Beskrivelse));
@@ -21,17 +21,25 @@ public class ProduktRedigering(Produkt produkt) : Screen
         form.AddOption("Enhed", "Styk", Enheder.Styk);
         form.AddOption("Enhed", "Meter", Enheder.Meter);
         form.AddOption("Enhed", "Timer", Enheder.Timer);
+        try
+        {
 
-        if (form.Edit(Produkt))
-		{
-			if(Produkt.VareNummer != 0)
-                Database.ProductRepository.Update(Produkt);
-			else
-				Database.ProductRepository.Create(Produkt);
-			
-			Console.WriteLine("|Ændringerne blev gemt");
-		}
-		else
-			Console.WriteLine("|Ingen ændringer");
+            if (form.Edit(Produkt))
+            {
+                if (Produkt.VareNummer != 0)
+                    Database.ProductRepository.Update(Produkt);
+                else
+                    Database.ProductRepository.Create(Produkt);
+
+                Console.WriteLine("|Ændringerne blev gemt");
+            }
+            else
+                Console.WriteLine("|Ingen ændringer");
+        }
+        catch(Exception ex) 
+        {
+            Console.WriteLine(ex.Message);
+        }
+
 	}
 }

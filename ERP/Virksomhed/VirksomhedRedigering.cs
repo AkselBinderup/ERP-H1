@@ -29,19 +29,25 @@ public partial class VirksomhedRedigering : Screen
         form.AddOption("Currency", "EUR", Currency.EUR);
         form.AddOption("Currency", "USD", Currency.USD);
         form.AddOption("Currency", "SEK", Currency.SEK);
-
-        if (form.Edit(Virksomhed))
+        try
         {
-            if (Virksomhed.VirksomhedsId != 0)
-                Database.CompanyDatabase.Update(Virksomhed);
+
+            if (form.Edit(Virksomhed))
+            {
+                
+                if (Virksomhed.VirksomhedsId != 0)
+                    Database.CompanyDatabase.Update(Virksomhed);
+                else
+                    Database.CompanyDatabase.Create(Virksomhed);
+
+            }
             else
-                Database.CompanyDatabase.Create(Virksomhed);
-
-            Console.WriteLine("|Ændringerne blev gemt");
-        }
-        else
-        {
-            Console.WriteLine("|Ingen ændringer");
+            {
+                Console.WriteLine("|Ingen ændringer");
+            }
+        }   
+        catch (Exception ex) {
+            Console.WriteLine(ex.Message);
         }
     }
 }

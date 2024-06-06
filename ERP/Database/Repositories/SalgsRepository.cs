@@ -8,7 +8,7 @@ public class SalgsRepository : SemiCommonDBModule<SalgsOrdreHoved>, IDBrepositor
     private readonly string dbName = "dbo.SalgsOrdreHoved";
     private readonly string dbFields = "(OprettelsesTidspunkt, " +
         "KundeNummer, Tilstand, OrdreBeløb)";
-
+    
     public bool Create(SalgsOrdreHoved obj)
     {
         bool isCreated = ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES(" +
@@ -17,7 +17,7 @@ public class SalgsRepository : SemiCommonDBModule<SalgsOrdreHoved>, IDBrepositor
             $"'{obj.Tilstand}'," +
             $"{obj.Ordrebeløb})"
             );
-		
+        
         CheckGennemFørt(obj);
 
         return isCreated;

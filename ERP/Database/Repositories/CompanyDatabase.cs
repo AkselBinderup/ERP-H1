@@ -1,12 +1,20 @@
-﻿namespace ERP;
+﻿using Org.BouncyCastle.Pqc.Crypto.Lms;
+
+namespace ERP;
 
 public partial class CompanyDatabase : SemiCommonDBModule<Virksomhed>, IDBrepository<Virksomhed>
 {
     private readonly string dbName = "dbo.Virksomhed";
     private readonly string dbFields = "(FirmaNavn, Vej, HusNummer, PostNummer, [By], Land, Valuta)";
-
+    
+    private bool IsNumbersNull(Virksomhed obj) 
+        => obj.HusNummer == null || obj.PostNummer == null;
+    
     public bool Create(Virksomhed obj)
     {
+        if (IsNumbersNull(obj))
+            throw new ArgumentNullException("|Ikke Gyldigt hus eller postnummer");
+
         return ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES" +
             $"('{obj.FirmaNavn}'," +
             $"'{obj.Vej}'," +
@@ -29,6 +37,9 @@ public partial class CompanyDatabase : SemiCommonDBModule<Virksomhed>, IDBreposi
 
     public bool Update(Virksomhed obj)
     {
+        if (IsNumbersNull(obj))
+            throw new ArgumentNullException("|Ikke Gyldigt hus eller postnummer");
+
         return ExecuteCommand($"UPDATE {dbName} " +
             $"SET FirmaNavn = '{obj.FirmaNavn}'," +
             $"PostNummer = {obj.PostNummer}," +
