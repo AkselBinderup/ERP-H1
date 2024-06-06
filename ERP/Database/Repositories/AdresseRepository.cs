@@ -17,13 +17,11 @@ public class AdresseRepository : SemiCommonDBModule<Adresse>
 
     public int GetSingleId(Adresse obj)
     {
-        //    return ExecuteDapperSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
-        //        $"('{obj.VejNavn}'," +
-        //        $"'{obj.VejNummer}'," +
-        //        $"'{obj.By}'," +
-        //        $"'{obj.PostNummer}') SELECT SCOPE_IDENTITY()");
-        //    return 1;
-        throw new NotImplementedException();
+        return ExecuteSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
+            $"('{obj.VejNavn}'," +
+            $"'{obj.VejNummer}'," +
+            $"'{obj.By}'," +
+            $"'{obj.PostNummer}') SELECT SCOPE_IDENTITY()");
     }
 
 public List<Adresse> Read()

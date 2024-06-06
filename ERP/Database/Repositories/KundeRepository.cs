@@ -31,7 +31,15 @@ public class KundeRepository : SemiCommonDBModule<Kunde>, IDBrepository<Kunde>
     public List<Kunde> Read()
     {
 
-        return Reader<Kunde>($"SELECT * FROM {dbName}");
+        return Reader<Kunde>($"SELECT " +
+            $"dbo.Kunde.*, " +
+            $"dbo.Person.FuldeNavn, " +
+            $"dbo.Person.TelefonNummer, " +
+            $"dbo.Person.Email " +
+            $"FROM " +
+            $"dbo.Kunde " +
+            $"JOIN " +
+            $"dbo.Person ON dbo.Kunde.PersonId = dbo.Person.PersonId");
     }
     public bool Update(Kunde obj)
     {

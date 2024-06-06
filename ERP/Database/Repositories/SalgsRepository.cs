@@ -25,7 +25,9 @@ public class SalgsRepository : SemiCommonDBModule<SalgsOrdreHoved>, IDBrepositor
 
     public List<SalgsOrdreHoved> Read()
     {
-        return Reader<SalgsOrdreHoved>($"Select * from {dbName}");
+        return Reader<SalgsOrdreHoved>($"SELECT dbo.SalgsOrdreHoved.*, dbo.Kunde.PersonId, dbo.Person.FuldeNavn" +
+            $" FROM dbo.SalgsOrdreHoved JOIN dbo.Kunde ON dbo.SalgsOrdreHoved.KundeNummer = dbo.Kunde.KundeNummer" +
+            $" JOIN dbo.Person ON dbo.Kunde.PersonId = DBO.Person.PersonId ");
     }
 
     public bool Update(SalgsOrdreHoved obj)

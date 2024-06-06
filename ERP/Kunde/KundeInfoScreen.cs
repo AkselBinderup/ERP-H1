@@ -10,7 +10,7 @@ public class KundeInfoScreen(Kunde kunde) : Screen
     {
         ExitOnEscape();
         Console.WriteLine($"Fulde navn: {Kunde.FuldeNavn}\n" +
-                    $"Addresse: {Kunde.Adresse.VejNavn} " +
+                    $"Adresse: {Kunde.Adresse.VejNavn} " +
                     $"{Kunde.Adresse.VejNummer} " +
                     $"{Kunde.Adresse.PostNummer}\n" +
                     $"Dato for sidste køb: {Kunde.SidsteKøb}\n");

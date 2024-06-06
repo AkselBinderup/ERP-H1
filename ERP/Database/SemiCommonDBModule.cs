@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Dapper;
+using MySql.Data.MySqlClient;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -65,8 +66,24 @@ public class SemiCommonDBModule<T>
 			}
 		}
 	}
+    protected Type ExecuteSingleQuery<Type>(string command)
+    {
+        using var connection = GetConnection();
+        using var cmd = new SqlCommand(command, connection);
 
-	protected bool ExecuteCommand(string queryString)
+        using var reader = cmd.ExecuteReader();
+
+        if (reader.Read())
+        {
+            return (Type)reader.GetValue(0);
+        }
+        else
+        {
+            throw new InvalidOperationException("Query did not return any results.");
+        }
+    }
+
+    protected bool ExecuteCommand(string queryString)
 	{
 		int rowsAffected = 0;
 		using (SqlConnection sqlConnection = GetConnection())
