@@ -20,7 +20,7 @@ Klon repository:
 
 bash
 Kopier kode
-git clone https://github.com/din-bruger/erp-program.git
+git clone https://github.com/AkselBinderup/ERP-H1.git
 cd erp-program
 
 Opdater konfigurationsfil:
