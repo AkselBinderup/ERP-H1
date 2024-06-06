@@ -29,17 +29,19 @@ git clone https://github.com/AkselBinderup/ERP-H1.git
 cd erp-program
 Opdater konfigurationsfil
 Lav eller find Connection string.
+```
 
 Åbn src/main/resources/application.properties og opdater databaseforbindelsesoplysninger.
 
 Byg og kør applikationen
-bash
+
+```bash
 Kopier kode
 mvn clean install
 java -jar target/erp-program-1.0.0.jar
 Projektstruktur
 Projektet er organiseret i følgende mapper og filer:
-
+```
 Rodmappen
 
 .github/workflows: Indeholder GitHub Actions workflows.
