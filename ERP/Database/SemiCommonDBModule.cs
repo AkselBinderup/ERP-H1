@@ -66,7 +66,7 @@ public class SemiCommonDBModule<T>
 			}
 		}
 	}
-    protected Type ExecuteSingleQuery<Type>(string command)
+    protected int ExecuteSingleQuery(string command)
     {
         using var connection = GetConnection();
         using var cmd = new SqlCommand(command, connection);
@@ -75,7 +75,7 @@ public class SemiCommonDBModule<T>
 
         if (reader.Read())
         {
-            return (Type)reader.GetValue(0);
+            return Convert.ToInt32(reader.GetValue(0));
         }
         else
         {

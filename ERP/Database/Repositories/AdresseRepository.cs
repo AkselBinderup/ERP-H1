@@ -17,7 +17,7 @@ public class AdresseRepository : SemiCommonDBModule<Adresse>
 
     public int GetSingleId(Adresse obj)
     {
-        return ExecuteSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
+        return ExecuteSingleQuery($"INSERT INTO {dbName} {dbFields} VALUES" +
             $"('{obj.VejNavn}'," +
             $"'{obj.VejNummer}'," +
             $"'{obj.By}'," +
