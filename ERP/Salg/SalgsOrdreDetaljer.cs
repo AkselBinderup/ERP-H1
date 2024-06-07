@@ -17,10 +17,10 @@ class SalgsOrdreDetaljer(SalgsOrdreHoved salgsOrdreHoved) : Screen
             $"Kunde nummer: {SalgsOrdreHoved.KundeNummer} \n" +
             $"Fulde navn: {SalgsOrdreHoved.FuldeNavn} \n"
             );
-        if(SalgsOrdreHoved.Produkt!= null)
+        if(SalgsOrdreHoved.Produkt.Navn != null)
         {
             Console.WriteLine(
-            $"Produkt detaljer:" +
+            $"Produkt detaljer: \n" +
             $"Navn: {SalgsOrdreHoved.Produkt.Navn} \n" +
             $"Beskrivelse: {SalgsOrdreHoved.Produkt.Beskrivelse}\n" +
             $"Salgsspris: {SalgsOrdreHoved.Produkt.SalgsPris}\n" +

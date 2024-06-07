@@ -30,24 +30,31 @@ public class SemiCommonDBModule<T>
                     }
                 }
             }
-            catch
-            {
-
-            }
-
+            catch{}
         }
-
         return obj;
     }
-
     private SqlConnection GetConnection()
 	{
 		SqlConnection connection = new(ConfigSettings.ConnectionString);
 		connection.Open();
 		return connection;
 	}
+    protected T ReadSingle<T>(string queryString) where T : new()
+    {
+        using (SqlConnection sqlConnection = GetConnection())
+        {
+            SqlCommand sqlCommand = new(queryString, sqlConnection);
 
-	protected List<T> Reader<T>(string queryString) where T : new()
+            using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+            {
+                if (sqlDataReader.Read()) 
+                    return Map<T>(sqlDataReader);
+            }
+        }
+        return new T();
+    }
+    protected List<T> Reader<T>(string queryString) where T : new()
 	{
 		List<T> list = new List<T>();
 

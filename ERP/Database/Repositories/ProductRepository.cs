@@ -24,7 +24,10 @@ public class ProductRepository : SemiCommonDBModule<Produkt>, IDBrepository<Prod
             $"'{obj.Enhed}'," +
             $"{obj.Avance})");
     }
-
+    public Produkt GetProduktFromId(int obj)
+    {
+        return ReadSingle<Produkt>($"SELECT * FROM dbo.Produkt WHERE VareNummer = {obj}");
+    }
     public List<Produkt> Read()
     {
         return Reader<Produkt>($"SELECT * FROM dbo.Produkt WHERE [Status] = 'Eksisterer'");
