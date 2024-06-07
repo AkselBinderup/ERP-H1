@@ -36,7 +36,11 @@ public class ProduktRedigering(Produkt produkt) : Screen
             else
                 Console.WriteLine("|Ingen ændringer");
         }
-        catch(Exception ex) 
+        catch (ArgumentException)
+        {
+            Console.WriteLine("|Ikke Gyldigt indkøbspris");
+        }
+        catch 
         {
             Console.WriteLine("|Indkøbspris og Salgspris må ikke værer ens");
         }

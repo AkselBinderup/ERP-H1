@@ -10,7 +10,7 @@ public class Person
     public string? FuldeNavn => $"{Fornavn} {Efternavn}";
     public string? VejNavn { get;  set; }
     public int VejNummer { get; set; }
-    public string? By { get; set; }
+    public string? ByNavn { get; set; }
     public int PostNummer { get; set; }
 
     public Person(){}
@@ -19,7 +19,7 @@ public class Person
     {
         VejNavn = adresse.VejNavn;
         VejNummer = adresse.VejNummer;
-        By = adresse.By;
+        ByNavn = adresse.ByNavn;
         PostNummer = adresse.PostNummer;
     }
 

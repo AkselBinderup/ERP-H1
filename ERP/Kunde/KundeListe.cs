@@ -29,7 +29,10 @@ public class KundeListe : Screen
         var db = Database.KundeRepository.Read();
 
         foreach (Kunde obj in db)
+        {
+            obj.Adresse = new(obj.VejNavn, obj.VejNummer, obj.ByNavn, obj.PostNummer);
             side.Add(obj);
+        }
 
         var kunde = side.Select();
         var person = Database.PersonRepository.Read();

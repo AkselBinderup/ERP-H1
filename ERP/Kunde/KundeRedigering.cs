@@ -7,8 +7,9 @@ public partial class KundeRedigering(Kunde kunde) : Screen
 {
     public override string Title { get; set; } = "Redigerer for " + kunde.FuldeNavn;
     private readonly Kunde Kunde = kunde;
+	
 
-    protected override void Draw()
+	protected override void Draw()
     {
         ExitOnEscape();
         Form<Kunde> form = new();
@@ -18,7 +19,7 @@ public partial class KundeRedigering(Kunde kunde) : Screen
         form.TextBox("Vejnavn", nameof(Kunde.VejNavn));
         form.TextBox("Vejnummer", nameof(Kunde.VejNummer));
         form.TextBox("Postnummer", nameof(Kunde.PostNummer));
-        form.TextBox("By", nameof(Kunde.By));
+        form.TextBox("By", nameof(Kunde.ByNavn));
         form.TextBox("Email", nameof(Kunde.Email));
         form.TextBox("Telefon nummer", nameof(Kunde.TelefonNummer));
 
@@ -27,12 +28,16 @@ public partial class KundeRedigering(Kunde kunde) : Screen
         {
             if (Kunde.KundeNummer != 0) 
             {
-                Database.KundeRepository.Update(Kunde);
-            }
-            else
+				Adresse oldAddress = Database.AdresseRepository.GetSingleAddress(kunde.Adresse);
+				Kunde.Adresse = new(Kunde.VejNavn, Kunde.VejNummer, Kunde.ByNavn, Kunde.PostNummer);
+                Database.AdresseRepository.Update(Kunde.Adresse, oldAddress);
+                Database.PersonRepository.Update(Kunde);
+				Database.KundeRepository.Update(Kunde);
+			}
+			else
             {
                 Adresse opdateretAdresse = new(Kunde.VejNavn, Kunde.VejNummer,
-                    Kunde.By, Kunde.PostNummer);
+                    Kunde.ByNavn, Kunde.PostNummer);
                 var adresseId = Database.AdresseRepository.GetSingleId(opdateretAdresse);
 
                 Person opdateretPerson = new(Kunde.Fornavn, Kunde.Efternavn, Kunde.Email, Kunde.TelefonNummer);

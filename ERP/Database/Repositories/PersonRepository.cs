@@ -1,6 +1,6 @@
 ﻿namespace ERP;
 
-public class PersonRepository : CommonDBModule<Person>, IDBrepository<Person>
+public class PersonRepository : CommonDBModule<Person>
 {
     private readonly string dbName = "dbo.Person";
     private readonly string dbFields = "(Fornavn, Efternavn, Email, TelefonNummer, AdresseId)";
@@ -24,9 +24,14 @@ public class PersonRepository : CommonDBModule<Person>, IDBrepository<Person>
         return ExecuteDapperQuery($"SELECT * FROM {dbName}");
     }
 
-    public bool Update(Person obj)
+    public bool Update(Kunde obj)
     {
-        throw new NotImplementedException();
+        return ExecuteCommand($"UPDATE {dbName} SET " +
+            $"Fornavn = '{obj.Fornavn}', " +
+            $"Efternavn = '{obj.Efternavn}', " +
+            $"Email = '{obj.Email}', " +
+            $"TelefonNummer = {obj.TelefonNummer} " +
+            $"WHERE PersonId = {obj.KundeNummer}");
     }
 
     public bool Delete(int obj)

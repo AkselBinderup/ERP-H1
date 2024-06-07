@@ -3,10 +3,12 @@
 public class Kunde : Person
 {
     public int KundeNummer { get; set; }
-    public DateTime SidsteKøb { get; set; }
+    public new string Fornavn { get; set; }
+    public new string Efternavn { get; set; }
+    public string? SidsteKøb { get; set; }
     public new string? VejNavn { get; set; }
     public new int VejNummer { get; set; }
-    public new string? By { get; set; }
+    public new string? ByNavn { get; set; }
     public new int PostNummer { get; set; }
     public new string? FuldeNavn { get; set; }
     
@@ -16,7 +18,7 @@ public class Kunde : Person
     {
         VejNavn = adresse.VejNavn;
         VejNummer = adresse.VejNummer;
-        By = adresse.By;
+        ByNavn = adresse.ByNavn;
         PostNummer = adresse.PostNummer;
     }
 }
