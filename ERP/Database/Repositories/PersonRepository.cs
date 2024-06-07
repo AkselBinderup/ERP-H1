@@ -1,6 +1,6 @@
 ﻿namespace ERP;
 
-public class PersonRepository : CommonDBModule<Person>
+public class PersonRepository : SemiCommonDBModule<Person>
 {
     private readonly string dbName = "dbo.Person";
     private readonly string dbFields = "(Fornavn, Efternavn, Email, TelefonNummer, AdresseId)";
@@ -11,7 +11,7 @@ public class PersonRepository : CommonDBModule<Person>
     }
 
     public int GetIntFromPerson(Person obj, int id) {
-        return ExecuteDapperSingleQuery<int>($"INSERT INTO {dbName} {dbFields} VALUES" +
+        return ExecuteSingleQuery($"INSERT INTO {dbName} {dbFields} VALUES" +
         $"('{obj.Fornavn}'," +
         $"'{obj.Efternavn}'," +
         $"'{obj.Email}'," +
@@ -21,7 +21,7 @@ public class PersonRepository : CommonDBModule<Person>
 
     public List<Person> Read()
     {
-        return ExecuteDapperQuery($"SELECT * FROM {dbName}");
+        return Reader<Person>($"SELECT * FROM {dbName}");
     }
 
     public bool Update(Kunde obj)

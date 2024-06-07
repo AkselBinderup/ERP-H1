@@ -11,7 +11,7 @@ public class SalgsOrdreHoved : Kunde
     public float Ordrebeløb { get; private set; } = 0;
     public Tilstand Tilstand { get; private set; }
     public List<SalgsOrdreLinje>? OrdreLinjer { get; private set; }
-    public string FuldeNavn { get; set; }
+    public string? FuldeNavn { get; set; }
     public Produkt Produkt { get; set; }
     public int VareNummer { get; set; }
     public SalgsOrdreHoved() { }

@@ -30,7 +30,7 @@ public class SemiCommonDBModule<T>
                     }
                 }
             }
-            catch{}
+            catch{ Program.logWriter.LogWrite("Error in SemiCommonDBModule - Map"); }
         }
         return obj;
     }
@@ -42,36 +42,52 @@ public class SemiCommonDBModule<T>
 	}
     protected T ReadSingle<T>(string queryString) where T : new()
     {
-        using (SqlConnection sqlConnection = GetConnection())
+        try
         {
-            SqlCommand sqlCommand = new(queryString, sqlConnection);
-
-            using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+            using (SqlConnection sqlConnection = GetConnection())
             {
-                if (sqlDataReader.Read()) 
-                    return Map<T>(sqlDataReader);
+                SqlCommand sqlCommand = new(queryString, sqlConnection);
+
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    if (sqlDataReader.Read())
+                        return Map<T>(sqlDataReader);
+                }
             }
+            return new T();
+        }
+        catch (Exception ex)
+        {
+            Program.logWriter.LogWrite(ex.Message);
         }
         return new T();
     }
     protected List<T> Reader<T>(string queryString) where T : new()
 	{
-		List<T> list = new List<T>();
+        try
+        {
+            List<T> list = new List<T>();
 
-		using (SqlConnection sqlConnection = GetConnection())
-		{
-			SqlCommand sqlCommand = new(queryString, sqlConnection);
+            using (SqlConnection sqlConnection = GetConnection())
+            {
+                SqlCommand sqlCommand = new(queryString, sqlConnection);
 
-			using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
-			{
-				while (sqlDataReader.Read())
-				{
-					T data = Map<T>(sqlDataReader);
-					list.Add(data);
-				}
-				return list;
-			}
-		}
+                using (SqlDataReader sqlDataReader = sqlCommand.ExecuteReader())
+                {
+                    while (sqlDataReader.Read())
+                    {
+                        T data = Map<T>(sqlDataReader);
+                        list.Add(data);
+                    }
+                    return list;
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Program.logWriter.LogWrite(ex.Message);
+        }
+        return new List<T> { new() };
 	}
     protected int ExecuteSingleQuery(string command)
     {
@@ -92,12 +108,20 @@ public class SemiCommonDBModule<T>
 
     protected bool ExecuteCommand(string queryString)
 	{
-		int rowsAffected = 0;
-		using (SqlConnection sqlConnection = GetConnection())
-		{
-			SqlCommand sqlCommand = new(queryString, sqlConnection);
-			rowsAffected = sqlCommand.ExecuteNonQuery();
-		}
-		return rowsAffected >= 1;
+        try
+        {
+            int rowsAffected = 0;
+            using (SqlConnection sqlConnection = GetConnection())
+            {
+                SqlCommand sqlCommand = new(queryString, sqlConnection);
+                rowsAffected = sqlCommand.ExecuteNonQuery();
+            }
+            return rowsAffected >= 1;
+        }
+        catch (Exception ex)
+        {
+            Program.logWriter.LogWrite(ex.Message);
+        }
+        return false;
 	}
 }

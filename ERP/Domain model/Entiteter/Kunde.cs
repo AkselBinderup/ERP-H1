@@ -1,4 +1,6 @@
-﻿namespace ERP;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace ERP;
 
 public class Kunde : Person
 {

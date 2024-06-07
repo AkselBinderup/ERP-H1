@@ -7,35 +7,40 @@ public partial class ProduktListeStart : Screen
 
     protected override void Draw()
     {
-		ExitOnEscape();
+        try
+        {
+            ExitOnEscape();
 
-        Console.CursorVisible = false;
+            Console.CursorVisible = false;
 
-        ListPage<Produkt> listPage = new();
+            ListPage<Produkt> listPage = new();
 
-        listPage.AddKey(ConsoleKey.F2, EditProduct);
-		Console.WriteLine("Tryk F2 for at Ændre et produkt");
-		listPage.AddKey(ConsoleKey.F3, CreateNewProduct);
-        Console.WriteLine("Tryk F3 for at oprette et produkt");
-        listPage.AddKey(ConsoleKey.F5, DeleteProduct);
-        Console.WriteLine("Tryk F5 for at slette et produkt");
+            listPage.AddKey(ConsoleKey.F2, EditProduct);
+            Console.WriteLine("Tryk F2 for at Ændre et produkt");
+            listPage.AddKey(ConsoleKey.F3, CreateNewProduct);
+            Console.WriteLine("Tryk F3 for at oprette et produkt");
+            listPage.AddKey(ConsoleKey.F5, DeleteProduct);
+            Console.WriteLine("Tryk F5 for at slette et produkt");
 
-        listPage.AddColumn("Varenummer:", nameof(Produkt.VareNummer), 40);
-        listPage.AddColumn("Navn", nameof(Produkt.Navn));
-        listPage.AddColumn("Lagerantal", nameof(Produkt.AntalLager), 12);
-        listPage.AddColumn("Inkøbspris", nameof(Produkt.IndkøbsPris));
-        listPage.AddColumn("Salgs pris", nameof(Produkt.SalgsPris));
-        listPage.AddColumn("Avance i Procent", nameof(Produkt.Avance));
+            listPage.AddColumn("Varenummer:", nameof(Produkt.VareNummer), 40);
+            listPage.AddColumn("Navn", nameof(Produkt.Navn));
+            listPage.AddColumn("Lagerantal", nameof(Produkt.AntalLager), 12);
+            listPage.AddColumn("Inkøbspris", nameof(Produkt.IndkøbsPris));
+            listPage.AddColumn("Salgs pris", nameof(Produkt.SalgsPris));
+            listPage.AddColumn("Avance i Procent", nameof(Produkt.Avance));
 
-        var db = Database.ProductRepository.Read();
+            var db = Database.ProductRepository.Read();
 
-        foreach (Produkt model in db)
-            listPage.Add(model);
+            foreach (Produkt model in db)
+                listPage.Add(model);
 
-        var vælgProdukt = listPage.Select();
+            var vælgProdukt = listPage.Select();
 
-        if (vælgProdukt != null)
-            Display(new ProductDetaljer(vælgProdukt));
+            if (vælgProdukt != null)
+                Display(new ProductDetaljer(vælgProdukt));
+        }
+        catch (Exception ex)
+        { Program.logWriter.LogWrite(ex.Message); }
     }
     
     private void CreateNewProduct(Produkt produkt)

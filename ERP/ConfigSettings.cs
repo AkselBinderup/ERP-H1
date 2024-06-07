@@ -10,9 +10,16 @@ namespace ERP
 
         public static void ReadConfigSettings()
         {
-            var jsonContent = File.ReadAllText(JsonPath);
-            JObject keys = (JObject)JsonConvert.DeserializeObject(jsonContent);
-            ConnectionString = keys[nameof(ConnectionString)]?.Value<string>() ?? string.Empty;
+            try
+            {
+                var jsonContent = File.ReadAllText(JsonPath);
+                JObject keys = (JObject)JsonConvert.DeserializeObject(jsonContent);
+                ConnectionString = keys[nameof(ConnectionString)]?.Value<string>() ?? string.Empty;
+            }
+            catch (Exception ex)
+            {
+                Program.logWriter.LogWrite(ex.Message);
+            }
         }
     }
 }
