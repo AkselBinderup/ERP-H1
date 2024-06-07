@@ -26,11 +26,12 @@ public class SalgsRepository : SemiCommonDBModule<SalgsOrdreHoved>, IDBrepositor
     public List<SalgsOrdreHoved> Read()
     {
         var salgsListe = Reader<SalgsOrdreHoved>($"SELECT dbo.SalgsOrdreHoved.*, dbo.Kunde.PersonId, dbo.Person.FuldeNavn, " +
-            $"dbo.Produkt.ProduktId, dbo.Produkt.Navn AS ProduktNavn, dbo.Produkt.Beskrivelse, dbo.Produkt.SalgsPris, dbo.Produkt.IndkøbsPris, dbo.Produkt.Lokation, dbo.Produkt.AntalLager, dbo.Produkt.Enhed " +
+            $"dbo.Produkt.ProduktNummer, dbo.Produkt.Navn AS ProduktNavn, dbo.Produkt.Beskrivelse, dbo.Produkt.SalgsPris, " +
+            $"dbo.Produkt.IndkøbsPris, dbo.Produkt.Lokation, dbo.Produkt.AntalLager, dbo.Produkt.Enhed " +
             $"FROM dbo.SalgsOrdreHoved " +
             $"JOIN dbo.Kunde ON dbo.SalgsOrdreHoved.KundeNummer = dbo.Kunde.KundeNummer " +
             $"JOIN dbo.Person ON dbo.Kunde.PersonId = dbo.Person.PersonId " +
-            $"JOIN dbo.Produkt ON dbo.SalgsOrdreHoved.ProduktId = dbo.Produkt.ProduktId");
+            $"JOIN dbo.Produkt ON dbo.SalgsOrdreHoved.ProduktNummer = dbo.Produkt.ProduktNummer");
 
         return salgsListe;
     }
