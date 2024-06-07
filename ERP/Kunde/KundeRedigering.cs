@@ -7,8 +7,9 @@ public partial class KundeRedigering(Kunde kunde) : Screen
 {
     public override string Title { get; set; } = "Redigerer for " + kunde.FuldeNavn;
     private readonly Kunde Kunde = kunde;
+	
 
-    protected override void Draw()
+	protected override void Draw()
     {
         ExitOnEscape();
         Form<Kunde> form = new();
@@ -27,6 +28,9 @@ public partial class KundeRedigering(Kunde kunde) : Screen
         {
             if (Kunde.KundeNummer != 0) 
             {
+				Adresse oldAddress = Database.AdresseRepository.GetSingleAddress(kunde.Adresse);
+				Kunde.Adresse = new(Kunde.VejNavn, Kunde.VejNummer, Kunde.ByNavn, Kunde.PostNummer);
+                Database.AdresseRepository.Update(Kunde.Adresse, oldAddress);
                 Database.PersonRepository.Update(Kunde);
 				Database.KundeRepository.Update(Kunde);
 			}

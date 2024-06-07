@@ -18,7 +18,7 @@ public class Kunde : Person
     {
         VejNavn = adresse.VejNavn;
         VejNummer = adresse.VejNummer;
-        ByNavn = adresse.By;
+        ByNavn = adresse.ByNavn;
         PostNummer = adresse.PostNummer;
     }
 }

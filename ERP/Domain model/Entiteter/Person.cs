@@ -19,7 +19,7 @@ public class Person
     {
         VejNavn = adresse.VejNavn;
         VejNummer = adresse.VejNummer;
-        ByNavn = adresse.By;
+        ByNavn = adresse.ByNavn;
         PostNummer = adresse.PostNummer;
     }
 
