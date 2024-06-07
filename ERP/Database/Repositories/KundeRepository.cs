@@ -23,6 +23,7 @@ public class KundeRepository : SemiCommonDBModule<Kunde>, IDBrepository<Kunde>
         return ExecuteCommand($"DELETE {dbName} WHERE KundeNummer = '{obj}'");
     }
 
+
     //public Kunde ReadSingle(int id)
     //{  
     //    return ExecuteDapperSingleQuery<Kunde>($"SELECT * FROM {dbName} WHERE Id = '{id}");
@@ -34,6 +35,8 @@ public class KundeRepository : SemiCommonDBModule<Kunde>, IDBrepository<Kunde>
         return Reader<Kunde>($"SELECT " +
             $"dbo.Kunde.*, " +
             $"dbo.Person.FuldeNavn, " +
+            $"dbo.Person.Fornavn, " +
+            $"dbo.Person.Efternavn, " +
             $"dbo.Person.TelefonNummer, " +
             $"dbo.Person.Email, " +
             $"dbo.Adresse.VejNavn, " +
@@ -48,9 +51,8 @@ public class KundeRepository : SemiCommonDBModule<Kunde>, IDBrepository<Kunde>
     }
     public bool Update(Kunde obj)
     {
-        return ExecuteCommand($"UPDATE {dbName} SET" +
-            $"KundeNummer = '({obj.KundeNummer}'," +
-            $"SidsteKøb = '({obj.SidsteKøb}'" +
+        return ExecuteCommand($"UPDATE {dbName} SET " +
+            $"SidsteKøb = GetDate() " +
             $"WHERE KundeNummer = {obj.KundeNummer}");
     }
 }

@@ -1,4 +1,5 @@
-﻿using TECHCOOL.UI;
+﻿using Org.BouncyCastle.Pqc.Crypto.Lms;
+using TECHCOOL.UI;
 
 namespace ERP;
 
@@ -31,7 +32,6 @@ public partial class VirksomhedRedigering : Screen
         form.AddOption("Currency", "SEK", Currency.SEK);
         try
         {
-
             if (form.Edit(Virksomhed))
             {
                 
@@ -45,9 +45,10 @@ public partial class VirksomhedRedigering : Screen
             {
                 Console.WriteLine("|Ingen ændringer");
             }
-        }   
-        catch (Exception ex) {
-            Console.WriteLine(ex.Message);
+		}
+		catch 
+        {
+            Console.WriteLine("|Ikke Gyldigt hus eller postnummer");
         }
     }
 }

@@ -30,6 +30,7 @@ public class SalgKundeSide : Screen
             ValgteKunde = kunde;
             SalgsOrdreHoved nyorder = new(kunde);
             Display(new VaelgProdukt(nyorder));
-        }
-    }
+			Database.KundeRepository.Update(kunde);
+		}
+	}
 }
