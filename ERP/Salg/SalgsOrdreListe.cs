@@ -36,7 +36,10 @@ public class SalgsOrdreListe : Screen
             side.Add(model);
 
         var vælgSalgOdreHoved = side.Select();
-        
+        var produkt = Database.ProductRepository.GetProduktFromId(vælgSalgOdreHoved.VareNummer);
+
+        vælgSalgOdreHoved.Produkt = produkt;
+
         if (vælgSalgOdreHoved != null)
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
     }

@@ -13,6 +13,7 @@ public class SalgsOrdreHoved : Kunde
     public List<SalgsOrdreLinje>? OrdreLinjer { get; private set; }
     public string FuldeNavn { get; set; }
     public Produkt Produkt { get; set; }
+    public int VareNummer { get; set; }
     public SalgsOrdreHoved() { }
 
     public SalgsOrdreHoved(Kunde kunde)
