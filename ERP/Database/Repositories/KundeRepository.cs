@@ -20,14 +20,8 @@ public class KundeRepository : SemiCommonDBModule<Kunde>, IDBrepository<Kunde>
 
     public bool Delete(int obj)
     {
-        return ExecuteCommand($"DELETE {dbName} WHERE KundeNummer = '{obj}'");
+        return ExecuteCommand($"UPDATE {dbName} SET [Status] = 'Slettet' WHERE KundeNummer = {obj}");
     }
-
-    //public Kunde ReadSingle(int id)
-    //{  
-    //    return ExecuteDapperSingleQuery<Kunde>($"SELECT * FROM {dbName} WHERE Id = '{id}");
-    //}
-
     public List<Kunde> Read()
     {
 
@@ -42,7 +36,8 @@ public class KundeRepository : SemiCommonDBModule<Kunde>, IDBrepository<Kunde>
             $"dbo.Adresse.PostNummer " +
             $"FROM dbo.Kunde " +
             $"JOIN dbo.Person ON dbo.Kunde.PersonId = dbo.Person.PersonId " +
-            $"JOIN dbo.Adresse ON dbo.Person.AdresseId = dbo.Adresse.AdresseId");
+            $"JOIN dbo.Adresse ON dbo.Person.AdresseId = dbo.Adresse.AdresseId " +
+            $"WHERE dbo.Kunde.Status = 'Eksisterer'");
 
 
     }

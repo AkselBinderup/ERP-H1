@@ -27,7 +27,7 @@ public class ProductRepository : SemiCommonDBModule<Produkt>, IDBrepository<Prod
 
     public List<Produkt> Read()
     {
-        return Reader<Produkt>($"SELECT * FROM {dbName}");
+        return Reader<Produkt>($"SELECT * FROM dbo.Produkt WHERE [Status] = 'Eksisterer'");
     }
 
     public bool Update(Produkt obj)
@@ -48,7 +48,7 @@ public class ProductRepository : SemiCommonDBModule<Produkt>, IDBrepository<Prod
     }
 
     public bool Delete(int obj)
-    {
-        return ExecuteCommand($"DELETE {dbName} WHERE VareNummer = '{obj}'");
-    }
+    {   
+        return ExecuteCommand($"UPDATE {dbName} SET [Status] = 'Slettet' WHERE VareNummer = {obj}");
+    }   
 }
