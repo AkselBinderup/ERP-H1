@@ -27,8 +27,6 @@ public class VaelgProdukt(SalgsOrdreHoved salgsOrdreHoved) : Screen
         foreach (Produkt model in db)
             listPage.Add(model);
 
-        var vælgProdukt = listPage.Select();
-
         var produkt = listPage.Select();
         if (produkt != null)
         {

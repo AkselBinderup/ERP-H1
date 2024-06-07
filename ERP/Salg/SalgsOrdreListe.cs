@@ -19,7 +19,7 @@ public class SalgsOrdreListe : Screen
 
         side.AddKey(ConsoleKey.F3, CreateNewOrder);
         Console.WriteLine("Tryk F3 for at oprette en ny ordre");
-        
+
         side.AddKey(ConsoleKey.F5, DeleteOrder);
         Console.WriteLine("Tryk F5 for at slette den valgte ordre");
 
@@ -28,20 +28,23 @@ public class SalgsOrdreListe : Screen
         side.AddColumn("Kundenummer", nameof(SalgsOrdreHoved.KundeNummer));
         side.AddColumn("Fuldenavn", nameof(SalgsOrdreHoved.FuldeNavn));
         side.AddColumn("Beløb", nameof(SalgsOrdreHoved.Ordrebeløb), 15);
-        
+
 
         var db = Database.SalgsRepository.Read();
-        
+
         foreach (SalgsOrdreHoved model in db)
             side.Add(model);
 
         var vælgSalgOdreHoved = side.Select();
-        var produkt = Database.ProductRepository.GetProduktFromId(vælgSalgOdreHoved.VareNummer);
-
-        vælgSalgOdreHoved.Produkt = produkt;
 
         if (vælgSalgOdreHoved != null)
+        {
+            var produkt = Database.ProductRepository.GetProduktFromId(vælgSalgOdreHoved.VareNummer);
+
+            vælgSalgOdreHoved.Produkt = produkt;
+
             Display(new SalgsOrdreDetaljer(vælgSalgOdreHoved));
+        }
     }
     private void EditOrder(SalgsOrdreHoved vælgSalgOdreHoved)
     {

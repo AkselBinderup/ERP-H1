@@ -6,17 +6,18 @@ namespace ERP;
 public class SalgsRepository : SemiCommonDBModule<SalgsOrdreHoved>, IDBrepository<SalgsOrdreHoved>
 {
     private readonly string dbName = "dbo.SalgsOrdreHoved";
-    private readonly string dbFields = "(OprettelsesTidspunkt, " +
+    private readonly string dbFields = "(OprettelsesTidspunkt, GennemførelsesTidspunkt, VareNummer, " +
         "KundeNummer, Tilstand, OrdreBeløb)";
     
     public bool Create(SalgsOrdreHoved obj)
     {
         bool isCreated = ExecuteCommand($"INSERT INTO {dbName} {dbFields} VALUES(" +
             $" GETDATE()," +
+            $" GETDATE()," +
+            $" {obj.Produkt.VareNummer}, " +
             $"{obj.KundeNummer}," +
             $"'{obj.Tilstand}'," +
-            $"{obj.Ordrebeløb})"
-            );
+            $"{obj.Ordrebeløb})");
         
         CheckGennemFørt(obj);
 
