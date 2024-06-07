@@ -38,7 +38,7 @@ public class ProduktRedigering(Produkt produkt) : Screen
         }
         catch(Exception ex) 
         {
-            Console.WriteLine(ex.Message);
+            Console.WriteLine("|Indkøbspris og Salgspris må ikke værer ens");
         }
 
 	}
